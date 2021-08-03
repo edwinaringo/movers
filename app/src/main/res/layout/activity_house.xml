@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HouseActivity">
+    <TextView
+        android:id="@+id/titleText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="57dp"
+        android:layout_marginEnd="53dp"
+        android:text="Pick Your house...."
+        android:textColor="@color/black"
+        android:textSize="40dp"
+        android:textStyle="bold" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/bedsitterImage"
+        android:layout_width="161dp"
+        android:layout_height="150dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="17dp"
+        android:layout_marginTop="295dp"
+        android:layout_marginEnd="50dp"
+        android:src="@drawable/bedsitter"
+        app:shapeAppearanceOverlay="@style/roundedImageView" />
+
+    <TextView
+        android:id="@+id/bedsitterText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/bedsitterImage"
+        android:layout_alignBottom="@+id/bedsitterImage"
+        android:layout_marginEnd="56dp"
+        android:layout_marginBottom="43dp"
+        android:background="@color/black"
+        android:fontFamily="@font/alfa_slab_one"
+        android:text="BEDSITTER"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:shapeAppearanceOverlay="@style/roundedImageView" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/studioImage"
+        android:layout_width="161dp"
+        android:layout_height="150dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="295dp"
+        android:layout_marginEnd="14dp"
+        android:src="@drawable/studio"
+        app:shapeAppearanceOverlay="@style/roundedImageView"/>
+
+    <TextView
+        android:id="@+id/studioText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/studioImage"
+        android:layout_alignBottom="@+id/studioImage"
+        android:layout_marginEnd="59dp"
+        android:layout_marginBottom="43dp"
+        android:background="@color/black"
+        android:fontFamily="@font/alfa_slab_one"
+        android:text="STUDIO"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:shapeAppearanceOverlay="@style/roundedImageView" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/oneBedRoomImage"
+        android:layout_width="161dp"
+        android:layout_height="150dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="18dp"
+        android:layout_marginBottom="60dp"
+        android:src="@drawable/onebedroom"
+        app:shapeAppearanceOverlay="@style/roundedImageView" />
+    <TextView
+        android:id="@+id/oneBedRoomImageText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/oneBedRoomImage"
+        android:layout_alignBottom="@+id/oneBedRoomImage"
+        android:layout_marginEnd="37dp"
+        android:layout_marginBottom="46dp"
+        android:background="@color/black"
+        android:fontFamily="@font/alfa_slab_one"
+        android:text="ONEBEDROOM"
+        android:textColor="@color/white"
+        app:shapeAppearanceOverlay="@style/roundedImageView" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/twoBedRoomsImage"
+        android:layout_width="161dp"
+        android:layout_height="150dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="14dp"
+        android:layout_marginBottom="57dp"
+        android:src="@drawable/twobedrooms"
+        app:shapeAppearanceOverlay="@style/roundedImageView" />
+    <TextView
+        android:id="@+id/twoBedRoomsText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/twoBedRoomsImage"
+        android:layout_alignBottom="@+id/twoBedRoomsImage"
+        android:layout_marginEnd="31dp"
+        android:layout_marginBottom="46dp"
+        android:background="@color/black"
+        android:fontFamily="@font/alfa_slab_one"
+        android:text="TWOBEDROOMS"
+        android:textColor="@color/white"
+        app:shapeAppearanceOverlay="@style/roundedImageView" />
+
+
+</RelativeLayout>
