@@ -52,10 +52,10 @@ public class Sign_Up extends AppCompatActivity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
-        ButterKnife.bind(this);
+//        ButterKnife.bind(this);
 
         //validate user inputs when login button clicked
-        mCreateUserButton.setOnClickListener(this);
+//        mCreateUserButton.setOnClickListener(this);
     }
 
     @Override
