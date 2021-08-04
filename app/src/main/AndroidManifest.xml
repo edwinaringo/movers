@@ -10,7 +10,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MoversApp">
 
-        <activity android:name=".HouseActivity"></activity>
         <activity android:name=".MainActivity">
 
         <activity android:name=".SplashScreenActivity">
