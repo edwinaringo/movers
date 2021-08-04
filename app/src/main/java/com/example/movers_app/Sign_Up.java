@@ -79,8 +79,7 @@ public class Sign_Up extends AppCompatActivity {
                 {
 
 
-
-                    Toast.makeText(Sign_Up.this, "Login was successful", Toast.LENGTH_LONG).show();
+                    Toast.makeText(Sign_Up.this, "SignUp was successful", Toast.LENGTH_LONG).show();
                 }
             }
         });
