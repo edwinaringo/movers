@@ -17,21 +17,34 @@ import butterknife.ButterKnife;
 
 public class Sign_Up extends AppCompatActivity implements View.OnClickListener {
 
-    @BindView(R.id.LoginHiTextView) TextView mLoginHiTextView;
-    @BindView(R.id.LoginPleaseLoginTextView) TextView mLoginPleaseLoginTextView;
-    @BindView(R.id.LoginNameTextView) TextView mLoginNameTextView;
-    @BindView(R.id.nameEditText) EditText mNameEditText;
-    @BindView(R.id.LoginEmailTextView) TextView mLoginEmailTextView;
-    @BindView(R.id.EmailEditText) EditText mEmailEditText;
-    @BindView(R.id.LoginPasswordTextView) TextView mLoginPasswordTextView;
-    @BindView(R.id.LoginPasswordEditText) EditText mLoginPasswordEditText;
-    @BindView(R.id.LoginConfirmPasswordTextView) TextView mLoginConfirmPasswordTextView;
-    @BindView(R.id.ConfirmPasswordEditText) EditText mConfirmPasswordEditText;
-    @BindView(R.id.CreateUserButton) Button mCreateUserButton;
-    @BindView(R.id.LoginTextView) TextView mLoginTextView;
+    @BindView(R.id.LoginHiTextView)
+    TextView mLoginHiTextView;
+    @BindView(R.id.LoginPleaseLoginTextView)
+    TextView mLoginPleaseLoginTextView;
+    @BindView(R.id.LoginNameTextView)
+    TextView mLoginNameTextView;
+    @BindView(R.id.nameEditText)
+    EditText mNameEditText;
+    @BindView(R.id.LoginEmailTextView)
+    TextView mLoginEmailTextView;
+    @BindView(R.id.EmailEditText)
+    EditText mEmailEditText;
+    @BindView(R.id.LoginPasswordTextView)
+    TextView mLoginPasswordTextView;
+    @BindView(R.id.LoginPasswordEditText)
+    EditText mLoginPasswordEditText;
+    @BindView(R.id.LoginConfirmPasswordTextView)
+    TextView mLoginConfirmPasswordTextView;
+    @BindView(R.id.ConfirmPasswordEditText)
+    EditText mConfirmPasswordEditText;
+    @BindView(R.id.CreateUserButton)
+    Button mCreateUserButton;
+    @BindView(R.id.LoginTextView)
+    TextView mLoginTextView;
     @BindView(R.id.FirebaseProgressBar)
     ProgressBar mFirebaseProgressBar;
-    @BindView(R.id.LoadingTextView) TextView mLoadingTextView;
+    @BindView(R.id.LoadingTextView)
+    TextView mLoadingTextView;
 
 
     @Override
@@ -39,15 +52,15 @@ public class Sign_Up extends AppCompatActivity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
-        ButterKnife.bind(this);
+//        ButterKnife.bind(this);
 
         //validate user inputs when login button clicked
-        mCreateUserButton.setOnClickListener(this);
+//        mCreateUserButton.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
-        if (v==mCreateUserButton){
+        if (v == mCreateUserButton) {
             accountSignUp();
         }
     }
@@ -63,7 +76,7 @@ public class Sign_Up extends AppCompatActivity implements View.OnClickListener {
             mNameEditText.requestFocus();
             return;
         }
-        if (email.isEmpty()){
+        if (email.isEmpty()) {
             mEmailEditText.setError("Email is required");
             mEmailEditText.requestFocus();
             return;
@@ -79,20 +92,28 @@ public class Sign_Up extends AppCompatActivity implements View.OnClickListener {
         }
 
 
-        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             mLoginEmailTextView.setError("Please enter a valid address");
             mEmailEditText.requestFocus();
             return;
         }
-        if (password.isEmpty()){
+        if (password.isEmpty()) {
             mLoginPasswordEditText.setError("Password is required");
             mLoginPasswordEditText.requestFocus();
             return;
         }
-        if (password.length() < 6){
+        if (password.length() < 6) {
             mLoginPasswordEditText.setError("Minimum password character required is six");
             mLoginPasswordEditText.requestFocus();
             return;
+        }
+
+
+        {
+
+            Toast.makeText(Sign_Up.this, " Sign Up was successful", Toast.LENGTH_LONG).show();
+//                 Add the code to new activity
+
         }
     }
 }
