@@ -10,8 +10,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MoversApp">
 
-        <activity android:name=".HouseActivity"></activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".HouseActivity"/>
+        <activity android:name=".MainActivity"/>
 
         <activity android:name=".SplashScreenActivity">
 
@@ -23,12 +23,12 @@
         </activity>
 
 
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
 
-        <activity android:name=".MainActivity"/>
-
     </application>
+
 
 </manifest>
