@@ -2,6 +2,7 @@ package com.example.movers_app;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
@@ -33,7 +34,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     @Override
     public void onClick(View v) {
         if (v==mLoginButton){
-           accountLogin();
+            startActivity(new Intent(LoginActivity.this,HouseActivity.class));
         }
     }
 
