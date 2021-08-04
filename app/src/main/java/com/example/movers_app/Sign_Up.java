@@ -96,6 +96,7 @@ public class Sign_Up extends AppCompatActivity implements View.OnClickListener {
         }
     }
 }
+//nav to new activity
 
 
 
