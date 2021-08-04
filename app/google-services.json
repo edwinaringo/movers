@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "167158915075",
+    "project_id": "movers-4cd76",
+    "storage_bucket": "movers-4cd76.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:167158915075:android:9370d237182476d8302e36",
+        "android_client_info": {
+          "package_name": "com.example.movers_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "167158915075-9ktps61q7jfln29e58hulmqo8cbnfp15.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBzcCW8HR5hQpNBgRkUIfQvQiX01vNDomE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "167158915075-9ktps61q7jfln29e58hulmqo8cbnfp15.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
