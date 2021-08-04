@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
@@ -52,6 +53,9 @@ public class Sign_Up extends AppCompatActivity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
+
+
+
 //        ButterKnife.bind(this);
 
         //validate user inputs when login button clicked
@@ -64,6 +68,13 @@ public class Sign_Up extends AppCompatActivity implements View.OnClickListener {
             accountSignUp();
         }
     }
+
+    private void ebutton2() {
+        Log.e("TAG","Button to comments activity");
+        Intent intent = new Intent( Sign_Up.this,HouseActivity.class);
+        startActivity(intent);
+    }
+
 
     private void accountSignUp() {
         //validations
@@ -111,7 +122,6 @@ public class Sign_Up extends AppCompatActivity implements View.OnClickListener {
 
         {
 
-            Toast.makeText(Sign_Up.this, " Sign Up was successful", Toast.LENGTH_LONG).show();
 //                 Add the code to new activity
 
         }
