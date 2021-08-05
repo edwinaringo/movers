@@ -61,7 +61,7 @@ public class Sign_Up extends AppCompatActivity implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         if (v == mCreateUserButton) {
-            accountSignUp();
+            startActivity(new Intent(Sign_Up.this,HouseActivity.class));
         }
     }
 
