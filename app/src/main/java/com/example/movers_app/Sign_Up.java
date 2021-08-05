@@ -9,8 +9,6 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ProgressBar;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -19,42 +17,11 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-
-public class Sign_Up extends AppCompatActivity implements View.OnClickListener {
+public class Sign_Up extends AppCompatActivity implements View.OnClickListener{
 
     private FirebaseAuth mAuth;
-
-    @BindView(R.id.LoginHiTextView)
-    TextView mLoginHiTextView;
-    @BindView(R.id.LoginPleaseLoginTextView)
-    TextView mLoginPleaseLoginTextView;
-    @BindView(R.id.LoginNameTextView)
-    TextView mLoginNameTextView;
-    @BindView(R.id.nameEditText)
-    EditText mNameEditText;
-    @BindView(R.id.LoginEmailTextView)
-    TextView mLoginEmailTextView;
-    @BindView(R.id.EmailEditText)
-    EditText mEmailEditText;
-    @BindView(R.id.LoginPasswordTextView)
-    TextView mLoginPasswordTextView;
-    @BindView(R.id.LoginPasswordEditText)
-    EditText mLoginPasswordEditText;
-    @BindView(R.id.LoginConfirmPasswordTextView)
-    TextView mLoginConfirmPasswordTextView;
-    @BindView(R.id.ConfirmPasswordEditText)
-    EditText mConfirmPasswordEditText;
-    @BindView(R.id.signUpButton)
-    Button mSignUpButton;
-    @BindView(R.id.LoginTextView)
-    TextView mLoginTextView;
-    @BindView(R.id.FirebaseProgressBar)
-    ProgressBar mFirebaseProgressBar;
-    @BindView(R.id.LoadingTextView)
-    TextView mLoadingTextView;
-
+    private EditText editTextFullName, editTextEmail, editTextPassword;
+    private Button signUp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,59 +30,54 @@ public class Sign_Up extends AppCompatActivity implements View.OnClickListener {
 
         mAuth = FirebaseAuth.getInstance();
 
-//        ButterKnife.bind(this);
+        signUp = (Button) findViewById(R.id.signUp);
+        signUp.setOnClickListener(this);
 
-        //validate user inputs when login button clicked
-//        mCreateUserButton.setOnClickListener(this);
+        editTextFullName = (EditText) findViewById(R.id.fullName);
+        editTextEmail = (EditText) findViewById(R.id.email);
+        editTextPassword = (EditText) findViewById(R.id.password);
     }
 
     @Override
     public void onClick(View v) {
-        if (v == mSignUpButton) {
-            accountSignUp();
+        switch(v.getId()) {
+            case R.id.signUp:
+                signUp();
+                break;
         }
     }
 
-    private void accountSignUp() {
-        //validations
-        String name = mLoginNameTextView.getText().toString().trim();
-        String email = mEmailEditText.getText().toString().trim();
-        String password = mLoginPasswordEditText.getText().toString().trim();
+    private void signUp() {
+        String email = editTextEmail.getText().toString().trim();
+        String name = editTextFullName.getText().toString().trim();
+        String password = editTextPassword.getText().toString().trim();
 
         if (name.isEmpty()) {
-            mNameEditText.setError("Name is required");
-            mNameEditText.requestFocus();
+            editTextFullName.setError("Full name is required");
+            editTextFullName.requestFocus();
             return;
         }
+
         if (email.isEmpty()) {
-            mEmailEditText.setError("Email is required");
-            mEmailEditText.requestFocus();
+            editTextEmail.setError("Email is required");
+            editTextEmail.requestFocus();
+            return;
+        }
+        if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+            editTextEmail.setError("Please provide valid email");
+            editTextEmail.requestFocus();
             return;
         }
 
-
-        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-            mLoginNameTextView.setError("Please enter a valid address");
-            mEmailEditText.requestFocus();
-            return;
-
-
-        }
-
-
-        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-            mLoginEmailTextView.setError("Please enter a valid address");
-            mEmailEditText.requestFocus();
-            return;
-        }
         if (password.isEmpty()) {
-            mLoginPasswordEditText.setError("Password is required");
-            mLoginPasswordEditText.requestFocus();
+            editTextPassword.setError("Password is required");
+            editTextPassword.requestFocus();
             return;
         }
-        if (password.length() < 6) {
-            mLoginPasswordEditText.setError("Minimum password character required is six");
-            mLoginPasswordEditText.requestFocus();
+
+        if (password.length()< 6) {
+            editTextPassword.setError("Minimum password length is 6 characters");
+            editTextPassword.requestFocus();
             return;
         }
 
@@ -123,24 +85,27 @@ public class Sign_Up extends AppCompatActivity implements View.OnClickListener {
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        if(task.isSuccessful()) {
+
+                        if(task.isSuccessful()){
                             User user = new User(name, email);
 
-                            FirebaseDatabase.getInstance().getReference("Users")
+                            FirebaseDatabase.getInstance().getReference("User")
                                     .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
                                     .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
-                                    if(task.isSuccessful()){
-                                        Toast.makeText(Sign_Up.this, "User has been registered", Toast.LENGTH_SHORT).show();
+
+                                    if(task.isSuccessful()) {
+                                        startActivity(new Intent(Sign_Up.this,HouseActivity.class));
+                                        Toast.makeText(Sign_Up.this, "Sign Up is successful", Toast.LENGTH_SHORT).show();
                                     }else{
-                                        Toast.makeText(Sign_Up.this, "Failed to register user", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(Sign_Up.this, "Failed to Sign Up. Try again", Toast.LENGTH_SHORT).show();
                                     }
 
                                 }
                             });
-                        }else {
-                            Toast.makeText(Sign_Up.this, "Failed to register user", Toast.LENGTH_SHORT).show();
+                        }else{
+                            Toast.makeText(Sign_Up.this, "Failed to Sign Up. Try again", Toast.LENGTH_SHORT).show();
                         }
 
                     }
@@ -148,7 +113,7 @@ public class Sign_Up extends AppCompatActivity implements View.OnClickListener {
 
     }
 }
-//nav to new activity
+
 
 
 
