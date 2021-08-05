@@ -8,6 +8,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.squareup.picasso.Picasso;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -26,6 +28,10 @@ public class HouseActivity extends AppCompatActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_house);
         ButterKnife.bind(this);
+        Picasso.get().load(R.drawable.bedsitter).into(mBedsitterImage);
+        Picasso.get().load(R.drawable.studio).into(mStudioImage);
+        Picasso.get().load(R.drawable.onebedroom).into(mOneBedRoomImage);
+        Picasso.get().load(R.drawable.twobedrooms).into(mTwoBedRoomImage);
         //image listeners
         mStudioImage.setOnClickListener(this);
         mOneBedRoomImage.setOnClickListener(this);
