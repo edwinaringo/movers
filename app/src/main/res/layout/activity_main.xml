@@ -56,7 +56,7 @@
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:text="signin"
+        android:text="signup"
 
         android:textColor="@color/white"
         android:textStyle="bold"
