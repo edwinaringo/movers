@@ -8,5 +8,5 @@ import retrofit2.http.Path;
 
 public interface MoversAPI {
     @GET("movingorders/{id}")
-    Call<MovingOrders> getMovingOrderById(@Path("event_id") String id);
+    Call<MovingOrders> getMovingOrderById(@Path("id") String id);
 }
