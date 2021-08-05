@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
@@ -28,10 +29,12 @@ public class Sign_Up extends AppCompatActivity implements View.OnClickListener{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
+
         mAuth = FirebaseAuth.getInstance();
 
         signUp = (Button) findViewById(R.id.signUp);
         signUp.setOnClickListener(this);
+
 
         editTextFullName = (EditText) findViewById(R.id.fullName);
         editTextEmail = (EditText) findViewById(R.id.email);
@@ -47,10 +50,12 @@ public class Sign_Up extends AppCompatActivity implements View.OnClickListener{
         }
     }
 
+
     private void signUp() {
         String email = editTextEmail.getText().toString().trim();
         String name = editTextFullName.getText().toString().trim();
         String password = editTextPassword.getText().toString().trim();
+
 
         if (name.isEmpty()) {
             editTextFullName.setError("Full name is required");
@@ -88,6 +93,7 @@ public class Sign_Up extends AppCompatActivity implements View.OnClickListener{
 
                         if(task.isSuccessful()){
                             User user = new User(name, email);
+
 
                             FirebaseDatabase.getInstance().getReference("User")
                                     .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
