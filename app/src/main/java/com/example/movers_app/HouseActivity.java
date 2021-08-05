@@ -2,8 +2,10 @@ package com.example.movers_app;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -20,11 +22,17 @@ public class HouseActivity extends AppCompatActivity implements View.OnClickList
     @BindView(R.id.studioText) TextView mStudioText;
     @BindView(R.id.oneBedRoomImageText) TextView mOneBedRoomText;
     @BindView(R.id.twoBedRoomsText) TextView mTwoBedRoomText;
+    Button mLocationButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_house);
+
+        mLocationButton = (Button) findViewById(R.id.location);
+        mLocationButton.setOnClickListener(this);
+
+
         ButterKnife.bind(this);
         //image listeners
         mStudioImage.setOnClickListener(this);
@@ -32,9 +40,16 @@ public class HouseActivity extends AppCompatActivity implements View.OnClickList
         mTwoBedRoomImage.setOnClickListener(this);
         mBedsitterImage.setOnClickListener(this);
     }
+
+
     //setting Toast when button is clicked
     @Override
     public void onClick(View v) {
+        if(v == mLocationButton){
+            startActivity(new Intent(HouseActivity.this,LocationActivity.class));
+            Toast.makeText(HouseActivity.this, "lets choose a location", Toast.LENGTH_SHORT).show();
+        }
+
         if(v==mStudioImage){
             Toast.makeText(this, "clicked1", Toast.LENGTH_SHORT).show();
         }
