@@ -7,11 +7,15 @@ import android.os.Bundle;
 
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity  implements View .OnClickListener {
-    Button mLoginbutton;
-    Button mSigninbutton;
+    TextView mLoginbutton;
+    TextView mSigninbutton;
+    Button mGetStarted;
+    ProgressBar mProgressBar;
 
 
 
@@ -19,27 +23,37 @@ public class MainActivity extends AppCompatActivity  implements View .OnClickLis
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        getSupportActionBar().hide();
 
 
-        mLoginbutton = (Button)findViewById(R.id.login);
-        mSigninbutton = (Button) findViewById(R.id.signin);
+        mLoginbutton = (TextView) findViewById(R.id.login);
+        mSigninbutton = (TextView) findViewById(R.id.signin);
+        mGetStarted = (Button) findViewById(R.id.getStarted);
 
         mLoginbutton.setOnClickListener(this);
         mSigninbutton.setOnClickListener(this);
+        mGetStarted.setOnClickListener(this);
+
+        mProgressBar = (ProgressBar) findViewById(R.id.progressBar);
+
+
     }
 
     @Override
     public void onClick(View v) {
         if(v == mLoginbutton){
+            mProgressBar.setVisibility(View.VISIBLE);
             startActivity(new Intent(MainActivity.this,LoginActivity.class));
-            Toast.makeText(MainActivity.this, "login to your account", Toast.LENGTH_SHORT).show();
         }
 
         if (v == mSigninbutton){
+            mProgressBar.setVisibility(View.VISIBLE);
             startActivity(new Intent(MainActivity.this,Sign_Up.class));
-            Toast.makeText(MainActivity.this, "create your account", Toast.LENGTH_SHORT).show();
         }
 
-
+        if (v == mGetStarted) {
+            mProgressBar.setVisibility(View.VISIBLE);
+            startActivity(new Intent(MainActivity.this,HouseActivity.class));
+        }
     }
 }
