@@ -7,8 +7,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -27,6 +29,12 @@ public class Sign_Up extends AppCompatActivity implements View.OnClickListener{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
+
+        Spinner mySpinner = (Spinner) findViewById(R.id.spinner3);
+        ArrayAdapter<String> myAdapter = new ArrayAdapter<String>(Sign_Up.this,
+                android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.type_of_user));
+        myAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        mySpinner.setAdapter(myAdapter);
 
         mAuth = FirebaseAuth.getInstance();
 
