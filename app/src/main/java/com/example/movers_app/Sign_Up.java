@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -30,16 +31,20 @@ public class Sign_Up extends AppCompatActivity implements View.OnClickListener{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
+<<<<<<< HEAD
         Spinner mySpinner = (Spinner) findViewById(R.id.spinner3);
         ArrayAdapter<String> myAdapter = new ArrayAdapter<String>(Sign_Up.this,
                 android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.type_of_user));
         myAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         mySpinner.setAdapter(myAdapter);
+=======
+>>>>>>> ab3d7232d2790241089aa67f013a48c4e85b3a20
 
         mAuth = FirebaseAuth.getInstance();
 
         signUp = (Button) findViewById(R.id.signUp);
         signUp.setOnClickListener(this);
+
 
         editTextFullName = (EditText) findViewById(R.id.fullName);
         editTextEmail = (EditText) findViewById(R.id.email);
@@ -55,10 +60,12 @@ public class Sign_Up extends AppCompatActivity implements View.OnClickListener{
         }
     }
 
+
     private void signUp() {
         String email = editTextEmail.getText().toString().trim();
         String name = editTextFullName.getText().toString().trim();
         String password = editTextPassword.getText().toString().trim();
+
 
         if (name.isEmpty()) {
             editTextFullName.setError("Full name is required");
@@ -96,6 +103,7 @@ public class Sign_Up extends AppCompatActivity implements View.OnClickListener{
 
                         if(task.isSuccessful()){
                             User user = new User(name, email);
+
 
                             FirebaseDatabase.getInstance().getReference("User")
                                     .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
