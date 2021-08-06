@@ -55,7 +55,5 @@ public class MainActivity extends AppCompatActivity  implements View .OnClickLis
             mProgressBar.setVisibility(View.VISIBLE);
             startActivity(new Intent(MainActivity.this,HouseActivity.class));
         }
-
-
     }
 }

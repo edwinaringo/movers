@@ -139,11 +139,11 @@
                 <Button
                     android:id="@+id/signUp"
                     android:layout_width="match_parent"
-                    android:background="@drawable/orange_btn_background"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="50dp"
                     android:layout_marginBottom="16dp"
                     android:text="sign up"
+                    android:backgroundTint="@color/black"
                     android:textStyle="bold"
                     android:textSize="18sp"/>
             </LinearLayout>
