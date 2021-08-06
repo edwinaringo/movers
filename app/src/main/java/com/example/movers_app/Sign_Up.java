@@ -31,14 +31,12 @@ public class Sign_Up extends AppCompatActivity implements View.OnClickListener{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
-<<<<<<< HEAD
         Spinner mySpinner = (Spinner) findViewById(R.id.spinner3);
         ArrayAdapter<String> myAdapter = new ArrayAdapter<String>(Sign_Up.this,
                 android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.type_of_user));
         myAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         mySpinner.setAdapter(myAdapter);
-=======
->>>>>>> ab3d7232d2790241089aa67f013a48c4e85b3a20
+
 
         mAuth = FirebaseAuth.getInstance();
 
