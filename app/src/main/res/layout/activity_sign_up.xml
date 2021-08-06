@@ -71,6 +71,7 @@
                     android:layout_marginTop="16dp"
                     android:layout_marginBottom="16dp"
                     android:ems="10"
+                    android:textColor="@color/purple_500"
                     android:hint="Enter name"
                     android:inputType="text"
                     android:paddingLeft="10sp"
@@ -126,6 +127,7 @@
                     android:layout_marginTop="16dp"
                     android:layout_marginBottom="16dp"
                     android:ems="10"
+                    android:textColor="@color/purple_500"
                     android:hint="Enter email"
                     android:inputType="textEmailAddress"
                     android:paddingLeft="10sp"
@@ -149,6 +151,7 @@
                     android:layout_marginTop="16dp"
                     android:layout_marginBottom="16dp"
                     android:ems="10"
+                    android:textColor="@color/purple_500"
                     android:hint="Enter password"
                     android:inputType="textPassword"
                     android:paddingLeft="10sp"
@@ -160,11 +163,12 @@
                 <Button
                     android:id="@+id/signUp"
                     android:layout_width="match_parent"
-                    android:background="@drawable/orange_btn_background"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="50dp"
                     android:layout_marginBottom="16dp"
                     android:text="sign up"
+                    android:backgroundTint="@color/black"
+                    android:textStyle="bold"
                     android:textSize="18sp"/>
             </LinearLayout>
         </LinearLayout>

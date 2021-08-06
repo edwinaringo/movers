@@ -110,10 +110,9 @@ public class Sign_Up extends AppCompatActivity implements View.OnClickListener{
                                     .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
-
                                     if(task.isSuccessful()) {
-                                        startActivity(new Intent(Sign_Up.this,HouseActivity.class));
                                         Toast.makeText(Sign_Up.this, "Sign Up is successful", Toast.LENGTH_SHORT).show();
+                                        startActivity(new Intent(Sign_Up.this,LoginActivity.class));
                                     }else{
                                         Toast.makeText(Sign_Up.this, "Failed to Sign Up. Try again", Toast.LENGTH_SHORT).show();
                                     }

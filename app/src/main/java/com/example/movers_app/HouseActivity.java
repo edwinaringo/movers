@@ -2,8 +2,10 @@ package com.example.movers_app;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -25,6 +27,9 @@ public class HouseActivity extends AppCompatActivity implements View.OnClickList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_house);
+
+
+
         ButterKnife.bind(this);
         //image listeners
         mStudioImage.setOnClickListener(this);
@@ -32,20 +37,24 @@ public class HouseActivity extends AppCompatActivity implements View.OnClickList
         mTwoBedRoomImage.setOnClickListener(this);
         mBedsitterImage.setOnClickListener(this);
     }
+
+
     //setting Toast when button is clicked
     @Override
     public void onClick(View v) {
+
         if(v==mStudioImage){
-            Toast.makeText(this, "clicked1", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(HouseActivity.this,LocationActivity.class));
         }
         if(v==mOneBedRoomImage){
-            Toast.makeText(this, "Clicked2", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(HouseActivity.this,LocationActivity.class));
         }
         if(v==mTwoBedRoomImage){
-            Toast.makeText(this, "clicked3", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(HouseActivity.this,LocationActivity.class));
         }
         if(v==mBedsitterImage){
-            Toast.makeText(this, "clicked4", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(HouseActivity.this,LocationActivity.class));
+
         }
 
     }
