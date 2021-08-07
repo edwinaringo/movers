@@ -31,6 +31,7 @@ public class Movers extends AppCompatActivity {
         mOneBedroomPrice = findViewById(R.id.oneBedRoomPrice);
         mTwoBedroomPrice = findViewById(R.id.twoBedRoomPrice);
         mThreeBedroomPrice = findViewById(R.id.threeBedRoomPrice);
+        submitPrices = findViewById(R.id.submitPrices);
 
         submitPrices.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,6 +49,8 @@ public class Movers extends AppCompatActivity {
                 pricesMap.put("One Bedroom Price", oneBedroomPrice);
                 pricesMap.put("Two Bedroom Price", twoBedroomPrice);
                 pricesMap.put("Three Bedroom Price", threeBedroomPrice);
+
+                root.setValue(pricesMap);
             }
         });
     }

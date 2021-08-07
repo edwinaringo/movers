@@ -94,7 +94,7 @@ public class Movers_SignUp extends AppCompatActivity implements View.OnClickList
                             User user = new User(name, email);
 
 
-                            FirebaseDatabase.getInstance().getReference("User")
+                            FirebaseDatabase.getInstance().getReference("Mover")
                                     .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
                                     .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
