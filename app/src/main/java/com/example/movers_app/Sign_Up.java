@@ -37,20 +37,6 @@ public class Sign_Up extends AppCompatActivity implements View.OnClickListener{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
-        spinner = (Spinner) findViewById(R.id.spinner3);
-
-        List<String> categories = new ArrayList<>();
-        categories.add(0, "User Type");
-        categories.add("Normal User");
-        categories.add("Mover");
-
-        ArrayAdapter<String> dataAdapter;
-        dataAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, categories);
-        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-        spinner.setAdapter(dataAdapter);
-
-
         mAuth = FirebaseAuth.getInstance();
 
         signUp = (Button) findViewById(R.id.signUp);
@@ -60,7 +46,7 @@ public class Sign_Up extends AppCompatActivity implements View.OnClickListener{
         editTextFullName = (EditText) findViewById(R.id.fullName);
         editTextEmail = (EditText) findViewById(R.id.email);
         editTextPassword = (EditText) findViewById(R.id.password);
-        spinner = (Spinner) findViewById(R.id.spinner3);
+
     }
 
     @Override
