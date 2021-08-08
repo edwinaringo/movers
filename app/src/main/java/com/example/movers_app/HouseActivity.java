@@ -14,28 +14,32 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class HouseActivity extends AppCompatActivity implements View.OnClickListener{
-    @BindView(R.id.studioImage) ImageView mStudioImage;
-    @BindView(R.id.oneBedRoomImage) ImageView mOneBedRoomImage;
-    @BindView(R.id.twoBedRoomsImage) ImageView mTwoBedRoomImage;
-    @BindView(R.id.bedsitterImage) ImageView mBedsitterImage;
-    @BindView(R.id.bedsitterText) TextView mBedsitterText;
-    @BindView(R.id.studioText) TextView mStudioText;
-    @BindView(R.id.oneBedRoomImageText) TextView mOneBedRoomText;
-    @BindView(R.id.twoBedRoomsText) TextView mTwoBedRoomText;
+
+    private TextView studioText, oneBedroomText, twoBedRoomText, threeBedRoomText;
+   // @BindView(R.id.studioText) TextView mStudioText;
+    //@BindView(R.id.oneBedroomText) TextView mOneBedroomText;
+    //@BindView(R.id.twoBedRoomsText) TextView mTwoBedRoomText;
+    //@BindView(R.id.threeBedRoomsText) TextView mThreeBedRoomText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_house);
 
+        studioText = (TextView) findViewById(R.id.studioText);
+        studioText.setOnClickListener(this);
+
+        oneBedroomText = (TextView) findViewById(R.id.oneBedroomText);
+        oneBedroomText.setOnClickListener(this);
+
+        twoBedRoomText = (TextView) findViewById(R.id.twoBedRoomsText);
+        twoBedRoomText.setOnClickListener(this);
+
+        threeBedRoomText = (TextView) findViewById(R.id.threeBedRoomsText);
+        threeBedRoomText.setOnClickListener(this);
 
 
-        ButterKnife.bind(this);
-        //image listeners
-        mStudioImage.setOnClickListener(this);
-        mOneBedRoomImage.setOnClickListener(this);
-        mTwoBedRoomImage.setOnClickListener(this);
-        mBedsitterImage.setOnClickListener(this);
+
     }
 
 
@@ -43,16 +47,16 @@ public class HouseActivity extends AppCompatActivity implements View.OnClickList
     @Override
     public void onClick(View v) {
 
-        if(v==mStudioImage){
+        if(v==studioText){
             startActivity(new Intent(HouseActivity.this,LocationActivity.class));
         }
-        if(v==mOneBedRoomImage){
+        if(v==oneBedroomText){
             startActivity(new Intent(HouseActivity.this,LocationActivity.class));
         }
-        if(v==mTwoBedRoomImage){
+        if(v==twoBedRoomText){
             startActivity(new Intent(HouseActivity.this,LocationActivity.class));
         }
-        if(v==mBedsitterImage){
+        if(v==threeBedRoomText){
             startActivity(new Intent(HouseActivity.this,LocationActivity.class));
 
         }

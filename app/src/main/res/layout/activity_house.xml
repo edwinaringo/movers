@@ -19,7 +19,7 @@
         android:textColor="@color/black"
         android:textSize="20dp" />
 
-    <com.google.android.material.imageview.ShapeableImageView
+    <ImageView
         android:id="@+id/bedsitterImage"
         android:layout_width="161dp"
         android:layout_height="150dp"
@@ -29,22 +29,21 @@
         android:layout_marginTop="161dp"
         android:layout_marginEnd="50dp"
         android:src="@drawable/bedsitter"
-        app:shapeAppearanceOverlay="@style/roundedImageView" />
+       />
 
     <TextView
-        android:id="@+id/bedsitterText"
+        android:id="@+id/studioText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignEnd="@+id/bedsitterImage"
         android:layout_alignBottom="@+id/bedsitterImage"
-        android:layout_marginEnd="56dp"
-        android:layout_marginBottom="43dp"
-        android:text="Bedsitter"
-        android:textSize="16sp"
-        android:textColor="@color/white"
-        app:shapeAppearanceOverlay="@style/roundedImageView" />
+        android:layout_marginEnd="64dp"
+        android:layout_marginBottom="-29dp"
+        android:text="Studio"
+        android:textColor="@color/black"
+        android:textSize="16sp" />
 
-    <com.google.android.material.imageview.ShapeableImageView
+    <ImageView
         android:id="@+id/studioImage"
         android:layout_width="161dp"
         android:layout_height="150dp"
@@ -53,22 +52,21 @@
         android:layout_marginTop="163dp"
         android:layout_marginEnd="23dp"
         android:src="@drawable/studio"
-        app:shapeAppearanceOverlay="@style/roundedImageView" />
+        />
 
     <TextView
-        android:id="@+id/studioText"
+       android:id="@+id/oneBedroomText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignEnd="@+id/studioImage"
         android:layout_alignBottom="@+id/studioImage"
-        android:layout_marginEnd="59dp"
-        android:layout_marginBottom="43dp"
-        android:text="Studio"
-        android:textSize="16sp"
-        android:textColor="@color/white"
-        app:shapeAppearanceOverlay="@style/roundedImageView" />
+        android:layout_marginEnd="31dp"
+        android:layout_marginBottom="-30dp"
+        android:text="One Bedroom"
+        android:textColor="@color/black"
+        android:textSize="16sp" />
 
-    <com.google.android.material.imageview.ShapeableImageView
+    <ImageView
         android:id="@+id/oneBedRoomImage"
         android:layout_width="161dp"
         android:layout_height="150dp"
@@ -77,22 +75,21 @@
         android:layout_marginStart="20dp"
         android:layout_marginBottom="96dp"
         android:src="@drawable/onebedroom"
-        app:shapeAppearanceOverlay="@style/roundedImageView" />
+         />
 
     <TextView
-        android:id="@+id/oneBedRoomImageText"
+        android:id="@+id/twoBedRoomsText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignEnd="@+id/oneBedRoomImage"
         android:layout_alignBottom="@+id/oneBedRoomImage"
-        android:layout_marginEnd="39dp"
-        android:layout_marginBottom="81dp"
-        android:text="One Bedroom"
-        android:textColor="@color/white"
-        android:textSize="16sp"
-        app:shapeAppearanceOverlay="@style/roundedImageView" />
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="-33dp"
+        android:text="Two Bedroom"
+        android:textColor="@color/black"
+        android:textSize="16sp" />
 
-    <com.google.android.material.imageview.ShapeableImageView
+    <ImageView
         android:id="@+id/twoBedRoomsImage"
         android:layout_width="161dp"
         android:layout_height="150dp"
@@ -101,19 +98,18 @@
         android:layout_marginEnd="14dp"
         android:layout_marginBottom="96dp"
         android:src="@drawable/twobedrooms"
-        app:shapeAppearanceOverlay="@style/roundedImageView" />
+         />
 
     <TextView
-        android:id="@+id/twoBedRoomsText"
+        android:id="@+id/threeBedRoomsText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignEnd="@+id/twoBedRoomsImage"
         android:layout_alignBottom="@+id/twoBedRoomsImage"
-        android:layout_marginEnd="31dp"
-        android:layout_marginBottom="46dp"
-        android:text="Two bedrooms"
-        android:textSize="16sp"
-        android:textColor="@color/white"
-        app:shapeAppearanceOverlay="@style/roundedImageView" />
+        android:layout_marginEnd="29dp"
+        android:layout_marginBottom="-34dp"
+        android:text="Three bedroom"
+        android:textColor="@color/black"
+        android:textSize="16sp" />
 
 </RelativeLayout>
