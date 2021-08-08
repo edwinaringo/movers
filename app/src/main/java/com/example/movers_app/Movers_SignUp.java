@@ -5,14 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -21,21 +17,17 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 
-import java.util.ArrayList;
-import java.util.List;
-
-public class Sign_Up extends AppCompatActivity implements View.OnClickListener{
+public class Movers_SignUp extends AppCompatActivity implements View.OnClickListener {
 
     private FirebaseAuth mAuth;
     private EditText editTextFullName, editTextEmail, editTextPassword;
     private Button signUp;
 
-    private Spinner spinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sign_up);
+        setContentView(R.layout.activity_movers_sign_up);
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -53,14 +45,13 @@ public class Sign_Up extends AppCompatActivity implements View.OnClickListener{
     public void onClick(View v) {
         switch(v.getId()) {
             case R.id.signUp:
-                signUp();
+                moverSignUp();
                 break;
         }
+
     }
 
-
-    private void signUp() {
-
+    private void moverSignUp() {
         String email = editTextEmail.getText().toString().trim();
         String name = editTextFullName.getText().toString().trim();
         String password = editTextPassword.getText().toString().trim();
@@ -103,22 +94,22 @@ public class Sign_Up extends AppCompatActivity implements View.OnClickListener{
                             User user = new User(name, email);
 
 
-                            FirebaseDatabase.getInstance().getReference("User")
+                            FirebaseDatabase.getInstance().getReference("Mover")
                                     .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
                                     .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
                                     if(task.isSuccessful()) {
-                                        Toast.makeText(Sign_Up.this, "Sign Up is successful", Toast.LENGTH_SHORT).show();
-                                        startActivity(new Intent(Sign_Up.this,LoginActivity.class));
+                                        Toast.makeText(Movers_SignUp.this, "Sign Up is successful", Toast.LENGTH_SHORT).show();
+                                        startActivity(new Intent(Movers_SignUp.this,Movers.class));
                                     }else{
-                                        Toast.makeText(Sign_Up.this, "Failed to Sign Up. Try again", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(Movers_SignUp.this, "Failed to Sign Up. Try again", Toast.LENGTH_SHORT).show();
                                     }
 
                                 }
                             });
                         }else{
-                            Toast.makeText(Sign_Up.this, "Failed to Sign Up. Try again", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Movers_SignUp.this, "Failed to Sign Up. Try again", Toast.LENGTH_SHORT).show();
                         }
 
                     }
@@ -126,11 +117,3 @@ public class Sign_Up extends AppCompatActivity implements View.OnClickListener{
 
     }
 }
-
-
-
-
-
-
-
-

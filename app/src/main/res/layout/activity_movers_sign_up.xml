@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#ffffff"
-    tools:context=".Sign_Up">
+    tools:context=".Movers_SignUp">
 
 
     <TextView
@@ -39,15 +39,13 @@
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintTop_toBottomOf="@+id/textView3">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical" >
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -73,10 +71,10 @@
                     android:layout_marginTop="16dp"
                     android:layout_marginBottom="16dp"
                     android:ems="10"
+                    android:textColor="@color/purple_500"
                     android:hint="Enter name"
                     android:inputType="text"
                     android:paddingLeft="10sp"
-                    android:textColor="@color/purple_500"
                     android:textColorHint="#808080"
                     android:textSize="16sp" />
             </LinearLayout>
@@ -87,6 +85,16 @@
                 android:layout_marginStart="32dp"
                 android:layout_marginEnd="32dp"
                 android:orientation="vertical">
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="32dp"
+                android:layout_marginEnd="32dp"
+                android:orientation="vertical">
+
                 <TextView
                     android:id="@+id/textView8"
                     android:layout_width="match_parent"
@@ -104,20 +112,12 @@
                     android:layout_marginTop="16dp"
                     android:layout_marginBottom="16dp"
                     android:ems="10"
+                    android:textColor="@color/purple_500"
                     android:hint="Enter email"
                     android:inputType="textEmailAddress"
                     android:paddingLeft="10sp"
-                    android:textColor="@color/purple_500"
                     android:textColorHint="#808080"
                     android:textSize="16sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginStart="32dp"
-                android:layout_marginEnd="32dp"
-                android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/textView4"
@@ -136,12 +136,14 @@
                     android:layout_marginTop="16dp"
                     android:layout_marginBottom="16dp"
                     android:ems="10"
+                    android:textColor="@color/purple_500"
                     android:hint="Enter password"
                     android:inputType="textPassword"
                     android:paddingLeft="10sp"
-                    android:textColor="@color/purple_500"
                     android:textColorHint="#808080"
                     android:textSize="16sp" />
+
+
 
                 <Button
                     android:id="@+id/signUp"
@@ -149,13 +151,10 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="50dp"
                     android:layout_marginBottom="16dp"
-                    android:backgroundTint="@color/black"
                     android:text="sign up"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-
-
-
+                    android:backgroundTint="@color/black"
+                    android:textStyle="bold"
+                    android:textSize="18sp"/>
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

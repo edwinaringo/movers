@@ -1,5 +1,7 @@
 package com.example.movers_app;
 
+import android.widget.Spinner;
+
 public class User {
     public String name, email;
 
@@ -7,9 +9,10 @@ public class User {
 
     }
 
-    public User(String name, String email){
 
+    public User(String name, String email) {
         this.email = email;
         this.name = name;
     }
+
 }
