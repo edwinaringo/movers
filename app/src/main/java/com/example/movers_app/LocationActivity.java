@@ -10,23 +10,25 @@ import android.view.Display;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
-public class LocationActivity extends AppCompatActivity {
+public class LocationActivity extends AppCompatActivity implements View.OnClickListener {
 //initializing viriables
     EditText etSource,etDestination;
     Button btTrack;
-
+    TextView mPickUpsbutton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_location);
 
-
+        mPickUpsbutton = (TextView) findViewById(R.id.pickups);
 
         etSource = findViewById(R.id.et_source);
         etDestination = findViewById(R.id.et_destination);
         btTrack = findViewById(R.id.bt_track);
+        mPickUpsbutton.setOnClickListener(this);
 
         btTrack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,4 +68,10 @@ public class LocationActivity extends AppCompatActivity {
 
             }
 
+    @Override
+    public void onClick(View v) {
+        if(v == mPickUpsbutton){
+            startActivity(new Intent(LocationActivity.this,PickupsActivity.class));
+        }
+    }
 }
