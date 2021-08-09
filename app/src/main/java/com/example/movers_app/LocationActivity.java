@@ -17,18 +17,19 @@ public class LocationActivity extends AppCompatActivity implements View.OnClickL
 //initializing viriables
     EditText etSource,etDestination;
     Button btTrack;
-    TextView mPickUpsbutton;
+//    Button mPricelss;
+    TextView mPricelss;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_location);
 
-        mPickUpsbutton = (TextView) findViewById(R.id.pickups);
+        mPricelss = (TextView) findViewById(R.id.prices);
 
         etSource = findViewById(R.id.et_source);
         etDestination = findViewById(R.id.et_destination);
         btTrack = findViewById(R.id.bt_track);
-        mPickUpsbutton.setOnClickListener(this);
+        mPricelss.setOnClickListener(this);
 
         btTrack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,7 +71,7 @@ public class LocationActivity extends AppCompatActivity implements View.OnClickL
 
     @Override
     public void onClick(View v) {
-        if(v == mPickUpsbutton){
+        if(v == mPricelss){
             startActivity(new Intent(LocationActivity.this,PickupsActivity.class));
         }
     }
