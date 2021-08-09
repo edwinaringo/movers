@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -21,11 +23,23 @@ public class PickupsActivity extends AppCompatActivity {
     int cyear,cmonth,cday;
     int chour,cminute;
 
+//    String inventory ;
+//    String source;
+//    String destination;
+    String [] orderInfo;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pickups);
 
+
+
+        Bundle extras = getIntent().getExtras();
+        orderInfo = extras.getStringArray("orderInfo");
+
+        Log.i("message",orderInfo[0]+""+orderInfo[1]+""+orderInfo[2]);
 
 
         btndate = (Button)findViewById(R.id.btn_date);

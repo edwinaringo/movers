@@ -6,6 +6,7 @@ import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Display;
 import android.view.View;
 import android.widget.Button;
@@ -18,32 +19,39 @@ public class LocationActivity extends AppCompatActivity implements View.OnClickL
     EditText etSource,etDestination;
     Button btTrack;
     TextView mPickUpsbutton;
+
+    String inventory;
+    String sSource;
+    String sDestination;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_location);
 
-        mPickUpsbutton = (TextView) findViewById(R.id.pickups);
+        Intent intent = getIntent();
+        inventory = intent.getStringExtra("inventory");
+
+        mPickUpsbutton = findViewById(R.id.pickups);
 
         etSource = findViewById(R.id.et_source);
         etDestination = findViewById(R.id.et_destination);
         btTrack = findViewById(R.id.bt_track);
         mPickUpsbutton.setOnClickListener(this);
 
+         sSource = etSource.getText().toString().trim();
+         sDestination = etDestination.getText().toString().trim();
+
         btTrack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String sSource = etSource.getText().toString().trim();
-                String sDestination = etDestination.getText().toString().trim();
-
+                sSource = etSource.getText().toString().trim();
+                sDestination = etDestination.getText().toString().trim();
                 if (sSource.equals("") && sDestination.equals("")){
-
                     Toast.makeText(getApplicationContext(),"Enter both Location",Toast.LENGTH_LONG);
-
                 }else {
                     DisplayTrack(sSource,sDestination);
                 }
-
             }
         });
     }
@@ -71,7 +79,13 @@ public class LocationActivity extends AppCompatActivity implements View.OnClickL
     @Override
     public void onClick(View v) {
         if(v == mPickUpsbutton){
-            startActivity(new Intent(LocationActivity.this,PickupsActivity.class));
+            sSource = etSource.getText().toString().trim();
+            sDestination = etDestination.getText().toString().trim();
+            String array[] = {inventory,sSource,sDestination};
+
+            Intent intent2 =new Intent(LocationActivity.this,PickupsActivity.class);
+            intent2.putExtra("orderInfo",array);
+            startActivity(intent2);
         }
     }
 }

@@ -37,6 +37,12 @@ public class HouseActivity extends AppCompatActivity implements View.OnClickList
         Picasso.get().load(R.drawable.onebedroom).into(mOneBedRoomImage);
         Picasso.get().load(R.drawable.twobedrooms).into(mTwoBedRoomImage);
 
+        mStudioImage.setOnClickListener(this);
+        mOneBedRoomImage.setOnClickListener(this);
+        mTwoBedRoomImage.setOnClickListener(this);
+        mBedsitterImage.setOnClickListener(this);
+
+
         studioText = (TextView) findViewById(R.id.studioText);
         studioText.setOnClickListener(this);
 
@@ -58,17 +64,25 @@ public class HouseActivity extends AppCompatActivity implements View.OnClickList
     @Override
     public void onClick(View v) {
 
-        if(v==studioText){
-            startActivity(new Intent(HouseActivity.this,LocationActivity.class));
+        if(v==studioText || v==mStudioImage){
+            Intent intent =new Intent(HouseActivity.this,LocationActivity.class);
+            intent.putExtra("inventory",studioText.getText().toString());
+            startActivity(intent);
         }
-        if(v==oneBedroomText){
-            startActivity(new Intent(HouseActivity.this,LocationActivity.class));
+        if(v==oneBedroomText || v==mOneBedRoomImage){
+            Intent intent =new Intent(HouseActivity.this,LocationActivity.class);
+            intent.putExtra("inventory",oneBedroomText.getText().toString());
+            startActivity(intent);
         }
-        if(v==twoBedRoomText){
-            startActivity(new Intent(HouseActivity.this,LocationActivity.class));
+        if(v==twoBedRoomText || v==mTwoBedRoomImage){
+            Intent intent =new Intent(HouseActivity.this,LocationActivity.class);
+            intent.putExtra("inventory",twoBedRoomText.getText().toString());
+            startActivity(intent);
         }
-        if(v==threeBedRoomText){
-            startActivity(new Intent(HouseActivity.this,LocationActivity.class));
+        if(v==threeBedRoomText || v==mBedsitterImage){
+            Intent intent =new Intent(HouseActivity.this,LocationActivity.class);
+            intent.putExtra("inventory",threeBedRoomText.getText().toString());
+            startActivity(intent);
 
         }
 
