@@ -2,6 +2,7 @@ package com.example.movers_app;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -43,6 +44,8 @@ public class HouseActivity extends AppCompatActivity implements View.OnClickList
     public void onClick(View v) {
         if(v==mStudioImage){
             Toast.makeText(this, "clicked1", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent( getApplicationContext(),OrdersActivity.class);
+            startActivity(intent);
         }
         if(v==mOneBedRoomImage){
             Toast.makeText(this, "Clicked2", Toast.LENGTH_SHORT).show();
