@@ -12,9 +12,18 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
+
+import com.example.movers_app.models.MovingOrders;
+import com.example.movers_app.network.MoversAPI;
+import com.example.movers_app.network.MoversClient;
 
 import java.time.Year;
 import java.util.Calendar;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class PickupsActivity extends AppCompatActivity {
      Button btndate,btntime;
@@ -28,6 +37,9 @@ public class PickupsActivity extends AppCompatActivity {
 //    String destination;
     String [] orderInfo;
 
+    String date;
+    String time;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,10 +48,7 @@ public class PickupsActivity extends AppCompatActivity {
 
 
 
-        Bundle extras = getIntent().getExtras();
-        orderInfo = extras.getStringArray("orderInfo");
 
-        Log.i("message",orderInfo[0]+""+orderInfo[1]+""+orderInfo[2]);
 
 
         btndate = (Button)findViewById(R.id.btn_date);
@@ -61,6 +70,7 @@ public class PickupsActivity extends AppCompatActivity {
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                      text_date.setText(dayOfMonth+"/"+(month+1) +"/"+year);
+                     date = dayOfMonth+"/"+(month+1) +"/"+year;
                     }
                 },cyear,cmonth,cday);
                 datePickerDialog.show();
@@ -79,9 +89,45 @@ public class PickupsActivity extends AppCompatActivity {
                     @Override
                     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
                         text_date.setText(hourOfDay+":"+minute);
+                        time = hourOfDay+":"+minute;
+                        Log.i("time",time);
+
+                        Bundle extras = getIntent().getExtras();
+                        orderInfo = extras.getStringArray("orderInfo");
+
+                        String pickup_time = date+" "+ time+" ";
+
+                        Log.i("message",orderInfo[0]+""+orderInfo[1]+""+orderInfo[2]);
+                        saveOrder("sheila","sheilasharon10@gmail.com",orderInfo[0],orderInfo[1],orderInfo[2],"trusties",79898,"approved",pickup_time);
+
                     }
                 },chour,cminute,false);
                 timePickerDialog.show();
+
+
+
+            }
+
+
+        });
+
+    }
+
+    public void saveOrder(String user_name, String user_email, String inventory, String current_location, String new_location, String moving_company, int total_price, String order_status, String pickup_time){
+
+        MovingOrders movingOrder = new MovingOrders(user_name,user_email,inventory,current_location,new_location,moving_company,total_price,order_status,pickup_time);
+        MoversAPI client = MoversClient.getClient();
+        Call<MovingOrders> call = client.postMovingOrder(movingOrder);
+        call.enqueue(new Callback<MovingOrders>() {
+            @Override
+            public void onResponse(Call<MovingOrders> call, Response<MovingOrders> response) {
+                Toast.makeText(getApplicationContext(),"Moving Order Successful",Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onFailure(Call<MovingOrders> call, Throwable t) {
+                Toast.makeText(getApplicationContext(),"Something went wrong",Toast.LENGTH_SHORT).show();
+
             }
         });
 
