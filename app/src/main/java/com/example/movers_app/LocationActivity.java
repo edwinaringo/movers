@@ -16,7 +16,7 @@ import android.widget.Toast;
 public class LocationActivity extends AppCompatActivity implements View.OnClickListener {
 //initializing viriables
     EditText etSource,etDestination;
-    Button btTrack;
+    Button btTrack,moversList;
     TextView mPickUpsbutton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +29,10 @@ public class LocationActivity extends AppCompatActivity implements View.OnClickL
         etDestination = findViewById(R.id.et_destination);
         btTrack = findViewById(R.id.bt_track);
         mPickUpsbutton.setOnClickListener(this);
+
+        //find the button with id price and set a click listener
+        moversList=findViewById(R.id.prices);
+        moversList.setOnClickListener(this);
 
         btTrack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,6 +76,10 @@ public class LocationActivity extends AppCompatActivity implements View.OnClickL
     public void onClick(View v) {
         if(v == mPickUpsbutton){
             startActivity(new Intent(LocationActivity.this,PickupsActivity.class));
+        }
+        //set an intent on price id button
+        if(v== moversList){
+            startActivity(new Intent(LocationActivity.this,MoversList.class));
         }
     }
 }

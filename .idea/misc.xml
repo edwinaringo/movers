@@ -5,7 +5,9 @@
       <map>
         <entry key="app/src/main/res/drawable/orage_btn.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/orange_btn_background.xml" value="0.15104166666666666" />
+        <entry key="app/src/main/res/layout/activity_location.xml" value="0.35572916666666665" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/activity_movers_list.xml" value="0.35572916666666665" />
       </map>
     </option>
   </component>
