@@ -32,24 +32,15 @@ public class PickupsActivity extends AppCompatActivity {
     int cyear,cmonth,cday;
     int chour,cminute;
 
-//    String inventory ;
-//    String source;
-//    String destination;
     String [] orderInfo;
 
     String date;
     String time;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pickups);
-
-
-
-
-
 
         btndate = (Button)findViewById(R.id.btn_date);
         btntime = (Button)findViewById(R.id.btn_time);
@@ -98,7 +89,7 @@ public class PickupsActivity extends AppCompatActivity {
                         String pickup_time = date+" "+ time+" ";
 
                         Log.i("message",orderInfo[0]+""+orderInfo[1]+""+orderInfo[2]);
-                        saveOrder("sheila","sheilasharon10@gmail.com",orderInfo[0],orderInfo[1],orderInfo[2],"trusties",79898,"approved",pickup_time);
+                        saveOrder(orderInfo[0],"sheilasharon10@gmail.com",orderInfo[1],orderInfo[2],orderInfo[3],"trusties",79898,"approved",pickup_time);
 
                     }
                 },chour,cminute,false);

@@ -20,6 +20,7 @@ public class LocationActivity extends AppCompatActivity implements View.OnClickL
     Button btTrack;
     TextView mPickUpsbutton;
 
+    String userName;
     String inventory;
     String sSource;
     String sDestination;
@@ -31,6 +32,7 @@ public class LocationActivity extends AppCompatActivity implements View.OnClickL
 
         Intent intent = getIntent();
         inventory = intent.getStringExtra("inventory");
+        userName= intent.getStringExtra("userName");
 
         mPickUpsbutton = findViewById(R.id.pickups);
 
@@ -81,7 +83,7 @@ public class LocationActivity extends AppCompatActivity implements View.OnClickL
         if(v == mPickUpsbutton){
             sSource = etSource.getText().toString().trim();
             sDestination = etDestination.getText().toString().trim();
-            String array[] = {inventory,sSource,sDestination};
+            String array[] = {userName,inventory,sSource,sDestination};
 
             Intent intent2 =new Intent(LocationActivity.this,PickupsActivity.class);
             intent2.putExtra("orderInfo",array);

@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -18,6 +19,7 @@ import butterknife.ButterKnife;
 public class HouseActivity extends AppCompatActivity implements View.OnClickListener{
 
     private TextView studioText, oneBedroomText, twoBedRoomText, threeBedRoomText;
+    String userName;
 
     @BindView(R.id.studioImage) ImageView mStudioImage;
     @BindView(R.id.oneBedRoomImage) ImageView mOneBedRoomImage;
@@ -28,6 +30,10 @@ public class HouseActivity extends AppCompatActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_house);
         ButterKnife.bind(this);
+
+        Intent intent = getIntent();
+        userName = intent.getStringExtra("name");
+        Log.i("username", userName);
 
         Picasso.get().load(R.drawable.bedsitter).into(mThreeBedRoomImage);
         Picasso.get().load(R.drawable.studio).into(mStudioImage);
@@ -79,6 +85,7 @@ public class HouseActivity extends AppCompatActivity implements View.OnClickList
         if(v==threeBedRoomText || v==mThreeBedRoomImage){
             Intent intent =new Intent(HouseActivity.this,LocationActivity.class);
             intent.putExtra("inventory",threeBedRoomText.getText().toString());
+            intent.putExtra("username",userName);
             startActivity(intent);
 
         }

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
@@ -17,6 +18,9 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -24,6 +28,7 @@ import butterknife.ButterKnife;
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener{
 
     private FirebaseAuth mAuth;
+    private FirebaseAuth.AuthStateListener mAuthListener;
 
     @BindView(R.id.LoginEmailAddressEditText) EditText mLoginEmailAddressEditText;
     @BindView(R.id.LoginPasswordEditText) EditText mLoginPasswordEditText;
@@ -35,10 +40,28 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        ButterKnife.bind(this);
 
         mAuth = FirebaseAuth.getInstance();
 
-        ButterKnife.bind(this);
+        mAuthListener = new FirebaseAuth.AuthStateListener() {
+
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                FirebaseUser user2 = firebaseAuth.getCurrentUser();
+                if (user2 != null) {
+
+
+                    Intent intent = new Intent(LoginActivity.this,HouseActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    intent.putExtra("name", user2.getDisplayName());
+                    Log.i("username",user2.getDisplayName());
+                    startActivity(intent);
+                    finish();
+                }
+            }
+        };
+
 
         //validate user inputs when login button clicked
         mLoginButton.setOnClickListener(this);
@@ -82,9 +105,26 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()) {
+
                             FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+                            FirebaseDatabase database = FirebaseDatabase.getInstance();
+                            DatabaseReference databaseUsers = database.getReference("User");
+
+                            String id = mAuth.getCurrentUser().getUid();
+                            String uName = mAuth.getCurrentUser().getDisplayName();
+                            DatabaseReference username = databaseUsers.child(id).child("name");
+
                             if (user.isEmailVerified()) {
-                                startActivity(new Intent (LoginActivity.this, HouseActivity.class));
+                                Intent intent =new Intent (LoginActivity.this, HouseActivity.class);
+                                intent.putExtra("username", username.toString());
+
+
+                                Log.i("user", mAuth.getCurrentUser().getEmail());
+                                Log.i("user", mAuth.getCurrentUser().getUid());
+                                Log.i("user", mAuth.getCurrentUser().getDisplayName());
+
+                                startActivity(intent);
                             }else{
                                 user.sendEmailVerification();
                                 Toast.makeText(LoginActivity.this, "Check your email to verify your account", Toast.LENGTH_SHORT).show();
@@ -95,5 +135,19 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
                     }
                 });
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        mAuth.addAuthStateListener(mAuthListener);
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        if (mAuthListener != null) {
+            mAuth.removeAuthStateListener(mAuthListener);
+        }
     }
 }
