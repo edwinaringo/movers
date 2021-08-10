@@ -15,7 +15,7 @@ public class MoversList extends AppCompatActivity {
     //call the list view
     private ListView mListView;
     //working with hardcoded list
-    private String[] restaurants = new String[] {"Mover1", "Mover2",
+    private String[] movers = new String[] {"Mover1", "Mover2",
             "Mover3", "Mover4", "Mover5", "Mover6",
             "Mover7", "Mover8", "Mover9", "Mover10",
             "Mover11", "Mover12", "Mover13",
@@ -29,7 +29,7 @@ public class MoversList extends AppCompatActivity {
         mListView = (ListView) findViewById(R.id.listView);
 
         //adapter to display the list
-        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, restaurants);
+        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, movers);
         mListView.setAdapter(adapter);
 
         //show list on layout view
