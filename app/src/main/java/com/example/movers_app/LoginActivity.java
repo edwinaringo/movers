@@ -19,8 +19,10 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -49,13 +51,14 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 FirebaseUser user2 = firebaseAuth.getCurrentUser();
+                String id = mAuth.getCurrentUser().getUid();
                 if (user2 != null) {
 
 
                     Intent intent = new Intent(LoginActivity.this,HouseActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                    intent.putExtra("name", user2.getDisplayName());
-                    Log.i("username",user2.getDisplayName());
+                    intent.putExtra("username", id);
+                    Log.i("id",id);
                     startActivity(intent);
                     finish();
                 }
@@ -108,23 +111,28 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
                             FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
-                            FirebaseDatabase database = FirebaseDatabase.getInstance();
-                            DatabaseReference databaseUsers = database.getReference("User");
+
+
 
                             String id = mAuth.getCurrentUser().getUid();
-                            String uName = mAuth.getCurrentUser().getDisplayName();
-                            DatabaseReference username = databaseUsers.child(id).child("name");
+                            String email = mAuth.getCurrentUser().getEmail();
+//                            String name =mAuth.getCurrentUser().getDisplayName();
+                            FirebaseDatabase database = FirebaseDatabase.getInstance();
+                            DatabaseReference username = database.getReference("User").child(id).child("name");
 
                             if (user.isEmailVerified()) {
+
                                 Intent intent =new Intent (LoginActivity.this, HouseActivity.class);
-                                intent.putExtra("username", username.toString());
+                                intent.putExtra("username", id);
 
 
-                                Log.i("user", mAuth.getCurrentUser().getEmail());
-                                Log.i("user", mAuth.getCurrentUser().getUid());
-                                Log.i("user", mAuth.getCurrentUser().getDisplayName());
-
+                                Log.i("user", id);
+                                Log.i("user", email);
+//                              Log.i("user",name);
+                                Log.i("user",username.toString());
                                 startActivity(intent);
+
+
                             }else{
                                 user.sendEmailVerification();
                                 Toast.makeText(LoginActivity.this, "Check your email to verify your account", Toast.LENGTH_SHORT).show();

@@ -21,6 +21,9 @@ public class HouseActivity extends AppCompatActivity implements View.OnClickList
     private TextView studioText, oneBedroomText, twoBedRoomText, threeBedRoomText;
     String userName;
 
+    String[] orderInfo= new String[4];
+
+
     @BindView(R.id.studioImage) ImageView mStudioImage;
     @BindView(R.id.oneBedRoomImage) ImageView mOneBedRoomImage;
     @BindView(R.id.twoBedRoomImage) ImageView mTwoBedRoomImage;
@@ -32,8 +35,7 @@ public class HouseActivity extends AppCompatActivity implements View.OnClickList
         ButterKnife.bind(this);
 
         Intent intent = getIntent();
-        userName = intent.getStringExtra("name");
-        Log.i("username", userName);
+        userName = intent.getStringExtra("username");
 
         Picasso.get().load(R.drawable.bedsitter).into(mThreeBedRoomImage);
         Picasso.get().load(R.drawable.studio).into(mStudioImage);
@@ -67,25 +69,42 @@ public class HouseActivity extends AppCompatActivity implements View.OnClickList
     @Override
     public void onClick(View v) {
 
+        String inventory;
+
         if(v==studioText || v==mStudioImage){
             Intent intent =new Intent(HouseActivity.this,LocationActivity.class);
-            intent.putExtra("inventory",studioText.getText().toString());
+            inventory=studioText.getText().toString();
+            orderInfo[0]=userName;
+            orderInfo[1]= inventory;
+
+            intent.putExtra("orderInfo",orderInfo);
             startActivity(intent);
         }
         if(v==oneBedroomText || v==mOneBedRoomImage){
             Intent intent =new Intent(HouseActivity.this,LocationActivity.class);
-            intent.putExtra("inventory",oneBedroomText.getText().toString());
+            inventory=oneBedroomText.getText().toString();
+            orderInfo[0]=userName;
+            orderInfo[1]= inventory;
+
+            intent.putExtra("orderInfo",orderInfo);
             startActivity(intent);
         }
         if(v==twoBedRoomText || v==mTwoBedRoomImage){
             Intent intent =new Intent(HouseActivity.this,LocationActivity.class);
-            intent.putExtra("inventory",twoBedRoomText.getText().toString());
+            inventory=twoBedRoomText.getText().toString();
+            orderInfo[0]=userName;
+            orderInfo[1]= inventory;
+
+            intent.putExtra("orderInfo",orderInfo);
             startActivity(intent);
         }
         if(v==threeBedRoomText || v==mThreeBedRoomImage){
             Intent intent =new Intent(HouseActivity.this,LocationActivity.class);
-            intent.putExtra("inventory",threeBedRoomText.getText().toString());
-            intent.putExtra("username",userName);
+            inventory=threeBedRoomText.getText().toString();
+            orderInfo[0]=userName;
+            orderInfo[1]= inventory;
+
+            intent.putExtra("orderInfo",orderInfo);
             startActivity(intent);
 
         }

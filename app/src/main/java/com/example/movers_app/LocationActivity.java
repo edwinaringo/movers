@@ -25,14 +25,18 @@ public class LocationActivity extends AppCompatActivity implements View.OnClickL
     String sSource;
     String sDestination;
 
+    String[] orderInfo;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_location);
 
-        Intent intent = getIntent();
-        inventory = intent.getStringExtra("inventory");
-        userName= intent.getStringExtra("userName");
+//        Intent intent = getIntent();
+//        inventory = intent.getStringExtra("inventory");
+//        userName= intent.getStringExtra("username");
+
+
 
         mPickUpsbutton = findViewById(R.id.pickups);
 
@@ -83,10 +87,14 @@ public class LocationActivity extends AppCompatActivity implements View.OnClickL
         if(v == mPickUpsbutton){
             sSource = etSource.getText().toString().trim();
             sDestination = etDestination.getText().toString().trim();
-            String array[] = {userName,inventory,sSource,sDestination};
-
+//            String array[] = {userName,inventory,sSource,sDestination};
+            Bundle extras = getIntent().getExtras();
+            orderInfo = extras.getStringArray("orderInfo");
+            orderInfo[2] = sSource;
+            orderInfo[3]=sDestination;
             Intent intent2 =new Intent(LocationActivity.this,PickupsActivity.class);
-            intent2.putExtra("orderInfo",array);
+
+            intent2.putExtra("orderInfo",orderInfo);
             startActivity(intent2);
         }
     }
