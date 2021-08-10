@@ -18,21 +18,18 @@ import butterknife.ButterKnife;
 public class HouseActivity extends AppCompatActivity implements View.OnClickListener{
 
     private TextView studioText, oneBedroomText, twoBedRoomText, threeBedRoomText;
-   // @BindView(R.id.studioText) TextView mStudioText;
-    //@BindView(R.id.oneBedroomText) TextView mOneBedroomText;
-    //@BindView(R.id.twoBedRoomsText) TextView mTwoBedRoomText;
-    //@BindView(R.id.threeBedRoomsText) TextView mThreeBedRoomText;
+
     @BindView(R.id.studioImage) ImageView mStudioImage;
     @BindView(R.id.oneBedRoomImage) ImageView mOneBedRoomImage;
-    @BindView(R.id.twoBedRoomsImage) ImageView mTwoBedRoomImage;
-    @BindView(R.id.bedsitterImage) ImageView mBedsitterImage;
+    @BindView(R.id.twoBedRoomImage) ImageView mTwoBedRoomImage;
+    @BindView(R.id.threeBedRoomsImage) ImageView mThreeBedRoomImage;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_house);
         ButterKnife.bind(this);
 
-        Picasso.get().load(R.drawable.bedsitter).into(mBedsitterImage);
+        Picasso.get().load(R.drawable.bedsitter).into(mThreeBedRoomImage);
         Picasso.get().load(R.drawable.studio).into(mStudioImage);
         Picasso.get().load(R.drawable.onebedroom).into(mOneBedRoomImage);
         Picasso.get().load(R.drawable.twobedrooms).into(mTwoBedRoomImage);
@@ -40,7 +37,7 @@ public class HouseActivity extends AppCompatActivity implements View.OnClickList
         mStudioImage.setOnClickListener(this);
         mOneBedRoomImage.setOnClickListener(this);
         mTwoBedRoomImage.setOnClickListener(this);
-        mBedsitterImage.setOnClickListener(this);
+        mThreeBedRoomImage.setOnClickListener(this);
 
 
         studioText = (TextView) findViewById(R.id.studioText);
@@ -79,7 +76,7 @@ public class HouseActivity extends AppCompatActivity implements View.OnClickList
             intent.putExtra("inventory",twoBedRoomText.getText().toString());
             startActivity(intent);
         }
-        if(v==threeBedRoomText || v==mBedsitterImage){
+        if(v==threeBedRoomText || v==mThreeBedRoomImage){
             Intent intent =new Intent(HouseActivity.this,LocationActivity.class);
             intent.putExtra("inventory",threeBedRoomText.getText().toString());
             startActivity(intent);
