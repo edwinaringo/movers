@@ -9,13 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MoversApp">
-        <activity android:name=".ConfirmActivity"></activity>
+        <activity
+            android:name=".MoversList"
+            android:exported="true" />
+        <activity android:name=".ConfirmActivity" />
         <activity android:name=".ChoiceActivity" />
         <activity android:name=".Movers" />
         <activity android:name=".Movers_SignUp" />
-
-        <activity android:name=".PickupsActivity"></activity>
-
+        <activity android:name=".PickupsActivity" />
         <activity android:name=".LocationActivity" />
         <activity android:name=".HouseActivity" />
         <activity android:name=".MainActivity" />
