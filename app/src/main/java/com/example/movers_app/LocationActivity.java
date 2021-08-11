@@ -31,8 +31,8 @@ public class LocationActivity extends AppCompatActivity implements View.OnClickL
         mPickUpsbutton.setOnClickListener(this);
 
         //find the button with id price and set a click listener
-        moversList=findViewById(R.id.prices);
-        moversList.setOnClickListener(this);
+        //moversList=findViewById(R.id.prices);
+        //moversList.setOnClickListener(this);
 
         btTrack.setOnClickListener(new View.OnClickListener() {
             @Override
