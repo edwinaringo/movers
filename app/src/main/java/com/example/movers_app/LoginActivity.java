@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
@@ -17,6 +18,11 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -24,6 +30,7 @@ import butterknife.ButterKnife;
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener{
 
     private FirebaseAuth mAuth;
+    private FirebaseAuth.AuthStateListener mAuthListener;
 
     @BindView(R.id.LoginEmailAddressEditText) EditText mLoginEmailAddressEditText;
     @BindView(R.id.LoginPasswordEditText) EditText mLoginPasswordEditText;
@@ -35,10 +42,29 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        ButterKnife.bind(this);
 
         mAuth = FirebaseAuth.getInstance();
 
-        ButterKnife.bind(this);
+        mAuthListener = new FirebaseAuth.AuthStateListener() {
+
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                FirebaseUser user2 = firebaseAuth.getCurrentUser();
+                String id = mAuth.getCurrentUser().getUid();
+                if (user2 != null) {
+
+
+                    Intent intent = new Intent(LoginActivity.this,HouseActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    intent.putExtra("username", id);
+                    Log.i("id",id);
+                    startActivity(intent);
+                    finish();
+                }
+            }
+        };
+
 
         //validate user inputs when login button clicked
         mLoginButton.setOnClickListener(this);
@@ -82,9 +108,31 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()) {
+
                             FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+
+
+
+                            String id = mAuth.getCurrentUser().getUid();
+                            String email = mAuth.getCurrentUser().getEmail();
+//                            String name =mAuth.getCurrentUser().getDisplayName();
+                            FirebaseDatabase database = FirebaseDatabase.getInstance();
+                            DatabaseReference username = database.getReference("User").child(id).child("name");
+
                             if (user.isEmailVerified()) {
-                                startActivity(new Intent (LoginActivity.this, HouseActivity.class));
+
+                                Intent intent =new Intent (LoginActivity.this, HouseActivity.class);
+                                intent.putExtra("username", id);
+
+
+                                Log.i("user", id);
+                                Log.i("user", email);
+//                              Log.i("user",name);
+                                Log.i("user",username.toString());
+                                startActivity(intent);
+
+
                             }else{
                                 user.sendEmailVerification();
                                 Toast.makeText(LoginActivity.this, "Check your email to verify your account", Toast.LENGTH_SHORT).show();
@@ -95,5 +143,19 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
                     }
                 });
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        mAuth.addAuthStateListener(mAuthListener);
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        if (mAuthListener != null) {
+            mAuth.removeAuthStateListener(mAuthListener);
+        }
     }
 }
