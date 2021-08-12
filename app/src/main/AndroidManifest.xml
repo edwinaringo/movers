@@ -12,6 +12,7 @@
         <activity
             android:name=".MoversList"
             android:exported="true" />
+        <activity android:name=".MovingCompanyOrdersActivity" />
         <activity android:name=".MovingOrdersActivity" />
         <activity android:name=".ConfirmActivity" />
         <activity android:name=".ChoiceActivity" />
