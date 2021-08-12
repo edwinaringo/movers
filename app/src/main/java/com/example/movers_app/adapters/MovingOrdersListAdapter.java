@@ -71,10 +71,11 @@ public class MovingOrdersListAdapter extends RecyclerView.Adapter<MovingOrdersLi
 
         public void bindMovingOrder(MovingOrders order) {
 
+            Picasso.get().load(R.drawable.tracking).into(mMovingOrderImageView);
             mCompanyName.setText(order.getMovingCompany());
             mPickUpTime.setText(order.getPickupTime());
             mInventory.setText(order.getInventory());
-            mLocations.setText(order.getCurrentLocation() + "to" + order.getNewLocation());
+            mLocations.setText(order.getCurrentLocation() + " to " + order.getNewLocation());
 
 
         }
