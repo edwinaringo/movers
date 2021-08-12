@@ -13,21 +13,27 @@ import java.util.ArrayList;
 
 public class MoverListAdapter extends RecyclerView.Adapter<MoverListAdapter.MyViewHolder> {
 
+
+
     Context context;
 
     ArrayList<MoverBio> list;
+    private static RecyclerViewClickListener listener;
 
-    public MoverListAdapter(Context context, ArrayList<MoverBio> list) {
+    public MoverListAdapter(Context context, ArrayList<MoverBio> list, RecyclerViewClickListener listener) {
         this.context = context;
         this.list = list;
+        this.listener = listener;
     }
+
 
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(context).inflate(R.layout.item,parent,false);
+        View v = LayoutInflater.from(context).inflate(R.layout.item, parent, false);
         return new MyViewHolder(v);
     }
+
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
@@ -39,7 +45,6 @@ public class MoverListAdapter extends RecyclerView.Adapter<MoverListAdapter.MyVi
         holder.pricePerDistance.setText(moverBio.getPricePerDistance());
 
 
-
     }
 
     @Override
@@ -47,17 +52,32 @@ public class MoverListAdapter extends RecyclerView.Adapter<MoverListAdapter.MyVi
         return list.size();
     }
 
-    public static class MyViewHolder extends RecyclerView.ViewHolder{
+    public static class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+
 
         TextView companyName, contactInfo, extraServices, inventory, pricePerDistance;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            companyName =itemView.findViewById(R.id.companyName);
+            companyName = itemView.findViewById(R.id.companyName);
             contactInfo = itemView.findViewById(R.id.contactInfo);
             extraServices = itemView.findViewById(R.id.extraServices);
             inventory = itemView.findViewById(R.id.inventory);
             pricePerDistance = itemView.findViewById(R.id.pricePerDistance);
+
+            itemView.setOnClickListener(this);
+
+
         }
+
+        @Override
+        public void onClick(View v) {
+            listener.onClick(v, getAdapterPosition());
+
+        }
+    }
+
+    public interface RecyclerViewClickListener{
+        void onClick(View v, int position);
     }
 }

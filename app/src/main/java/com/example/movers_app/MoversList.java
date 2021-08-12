@@ -2,9 +2,11 @@ package com.example.movers_app;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -27,6 +29,9 @@ public class MoversList extends AppCompatActivity {
     DatabaseReference database;
     MoverListAdapter moverListAdapter;
     ArrayList<MoverBio> list;
+    CardView itemView;
+    private MoverListAdapter.RecyclerViewClickListener listener;
+
 
 
 
@@ -35,6 +40,7 @@ public class MoversList extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movers_list);
 
+        itemView = findViewById(R.id.itemView);
 
         recyclerView = findViewById(R.id.mover_list);
         database = FirebaseDatabase.getInstance().getReference("MoverPrices");
@@ -42,8 +48,11 @@ public class MoversList extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         list = new ArrayList<>();
-        moverListAdapter = new MoverListAdapter(this,list);
+        setOnClickListener();
+        moverListAdapter = new MoverListAdapter(this,list, listener);
         recyclerView.setAdapter(moverListAdapter);
+
+
 
         database.addValueEventListener(new ValueEventListener() {
             @Override
@@ -64,5 +73,15 @@ public class MoversList extends AppCompatActivity {
 
 
 
+    }
+
+    private void setOnClickListener() {
+        listener = new MoverListAdapter.RecyclerViewClickListener() {
+            @Override
+            public void onClick(View v, int position) {
+                Intent intent = new Intent(getApplicationContext(),PickupsActivity.class);
+                startActivity(intent);
+            }
+        };
     }
 }

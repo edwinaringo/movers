@@ -1,22 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/itemView"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardElevation="8dp"
     app:cardCornerRadius="8dp"
-
-    android:outlineSpotShadowColor="@color/black"
-
-    android:layout_margin="16dp">
+    android:outlineSpotShadowColor="@color/purple_500"
+    android:layout_margin="16dp"
+    android:elevation="8dp"
+    android:divider="@color/purple_500"
+    android:dividerHeight="0.0px"
+    android:clipToPadding="false"
+    android:clipChildren="false">
 
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
-
         android:orientation="vertical">
 
 

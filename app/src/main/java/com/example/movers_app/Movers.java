@@ -38,7 +38,7 @@ public class Movers extends AppCompatActivity {
 
         mCompanyName = findViewById(R.id.companyName);
 
-        mExtraServices = findViewById(R.id.ExtraServices);
+        mExtraServices = findViewById(R.id.extraServices);
         mContactInfo = findViewById(R.id.contactInfo);
         mInventoryCharges = findViewById(R.id.inventoryCharges);
         mPricePerDistance= findViewById(R.id.pricePerDistance);
@@ -50,7 +50,6 @@ public class Movers extends AppCompatActivity {
             public void onClick(View v) {
 
                 String companyName = mCompanyName.getText().toString();
-
                 String extraService = mExtraServices.getText().toString();
                 String contactInfo = mContactInfo.getText().toString();
                 String Inventory = mInventoryCharges.getText().toString();
@@ -59,12 +58,11 @@ public class Movers extends AppCompatActivity {
 
                 HashMap<String, String> pricesMap = new HashMap<>();
 
-                pricesMap.put("Company Name", Company Name);
-
-                pricesMap.put("extra service", extra ervice);
-                pricesMap.put("contact info", contact info);
-                pricesMap.put("inventory", inventory);
-                pricesMap.put("price per distance", price per distance);
+                pricesMap.put("companyName", companyName);
+                pricesMap.put("extraServices", extraService);
+                pricesMap.put("contactInfo", contactInfo);
+                pricesMap.put("inventory", Inventory);
+                pricesMap.put("pricePerDistance", pricePerDistance);
 
                 newroot.setValue(pricesMap)
 
