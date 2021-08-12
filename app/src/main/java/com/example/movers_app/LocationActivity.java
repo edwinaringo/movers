@@ -221,9 +221,6 @@ public class LocationActivity extends AppCompatActivity implements View.OnClickL
             startActivity(intent2);
 
         }
-        //set an intent on price id button
-//        if(v== moversList){
-//            startActivity(new Intent(LocationActivity.this,MoversList.class));
-//        }
+
     }
 }
