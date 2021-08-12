@@ -202,7 +202,7 @@ public class LocationActivity extends AppCompatActivity implements View.OnClickL
     @Override
     public void onClick(View v) {
         if(v == mPickUpsbutton){
-            startActivity(new Intent(LocationActivity.this,PickupsActivity.class));
+            startActivity(new Intent(LocationActivity.this,MoversList.class));
         }
         //set an intent on price id button
         if(v== moversList){
