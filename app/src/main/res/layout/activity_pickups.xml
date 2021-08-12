@@ -44,14 +44,7 @@
         android:textColor="#ff0000"/>
 
 
-    <Button
-        android:id="@+id/costbn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="25sp"
-        android:textColor="@color/white"
-        android:backgroundTint="@color/black"
-        android:text="Find the Cost"/>
+
 
 
 
