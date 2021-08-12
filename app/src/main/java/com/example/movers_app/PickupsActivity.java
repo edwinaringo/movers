@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -15,7 +16,7 @@ import java.time.Year;
 import java.util.Calendar;
 
 public class PickupsActivity extends AppCompatActivity {
-     Button btndate,btntime;
+     Button btndate,btntime,costbtn;
      TextView text_date,text_time;
 
     int cyear,cmonth,cday;
@@ -27,16 +28,26 @@ public class PickupsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_pickups);
 
 
-
+        costbtn = (Button)findViewById(R.id.costbn);
         btndate = (Button)findViewById(R.id.btn_date);
         btntime = (Button)findViewById(R.id.btn_time);
 
         text_date = (TextView)findViewById(R.id.date_textview);
         text_time = (TextView)findViewById(R.id.time_textview);
-
+        costbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (v == costbtn) {
+                    costbtn.setVisibility(View.VISIBLE);
+                    startActivity(new Intent(PickupsActivity.this,OffersActivity.class));
+                }
+            }
+        });
         btndate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
 
                 final Calendar calendar = Calendar.getInstance();
                 cyear= calendar.get(Calendar.YEAR);
