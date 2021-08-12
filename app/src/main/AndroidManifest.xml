@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MoversApp">
         <activity
+            android:name=".OffersActivity"
+            android:exported="true" />
+        <activity
             android:name=".MoversList"
             android:exported="true" />
         <activity android:name=".MovingCompanyOrdersActivity" />

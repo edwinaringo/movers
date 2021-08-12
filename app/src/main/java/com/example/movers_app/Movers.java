@@ -18,12 +18,16 @@ import java.util.HashMap;
 
 public class Movers extends AppCompatActivity {
 
-    private EditText mCompanyName, mExtraServices, mContactInfo, mInventoryCharges,mPricePerDistance;
+
+    private EditText mCompanyName,mContactInfo, mExtraServices, mInventoryCharges, mPricePerDistance;
+
     private Button submitPrices;
 
     private FirebaseDatabase db = FirebaseDatabase.getInstance();
     private DatabaseReference root = db.getReference().child("MoverPrices");
+
     DatabaseReference newroot = root.push();//this is to add mover instead of replacing the one previously put on firebase
+
 
 
 
@@ -33,10 +37,12 @@ public class Movers extends AppCompatActivity {
         setContentView(R.layout.activity_movers);
 
         mCompanyName = findViewById(R.id.companyName);
-        mExtraServices = findViewById(R.id.ExtraServices);
+
+        mExtraServices = findViewById(R.id.extraServices);
         mContactInfo = findViewById(R.id.contactInfo);
         mInventoryCharges = findViewById(R.id.inventoryCharges);
         mPricePerDistance= findViewById(R.id.pricePerDistance);
+
         submitPrices = findViewById(R.id.submitPrices);
 
         submitPrices.setOnClickListener(new View.OnClickListener() {
@@ -49,15 +55,17 @@ public class Movers extends AppCompatActivity {
                 String Inventory = mInventoryCharges.getText().toString();
                 String pricePerDistance = mPricePerDistance.getText().toString();
 
+
                 HashMap<String, String> pricesMap = new HashMap<>();
 
-                pricesMap.put("Company Name", companyName);
-                pricesMap.put("extra service", extraService);
-                pricesMap.put("contact info", contactInfo);
+                pricesMap.put("companyName", companyName);
+                pricesMap.put("extraServices", extraService);
+                pricesMap.put("contactInfo", contactInfo);
                 pricesMap.put("inventory", Inventory);
-                pricesMap.put("price per distance", pricePerDistance);
+                pricesMap.put("pricePerDistance", pricePerDistance);
 
                 newroot.setValue(pricesMap)
+
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {

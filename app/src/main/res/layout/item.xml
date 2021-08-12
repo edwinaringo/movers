@@ -1,155 +1,147 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/itemView"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardElevation="8dp"
     app:cardCornerRadius="8dp"
-    android:outlineSpotShadowColor="@color/black"
-    android:layout_margin="16dp">
+    android:outlineSpotShadowColor="@color/purple_500"
+    android:layout_margin="16dp"
+    android:elevation="8dp"
+    android:divider="@color/purple_500"
+    android:dividerHeight="0.0px"
+    android:clipToPadding="false"
+    android:clipChildren="false">
 
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
-        android:orientation="vertical"
-        android:layout_marginTop="20dp">
+        android:orientation="vertical">
 
-<!--        company-->
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:orientation="horizontal">
 
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Company Name:"
+                android:text="Company Name: "
                 android:textColor="@color/black"
                 android:textSize="26sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"/>
+
 
             <TextView
                 android:id="@+id/companyName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Company Name:"
-                android:layout_marginLeft="8dp"
+                android:text="CyberTec"
                 android:textColor="@color/black"
-                android:textSize="20sp"/>
+                android:textSize="20sp" />
         </LinearLayout>
-<!--        Extra service-->
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:orientation="horizontal"
-            android:layout_marginTop="10dp">
 
-
+            android:orientation="horizontal">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Extra services"
+                android:text="Contact Info: "
                 android:textColor="@color/black"
                 android:textSize="26sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/extraServices"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Extra Services:"
-                android:layout_marginLeft="8dp"
-                android:textColor="@color/black"
-                android:textSize="20sp"/>
-        </LinearLayout>
-<!--        Contact info-->
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:orientation="horizontal"
-            android:layout_marginTop="10dp">
-
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Contact info:"
-                android:textColor="@color/black"
-                android:textSize="26sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"/>
 
             <TextView
                 android:id="@+id/contactInfo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Contact Info"
-                android:layout_marginLeft="8dp"
+                android:text="0729432079"
                 android:textColor="@color/black"
-                android:textSize="20sp"/>
-        </LinearLayout>
-<!--        inventory-->
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:orientation="horizontal"
-            android:layout_marginTop="10dp">
-
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Inventory charges:"
-                android:textColor="@color/black"
-                android:textSize="26sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/inventoryCharges"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="charges"
-                android:layout_marginLeft="8dp"
-                android:textColor="@color/black"
-                android:textSize="20sp"/>
+                android:textSize="20sp" />
         </LinearLayout>
 
-<!--        Charge per Distance-->
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:orientation="horizontal"
-            android:layout_marginTop="10dp">
 
-
+            android:orientation="horizontal">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Charge per km"
+                android:text="Extra Services: "
                 android:textColor="@color/black"
                 android:textSize="26sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"/>
 
             <TextView
-                android:id="@+id/pricePerKM"
+                android:id="@+id/extraServices"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="price"
-                android:layout_marginLeft="8dp"
+                android:text="Fix Computers"
                 android:textColor="@color/black"
-                android:textSize="20sp"/>
+                android:textSize="20sp" />
         </LinearLayout>
 
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Inventory Charges: "
+                android:textColor="@color/black"
+                android:textSize="26sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/inventory"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1000"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Price Per Distance: "
+                android:textColor="@color/black"
+                android:textSize="26sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/pricePerDistance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="100"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+        </LinearLayout>
     </LinearLayout>
+
+
 
 </androidx.cardview.widget.CardView>

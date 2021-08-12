@@ -48,7 +48,14 @@
         android:layout_marginTop="16dp"/>
 
 
-
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/prices"
+        android:text="Select Mover"
+        android:backgroundTint="@color/white"
+        android:textColor="@color/black"
+        android:layout_marginTop="16dp"/>
     <Button
         android:id="@+id/pickups"
         android:layout_width="300dp"
