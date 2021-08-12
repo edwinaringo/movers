@@ -123,7 +123,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             if (user.isEmailVerified()) {
 
                                 Intent intent =new Intent (LoginActivity.this, HouseActivity.class);
-                                intent.putExtra("username", id);
+                                String[] userInfo={id,email};
+                                intent.putExtra("userinfo", userInfo);
 
 
                                 Log.i("user", id);
@@ -145,17 +146,17 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 });
     }
 
-    @Override
-    public void onStart() {
-        super.onStart();
-        mAuth.addAuthStateListener(mAuthListener);
-    }
-
-    @Override
-    public void onStop() {
-        super.onStop();
-        if (mAuthListener != null) {
-            mAuth.removeAuthStateListener(mAuthListener);
-        }
-    }
+//    @Override
+//    public void onStart() {
+//        super.onStart();
+//        mAuth.addAuthStateListener(mAuthListener);
+//    }
+//
+//    @Override
+//    public void onStop() {
+//        super.onStop();
+//        if (mAuthListener != null) {
+//            mAuth.removeAuthStateListener(mAuthListener);
+//        }
+//    }
 }
