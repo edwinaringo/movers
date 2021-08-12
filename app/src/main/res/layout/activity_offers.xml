@@ -52,16 +52,37 @@
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="107dp"
+        android:backgroundTint="@color/black"
         android:text="Find the cost" />
 
 
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editText2"
+        android:layout_alignParentStart="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="4dp"
+        android:backgroundTint="@color/white"
+        android:textColor="@color/black"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="220dp"
+        android:text="Accept Offer" />
 
-
-
-
-
-
-
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editText2"
+        android:layout_alignParentEnd="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="218dp"
+        android:layout_marginEnd="1dp"
+        android:backgroundTint="@color/white"
+        android:textColor="@color/black"
+        android:text="Reject Offer" />
 
 
 </RelativeLayout>
