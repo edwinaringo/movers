@@ -113,6 +113,9 @@ public class PickupsActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<MovingOrders> call, Response<MovingOrders> response) {
                 Toast.makeText(getApplicationContext(),"Moving Order Successful",Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent();
+                intent.putExtra("username",user_name);
+                startActivity(intent);
             }
 
             @Override
