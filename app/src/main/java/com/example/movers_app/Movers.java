@@ -18,7 +18,7 @@ import java.util.HashMap;
 
 public class Movers extends AppCompatActivity {
 
-    private EditText mCompanyName,mStudioPrice, mOneBedroomPrice, mTwoBedroomPrice, mThreeBedroomPrice;
+    private EditText mCompanyName,mContactInfo, mExtraServices, mInventoryCharges, mDistanceCharges;
     private Button submitPrices;
 
     private FirebaseDatabase db = FirebaseDatabase.getInstance();
@@ -31,30 +31,32 @@ public class Movers extends AppCompatActivity {
         setContentView(R.layout.activity_movers);
 
         mCompanyName = findViewById(R.id.companyName);
-        mStudioPrice = findViewById(R.id.studioPrice);
-        mOneBedroomPrice = findViewById(R.id.oneBedRoomPrice);
-        mTwoBedroomPrice = findViewById(R.id.twoBedRoomPrice);
-        mThreeBedroomPrice = findViewById(R.id.threeBedRoomPrice);
+        mContactInfo = findViewById(R.id.contactInfo);
+        mExtraServices = findViewById(R.id.extraServices);
+        mInventoryCharges = findViewById(R.id.inventoryCharges);
+        mDistanceCharges = findViewById(R.id.distanceCharges);
         submitPrices = findViewById(R.id.submitPrices);
 
         submitPrices.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String companyName = mCompanyName.getText().toString();
-                String studioPrice = mStudioPrice.getText().toString();
-                String oneBedroomPrice = mOneBedroomPrice.getText().toString();
-                String twoBedroomPrice = mTwoBedroomPrice.getText().toString();
-                String threeBedroomPrice = mThreeBedroomPrice.getText().toString();
+                String contactInfo = mContactInfo.getText().toString();
+                String extraServices = mExtraServices.getText().toString();
+                String inventoryCharges = mInventoryCharges.getText().toString();
+                String distanceCharges = mDistanceCharges.getText().toString();
 
-                HashMap<String, String> pricesMap = new HashMap<>();
+                HashMap<String, Object> pricesMap = new HashMap<>();
 
                 pricesMap.put("Company Name", companyName);
-                pricesMap.put("Studio Price", studioPrice);
-                pricesMap.put("One Bedroom Price", oneBedroomPrice);
-                pricesMap.put("Two Bedroom Price", twoBedroomPrice);
-                pricesMap.put("Three Bedroom Price", threeBedroomPrice);
+                pricesMap.put("contact info", contactInfo);
+                pricesMap.put("extra service", extraServices);
+                pricesMap.put("inventory", inventoryCharges);
+                pricesMap.put("price per distance", distanceCharges);
 
-                root.setValue(pricesMap)
+                root.updateChildren(pricesMap)
+
+//                root.setValue(pricesMap)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
