@@ -8,7 +8,6 @@ import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Display;
 import android.view.View;
 import android.widget.Button;
@@ -28,26 +27,22 @@ import java.util.List;
 import java.util.Locale;
 
 public class LocationActivity extends AppCompatActivity implements View.OnClickListener {
-//initializing viriables
+    //initializing viriables
     EditText etSource,etDestination;
     Button btTrack,moversList;
-
     TextView mPickUpsbutton ,textView;
     String sType;
     double Lat1 = 0,Long1 = 0, Lat2 = 0, Long2 = 0;
     int flag = 0;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_location);
 
-
         //Assign variable
         mPickUpsbutton = (TextView) findViewById(R.id.pickups);
-        textView = findViewById(R.id.text_view );
 
+        textView = findViewById(R.id.text_view );
         etSource = findViewById(R.id.et_source);
         etDestination = findViewById(R.id.et_destination);
         btTrack = findViewById(R.id.bt_track);
@@ -93,16 +88,14 @@ public class LocationActivity extends AppCompatActivity implements View.OnClickL
 
         mPickUpsbutton.setOnClickListener(this);
 
-         sSource = etSource.getText().toString().trim();
-         sDestination = etDestination.getText().toString().trim();
-
-
-
+        //find the button with id price and set a click listener
+        //moversList=findViewById(R.id.prices);
+        //moversList.setOnClickListener(this);
         btTrack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                sSource = etSource.getText().toString().trim();
-                sDestination = etDestination.getText().toString().trim();
+                String sSource = etSource.getText().toString().trim();
+                String sDestination = etDestination.getText().toString().trim();
                 if (sSource.equals("") && sDestination.equals("")){
                     Toast.makeText(getApplicationContext(),"Enter both Location",Toast.LENGTH_LONG);
                 }else {
@@ -182,7 +175,7 @@ public class LocationActivity extends AppCompatActivity implements View.OnClickL
         //set distance on text view
         textView.setText(String.format(Locale.US,"%2f kilometers",distance).trim());
     }
-//convert radian to degree
+    //convert radian to degree
     private double rad2deg(double distance) {
         return (distance * 180.0 / Math.PI);
     }
@@ -199,34 +192,17 @@ public class LocationActivity extends AppCompatActivity implements View.OnClickL
             intent.setPackage("com.google.android.apps.maps");
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
-
         }catch (ActivityNotFoundException e){
             Uri uri = Uri.parse("https://play.google.com/store/apps/details?id=com.google.android.apps.maps");
             Intent intent = new Intent(Intent.ACTION_VIEW,uri);
             intent.setFlags(intent.FLAG_ACTIVITY_NEW_TASK);
-
-
             startActivity(intent);
-
         }
-
-
-            }
-
+    }
     @Override
     public void onClick(View v) {
         if(v == mPickUpsbutton){
-            sSource = etSource.getText().toString().trim();
-            sDestination = etDestination.getText().toString().trim();
-
-            Bundle extras = getIntent().getExtras();
-            orderInfo = extras.getStringArray("orderInfo");
-            orderInfo[3] = sSource;
-            orderInfo[4]=sDestination;
-            Intent intent2 =new Intent(LocationActivity.this,PickupsActivity.class);
-
-            intent2.putExtra("orderInfo",orderInfo);
-            startActivity(intent2);
+            startActivity(new Intent(LocationActivity.this,PickupsActivity.class));
         }
         //set an intent on price id button
         if(v== moversList){
