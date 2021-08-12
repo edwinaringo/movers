@@ -96,19 +96,19 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    android:text="Price Per Kilometer"
+                    android:text="Extra Services"
                     android:textColor="#000000"
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
                 <EditText
-                    android:id="@+id/distancePrice"
+                    android:id="@+id/ExtraServices"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_marginTop="16dp"
                     android:layout_marginBottom="16dp"
                     android:ems="10"
-                    android:hint="Enter Price"
+                    android:hint="Enter Extra services"
                     android:inputType="text"
                     android:paddingLeft="10sp"
                     android:textColor="@color/purple_500"
@@ -129,19 +129,19 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    android:text="One Bedroom Price"
+                    android:text="Contact Info"
                     android:textColor="#000000"
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
                 <EditText
-                    android:id="@+id/oneBedRoomPrice"
+                    android:id="@+id/contactInfo"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_marginTop="16dp"
                     android:layout_marginBottom="16dp"
                     android:ems="10"
-                    android:hint="Enter Price"
+                    android:hint="Enter contact info"
                     android:inputType="text"
                     android:paddingLeft="10sp"
                     android:textColor="@color/purple_500"
@@ -162,14 +162,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    android:text="Two Bedroom Price"
+                    android:text="Inventory charges"
                     android:textColor="#000000"
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
 
                 <EditText
-                    android:id="@+id/twoBedRoomPrice"
+                    android:id="@+id/inventoryCharges"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_marginTop="16dp"
@@ -195,20 +195,20 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    android:text="Three Bedroom Price"
+                    android:text="Price per Distance"
                     android:textColor="#000000"
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
 
                 <EditText
-                    android:id="@+id/threeBedRoomPrice"
+                    android:id="@+id/pricePerDistance"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_marginTop="16dp"
                     android:layout_marginBottom="16dp"
                     android:ems="10"
-                    android:hint="Enter price"
+                    android:hint="Enter price per Distance"
                     android:inputType="text"
                     android:paddingLeft="10sp"
                     android:textColor="@color/purple_500"
@@ -216,38 +216,6 @@
                     android:textSize="16sp" />
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="32dp"
-                android:layout_marginEnd="32dp"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/textView4"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:text="Studio Price"
-                    android:textColor="#000000"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-
-
-                <EditText
-                    android:id="@+id/studioPrice"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginBottom="16dp"
-                    android:ems="10"
-                    android:hint="Enter price"
-                    android:inputType="text"
-                    android:paddingLeft="10sp"
-                    android:textColor="@color/purple_500"
-                    android:textColorHint="#808080"
-                    android:textSize="16sp" />
-            </LinearLayout>
 
             <Button
                 android:id="@+id/submitPrices"
