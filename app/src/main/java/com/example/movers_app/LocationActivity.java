@@ -8,6 +8,7 @@ import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Display;
 import android.view.View;
 import android.widget.Button;
@@ -30,18 +31,23 @@ public class LocationActivity extends AppCompatActivity implements View.OnClickL
 //initializing viriables
     EditText etSource,etDestination;
     Button btTrack,moversList;
+
     TextView mPickUpsbutton ,textView;
     String sType;
     double Lat1 = 0,Long1 = 0, Lat2 = 0, Long2 = 0;
     int flag = 0;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_location);
 
+
         //Assign variable
         mPickUpsbutton = (TextView) findViewById(R.id.pickups);
         textView = findViewById(R.id.text_view );
+
         etSource = findViewById(R.id.et_source);
         etDestination = findViewById(R.id.et_destination);
         btTrack = findViewById(R.id.bt_track);
@@ -87,24 +93,20 @@ public class LocationActivity extends AppCompatActivity implements View.OnClickL
 
         mPickUpsbutton.setOnClickListener(this);
 
-        //find the button with id price and set a click listener
-        moversList=findViewById(R.id.prices);
-        moversList.setOnClickListener(this);
+         sSource = etSource.getText().toString().trim();
+         sDestination = etDestination.getText().toString().trim();
+
 
         btTrack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String sSource = etSource.getText().toString().trim();
-                String sDestination = etDestination.getText().toString().trim();
-
+                sSource = etSource.getText().toString().trim();
+                sDestination = etDestination.getText().toString().trim();
                 if (sSource.equals("") && sDestination.equals("")){
-
                     Toast.makeText(getApplicationContext(),"Enter both Location",Toast.LENGTH_LONG);
-
                 }else {
                     DisplayTrack(sSource,sDestination);
                 }
-
             }
         });
     }
@@ -213,7 +215,17 @@ public class LocationActivity extends AppCompatActivity implements View.OnClickL
     @Override
     public void onClick(View v) {
         if(v == mPickUpsbutton){
-            startActivity(new Intent(LocationActivity.this,PickupsActivity.class));
+            sSource = etSource.getText().toString().trim();
+            sDestination = etDestination.getText().toString().trim();
+
+            Bundle extras = getIntent().getExtras();
+            orderInfo = extras.getStringArray("orderInfo");
+            orderInfo[3] = sSource;
+            orderInfo[4]=sDestination;
+            Intent intent2 =new Intent(LocationActivity.this,PickupsActivity.class);
+
+            intent2.putExtra("orderInfo",orderInfo);
+            startActivity(intent2);
         }
         //set an intent on price id button
         if(v== moversList){

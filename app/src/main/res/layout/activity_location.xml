@@ -47,23 +47,22 @@
         android:textColor="@color/black"
         android:layout_marginTop="16dp"/>
 
-    <Button
-        android:id="@+id/prices"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/black"
-        android:text="Continue" />
+
 
     <Button
         android:id="@+id/pickups"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/white"
-        android:text="Create Pick Up"
-        android:textColor="@color/black"
+        android:backgroundTint="@color/black"
+        android:text="Proceed"
+        android:textColor="@color/white"
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/textView6"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+
+
+
 </LinearLayout>
