@@ -97,6 +97,7 @@ public class LocationActivity extends AppCompatActivity implements View.OnClickL
          sDestination = etDestination.getText().toString().trim();
 
 
+
         btTrack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -220,16 +221,18 @@ public class LocationActivity extends AppCompatActivity implements View.OnClickL
 
             Bundle extras = getIntent().getExtras();
             orderInfo = extras.getStringArray("orderInfo");
-            orderInfo[3] = sSource;
-            orderInfo[4]=sDestination;
-            Intent intent2 =new Intent(LocationActivity.this,PickupsActivity.class);
+
+            orderInfo[2] = sSource;
+            orderInfo[3]=sDestination;
+            Intent intent2 =new Intent(LocationActivity.this,MoversList.class);
+
 
             intent2.putExtra("orderInfo",orderInfo);
             startActivity(intent2);
         }
         //set an intent on price id button
-        if(v== moversList){
-            startActivity(new Intent(LocationActivity.this,MoversList.class));
-        }
+//        if(v== moversList){
+//            startActivity(new Intent(LocationActivity.this,MoversList.class));
+//        }
     }
 }

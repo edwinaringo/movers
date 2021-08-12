@@ -96,52 +96,26 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    android:text="Extra Services"
-                    android:textColor="#000000"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
 
-                <EditText
-                    android:id="@+id/ExtraServices"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginBottom="16dp"
-                    android:ems="10"
-                    android:hint="Enter Extra services"
-                    android:inputType="text"
-                    android:paddingLeft="10sp"
-                    android:textColor="@color/purple_500"
-                    android:textColorHint="#808080"
-                    android:textSize="16sp" />
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginStart="32dp"
-                android:layout_marginEnd="32dp"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/textView20"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
                     android:text="Contact Info"
+
                     android:textColor="#000000"
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
                 <EditText
+
                     android:id="@+id/contactInfo"
+
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_marginTop="16dp"
                     android:layout_marginBottom="16dp"
                     android:ems="10"
-                    android:hint="Enter contact info"
+
+                    android:hint="Enter Contact"
+
+
                     android:inputType="text"
                     android:paddingLeft="10sp"
                     android:textColor="@color/purple_500"
@@ -162,20 +136,24 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    android:text="Inventory charges"
+
+                    android:text="Extra Services"
+
                     android:textColor="#000000"
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
 
                 <EditText
-                    android:id="@+id/inventoryCharges"
+
+                    android:id="@+id/extraServices"
+
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_marginTop="16dp"
                     android:layout_marginBottom="16dp"
                     android:ems="10"
-                    android:hint="Enter price"
+                    android:hint="Enter your services"
                     android:inputType="text"
                     android:paddingLeft="10sp"
                     android:textColor="@color/purple_500"
@@ -190,8 +168,48 @@
                 android:layout_marginEnd="32dp"
                 android:orientation="vertical">
 
+
                 <TextView
                     android:id="@+id/textView25"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+
+                    android:text="Inventory Charges"
+
+                    android:textColor="#000000"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <EditText
+
+                    android:id="@+id/inventoryCharges"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:ems="10"
+
+                    android:hint="Enter Inventory Charges"
+
+                    android:inputType="text"
+                    android:paddingLeft="10sp"
+                    android:textColor="@color/purple_500"
+                    android:textColorHint="#808080"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginEnd="32dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
@@ -202,13 +220,13 @@
 
 
                 <EditText
-                    android:id="@+id/pricePerDistance"
+                    android:id="@+id/distanceCharges"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_marginTop="16dp"
                     android:layout_marginBottom="16dp"
                     android:ems="10"
-                    android:hint="Enter price per Distance"
+                    android:hint="Enter Distance Charges"
                     android:inputType="text"
                     android:paddingLeft="10sp"
                     android:textColor="@color/purple_500"
