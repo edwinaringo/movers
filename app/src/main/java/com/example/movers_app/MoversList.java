@@ -26,20 +26,20 @@ public class MoversList extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movers_list);
 
-        mListView = (ListView) findViewById(R.id.listView);
-
-        //adapter to display the list
-        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, movers);
-        mListView.setAdapter(adapter);
-
-        //show list on layout view
-        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                //display call on the hardcoded list
-                String restaurant = ((TextView)view).getText().toString();
-                Toast.makeText(MoversList.this, restaurant, Toast.LENGTH_LONG).show();
-            }
-        });
+//        mListView = (ListView) findViewById(R.id.listView);
+//
+//        //adapter to display the list
+//        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, movers);
+//        mListView.setAdapter(adapter);
+//
+//        //show list on layout view
+//        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+//                //display call on the hardcoded list
+//                String restaurant = ((TextView)view).getText().toString();
+//                Toast.makeText(MoversList.this, restaurant, Toast.LENGTH_LONG).show();
+//            }
+//        });
     }
 }
