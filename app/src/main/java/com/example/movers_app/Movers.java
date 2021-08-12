@@ -23,6 +23,8 @@ public class Movers extends AppCompatActivity {
 
     private FirebaseDatabase db = FirebaseDatabase.getInstance();
     private DatabaseReference root = db.getReference().child("MoverPrices");
+    DatabaseReference newroot = root.push();
+
 
 
     @Override
@@ -54,7 +56,7 @@ public class Movers extends AppCompatActivity {
                 pricesMap.put("inventory", inventoryCharges);
                 pricesMap.put("price per distance", distanceCharges);
 
-                root.setValue(pricesMap)
+                newroot.setValue(pricesMap)
 
 //                root.setValue(pricesMap)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
