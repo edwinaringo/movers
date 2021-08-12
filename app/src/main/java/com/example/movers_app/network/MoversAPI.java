@@ -15,6 +15,9 @@ public interface MoversAPI {
     @GET("movingorders/user/{userName}")
     Call<List<MovingOrders>> getMovingOrderByUserName(@Path("userName") String userName);
 
+//    @GET("movingorders/user/{userName}")
+//    Call<MovingOrders> getMovingOrderByUserName(@Path("userName") String userName);
+
 //    @POST("movingorders/new")
 //    Call<MovingOrders> postMovingOrder(@Body RequestBody body);
 

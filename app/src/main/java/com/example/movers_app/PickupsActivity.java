@@ -89,7 +89,7 @@ public class PickupsActivity extends AppCompatActivity {
                         String pickup_time = date+" "+ time+" ";
 
                         Log.i("message",orderInfo[0]+""+orderInfo[1]+""+orderInfo[2]);
-                        saveOrder(orderInfo[0],"sheilasharon10@gmail.com",orderInfo[1],orderInfo[2],orderInfo[3],"trusties",79898,"approved",pickup_time);
+                        saveOrder(orderInfo[0],orderInfo[1],orderInfo[2],orderInfo[3],orderInfo[4],"trusties",79898,"approved",pickup_time);
 
                     }
                 },chour,cminute,false);
@@ -113,6 +113,9 @@ public class PickupsActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<MovingOrders> call, Response<MovingOrders> response) {
                 Toast.makeText(getApplicationContext(),"Moving Order Successful",Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getApplicationContext(),MovingOrdersActivity.class);
+                intent.putExtra("username",user_name);
+                startActivity(intent);
             }
 
             @Override
