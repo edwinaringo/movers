@@ -12,7 +12,7 @@
         android:id="@+id/editText"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
-        android:hint="Enter Distance"
+        android:hint="Enter Distance "
         android:inputType="number"
         android:textColor="#000"
 
@@ -26,7 +26,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
         android:layout_below="@id/editText"
-        android:hint="amount in sh."
+        android:hint="amount in sh.per kilometer"
         android:inputType="number"
         android:textColor="#000" />
 
