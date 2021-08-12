@@ -1,6 +1,9 @@
 package com.example.movers_app;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.view.View;
@@ -10,36 +13,54 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+
 public class MoversList extends AppCompatActivity {
 
-    //call the list view
-    private ListView mListView;
-    //working with hardcoded list
-    private String[] movers = new String[] {"Mover1", "Mover2",
-            "Mover3", "Mover4", "Mover5", "Mover6",
-            "Mover7", "Mover8", "Mover9", "Mover10",
-            "Mover11", "Mover12", "Mover13",
-            "Mover14", "Mover15"};
+    RecyclerView recyclerView;
+    DatabaseReference database;
+    MoverListAdapter moverListAdapter;
+    ArrayList<MoverBio> list;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movers_list);
 
-//        mListView = (ListView) findViewById(R.id.listView);
+        recyclerView = findViewById(R.id.mover_list);
+        database = FirebaseDatabase.getInstance().getReference("MoverPrices");
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        //adapter to display the list
-        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, movers);
-        mListView.setAdapter(adapter);
+        list = new ArrayList<>();
+        moverListAdapter = new MoverListAdapter(this,list);
+        recyclerView.setAdapter(moverListAdapter);
 
-        //show list on layout view
-        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        database.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                //display call on the hardcoded list
-                String restaurant = ((TextView)view).getText().toString();
-                Toast.makeText(MoversList.this, restaurant, Toast.LENGTH_LONG).show();
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                    MoverBio moverBio = dataSnapshot.getValue(MoverBio.class);
+                    list.add(moverBio);
+                }
+                moverListAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
             }
         });
+
+
+
     }
 }

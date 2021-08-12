@@ -46,7 +46,7 @@ public class Movers extends AppCompatActivity {
                 String inventoryCharges = mInventoryCharges.getText().toString();
                 String distanceCharges = mDistanceCharges.getText().toString();
 
-                HashMap<String, Object> pricesMap = new HashMap<>();
+                HashMap<String, String> pricesMap = new HashMap<>();
 
                 pricesMap.put("Company Name", companyName);
                 pricesMap.put("contact info", contactInfo);
@@ -54,7 +54,7 @@ public class Movers extends AppCompatActivity {
                 pricesMap.put("inventory", inventoryCharges);
                 pricesMap.put("price per distance", distanceCharges);
 
-                root.updateChildren(pricesMap)
+                root.setValue(pricesMap)
 
 //                root.setValue(pricesMap)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {

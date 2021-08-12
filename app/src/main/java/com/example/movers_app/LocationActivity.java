@@ -94,14 +94,14 @@ public class LocationActivity extends AppCompatActivity implements View.OnClickL
             orderInfo = extras.getStringArray("orderInfo");
             orderInfo[2] = sSource;
             orderInfo[3]=sDestination;
-            Intent intent2 =new Intent(LocationActivity.this,PickupsActivity.class);
+            Intent intent2 =new Intent(LocationActivity.this,MoversList.class);
 
             intent2.putExtra("orderInfo",orderInfo);
             startActivity(intent2);
         }
         //set an intent on price id button
-        if(v== moversList){
-            startActivity(new Intent(LocationActivity.this,MoversList.class));
-        }
+//        if(v== moversList){
+//            startActivity(new Intent(LocationActivity.this,MoversList.class));
+//        }
     }
 }
