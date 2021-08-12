@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.movers_app.adapters.MovingOrdersAdapter;
+import com.example.movers_app.adapters.MovingOrdersListAdapter;
 import com.example.movers_app.models.MovingOrders;
 import com.example.movers_app.network.MoversAPI;
 import com.example.movers_app.network.MoversClient;
@@ -28,10 +28,9 @@ public class MovingOrdersActivity  extends AppCompatActivity {
     @BindView(R.id.recyclerView)
     RecyclerView mRecyclerView;
 
-    String userName;
+    private String userName;
 
-    private MovingOrdersAdapter mAdapter;
-
+    private MovingOrdersListAdapter mAdapter;
     private MovingOrders mMovingOrders;
     private List<MovingOrders> movingOrdersList = new ArrayList<>();
 
@@ -45,30 +44,29 @@ public class MovingOrdersActivity  extends AppCompatActivity {
         userName= intent.getStringExtra("username");
 
         MoversAPI client = MoversClient.getClient();
-        Call<MovingOrders> call = client.getMovingOrderByUserName(userName);
+        Call<List<MovingOrders>> call = client.getMovingOrderByUserName(userName);
 
-        call.enqueue(new Callback<MovingOrders>() {
+        call.enqueue(new Callback<List<MovingOrders>>() {
             @Override
-            public void onResponse(Call<MovingOrders> call, Response<MovingOrders> response) {
+            public void onResponse(Call<List<MovingOrders>> call, Response<List<MovingOrders>> response) {
                 if(response.isSuccessful()){
-                    mMovingOrders = response.body();
-                    movingOrdersList.add(mMovingOrders);
-                    mAdapter = new MovingOrdersAdapter(getApplicationContext(),movingOrdersList);
+                    movingOrdersList =response.body();
+                    mAdapter = new MovingOrdersListAdapter(getApplicationContext(),movingOrdersList);
+
+                    RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
                     mRecyclerView.setAdapter(mAdapter);
-                    RecyclerView.LayoutManager layoutManager =new LinearLayoutManager(getApplicationContext());
                     mRecyclerView.setLayoutManager(layoutManager);
                     mRecyclerView.setHasFixedSize(true);
-
                 }else{
                 Log.d("msg","api response unsuccessful");
                 }
             }
 
             @Override
-            public void onFailure(Call<MovingOrders> call, Throwable t) {
+            public void onFailure(Call<List<MovingOrders>> call, Throwable t) {
                 Log.d("msg",t.getMessage());
+//                hideProgressBar();
                 Log.d("msg","api response unsuccessful");
-
             }
         });
     }

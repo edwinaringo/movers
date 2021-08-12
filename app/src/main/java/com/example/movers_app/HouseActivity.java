@@ -21,8 +21,8 @@ public class HouseActivity extends AppCompatActivity implements View.OnClickList
     private TextView studioText, oneBedroomText, twoBedRoomText, threeBedRoomText;
     String userName;
 
-    String[] orderInfo= new String[4];
-
+    String[] orderInfo= new String[5];
+    String[] userInfo;
 
     @BindView(R.id.studioImage) ImageView mStudioImage;
     @BindView(R.id.oneBedRoomImage) ImageView mOneBedRoomImage;
@@ -34,8 +34,11 @@ public class HouseActivity extends AppCompatActivity implements View.OnClickList
         setContentView(R.layout.activity_house);
         ButterKnife.bind(this);
 
-        Intent intent = getIntent();
-        userName = intent.getStringExtra("username");
+//        Intent intent = getIntent();
+        Bundle extras = getIntent().getExtras();
+        userInfo = extras.getStringArray("userinfo");
+        Log.i("userinfo",userInfo[0]+""+userInfo[1]);
+//        userName = intent.getStringExtra("userinfo");
 
         Picasso.get().load(R.drawable.bedsitter).into(mThreeBedRoomImage);
         Picasso.get().load(R.drawable.studio).into(mStudioImage);
@@ -74,8 +77,9 @@ public class HouseActivity extends AppCompatActivity implements View.OnClickList
         if(v==studioText || v==mStudioImage){
             Intent intent =new Intent(HouseActivity.this,LocationActivity.class);
             inventory=studioText.getText().toString();
-            orderInfo[0]=userName;
-            orderInfo[1]= inventory;
+            orderInfo[0]=userInfo[0];
+            orderInfo[1]= userInfo[1];
+            orderInfo[2]= inventory;
 
             intent.putExtra("orderInfo",orderInfo);
             startActivity(intent);
@@ -83,8 +87,9 @@ public class HouseActivity extends AppCompatActivity implements View.OnClickList
         if(v==oneBedroomText || v==mOneBedRoomImage){
             Intent intent =new Intent(HouseActivity.this,LocationActivity.class);
             inventory=oneBedroomText.getText().toString();
-            orderInfo[0]=userName;
-            orderInfo[1]= inventory;
+            orderInfo[0]=userInfo[0];
+            orderInfo[1]= userInfo[1];
+            orderInfo[2]= inventory;
 
             intent.putExtra("orderInfo",orderInfo);
             startActivity(intent);
@@ -92,8 +97,9 @@ public class HouseActivity extends AppCompatActivity implements View.OnClickList
         if(v==twoBedRoomText || v==mTwoBedRoomImage){
             Intent intent =new Intent(HouseActivity.this,LocationActivity.class);
             inventory=twoBedRoomText.getText().toString();
-            orderInfo[0]=userName;
-            orderInfo[1]= inventory;
+            orderInfo[0]=userInfo[0];
+            orderInfo[1]= userInfo[1];
+            orderInfo[2]= inventory;
 
             intent.putExtra("orderInfo",orderInfo);
             startActivity(intent);
@@ -101,8 +107,9 @@ public class HouseActivity extends AppCompatActivity implements View.OnClickList
         if(v==threeBedRoomText || v==mThreeBedRoomImage){
             Intent intent =new Intent(HouseActivity.this,LocationActivity.class);
             inventory=threeBedRoomText.getText().toString();
-            orderInfo[0]=userName;
-            orderInfo[1]= inventory;
+            orderInfo[0]=userInfo[0];
+            orderInfo[1]= userInfo[1];
+            orderInfo[2]= inventory;
 
             intent.putExtra("orderInfo",orderInfo);
             startActivity(intent);
