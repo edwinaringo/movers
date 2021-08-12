@@ -31,6 +31,9 @@ public class LocationActivity extends AppCompatActivity implements View.OnClickL
     EditText etSource,etDestination;
     Button btTrack,moversList;
     TextView mPickUpsbutton ,textView;
+
+    String sSource,sDestination;
+    String []  orderInfo;
     String sType;
     double Lat1 = 0,Long1 = 0, Lat2 = 0, Long2 = 0;
     int flag = 0;
@@ -202,11 +205,25 @@ public class LocationActivity extends AppCompatActivity implements View.OnClickL
     @Override
     public void onClick(View v) {
         if(v == mPickUpsbutton){
-            startActivity(new Intent(LocationActivity.this,MoversList.class));
+
+            sSource = etSource.getText().toString().trim();
+            sDestination = etDestination.getText().toString().trim();
+
+            Bundle extras = getIntent().getExtras();
+            orderInfo = extras.getStringArray("orderInfo");
+
+            orderInfo[2] = sSource;
+            orderInfo[3]=sDestination;
+            Intent intent2 =new Intent(LocationActivity.this,MoversList.class);
+
+
+            intent2.putExtra("orderInfo",orderInfo);
+            startActivity(intent2);
+
         }
         //set an intent on price id button
-        if(v== moversList){
-            startActivity(new Intent(LocationActivity.this,MoversList.class));
-        }
+//        if(v== moversList){
+//            startActivity(new Intent(LocationActivity.this,MoversList.class));
+//        }
     }
 }
