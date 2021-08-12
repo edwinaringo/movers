@@ -14,12 +14,9 @@ import retrofit2.http.Path;
 public interface MoversAPI {
     @GET("movingorders/user/{userName}")
     Call<List<MovingOrders>> getMovingOrderByUserName(@Path("userName") String userName);
+    @GET("movingorders/company/{movingCompany}")
+    Call<List<MovingOrders>> getMovingOrderByCompanyName(@Path("movingCompany") String movingCompany);
 
-//    @GET("movingorders/user/{userName}")
-//    Call<MovingOrders> getMovingOrderByUserName(@Path("userName") String userName);
-
-//    @POST("movingorders/new")
-//    Call<MovingOrders> postMovingOrder(@Body RequestBody body);
 
     @POST("movingorders/new")
     Call<MovingOrders> postMovingOrder(@Body MovingOrders movingOrders);
