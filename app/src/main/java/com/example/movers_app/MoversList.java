@@ -35,6 +35,7 @@ public class MoversList extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movers_list);
 
+
         recyclerView = findViewById(R.id.mover_list);
         database = FirebaseDatabase.getInstance().getReference("MoverPrices");
         recyclerView.setHasFixedSize(true);
@@ -59,6 +60,7 @@ public class MoversList extends AppCompatActivity {
 
             }
         });
+
 
 
 

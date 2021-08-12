@@ -96,19 +96,26 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
+
                     android:text="Contact Info"
+
                     android:textColor="#000000"
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
                 <EditText
+
                     android:id="@+id/contactInfo"
+
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_marginTop="16dp"
                     android:layout_marginBottom="16dp"
                     android:ems="10"
+
                     android:hint="Enter Contact"
+
+
                     android:inputType="text"
                     android:paddingLeft="10sp"
                     android:textColor="@color/purple_500"
@@ -129,14 +136,18 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
+
                     android:text="Extra Services"
+
                     android:textColor="#000000"
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
 
                 <EditText
+
                     android:id="@+id/extraServices"
+
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_marginTop="16dp"
@@ -163,25 +174,32 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
+
                     android:text="Inventory Charges"
+
                     android:textColor="#000000"
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
                 <EditText
+
                     android:id="@+id/inventoryCharges"
+
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_marginTop="16dp"
                     android:layout_marginBottom="16dp"
                     android:ems="10"
+
                     android:hint="Enter Inventory Charges"
+
                     android:inputType="text"
                     android:paddingLeft="10sp"
                     android:textColor="@color/purple_500"
                     android:textColorHint="#808080"
                     android:textSize="16sp" />
             </LinearLayout>
+
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -215,6 +233,7 @@
                     android:textColorHint="#808080"
                     android:textSize="16sp" />
             </LinearLayout>
+
 
             <Button
                 android:id="@+id/submitPrices"

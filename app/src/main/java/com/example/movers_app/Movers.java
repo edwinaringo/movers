@@ -18,12 +18,16 @@ import java.util.HashMap;
 
 public class Movers extends AppCompatActivity {
 
-    private EditText mCompanyName,mContactInfo, mExtraServices, mInventoryCharges, mDistanceCharges;
+
+    private EditText mCompanyName,mContactInfo, mExtraServices, mInventoryCharges, mPricePerDistance;
+
     private Button submitPrices;
 
     private FirebaseDatabase db = FirebaseDatabase.getInstance();
     private DatabaseReference root = db.getReference().child("MoverPrices");
-    DatabaseReference newroot = root.push();
+
+    DatabaseReference newroot = root.push();//this is to add mover instead of replacing the one previously put on firebase
+
 
 
 
@@ -33,37 +37,43 @@ public class Movers extends AppCompatActivity {
         setContentView(R.layout.activity_movers);
 
         mCompanyName = findViewById(R.id.companyName);
+
+        mExtraServices = findViewById(R.id.ExtraServices);
         mContactInfo = findViewById(R.id.contactInfo);
-        mExtraServices = findViewById(R.id.extraServices);
         mInventoryCharges = findViewById(R.id.inventoryCharges);
-        mDistanceCharges = findViewById(R.id.distanceCharges);
+        mPricePerDistance= findViewById(R.id.pricePerDistance);
+
         submitPrices = findViewById(R.id.submitPrices);
 
         submitPrices.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 String companyName = mCompanyName.getText().toString();
+
+                String extraService = mExtraServices.getText().toString();
                 String contactInfo = mContactInfo.getText().toString();
-                String extraServices = mExtraServices.getText().toString();
-                String inventoryCharges = mInventoryCharges.getText().toString();
-                String distanceCharges = mDistanceCharges.getText().toString();
+                String Inventory = mInventoryCharges.getText().toString();
+                String pricePerDistance = mPricePerDistance.getText().toString();
+
 
                 HashMap<String, String> pricesMap = new HashMap<>();
 
-                pricesMap.put("Company Name", companyName);
-                pricesMap.put("contact info", contactInfo);
-                pricesMap.put("extra service", extraServices);
-                pricesMap.put("inventory", inventoryCharges);
-                pricesMap.put("price per distance", distanceCharges);
+                pricesMap.put("Company Name", Company Name);
+
+                pricesMap.put("extra service", extra ervice);
+                pricesMap.put("contact info", contact info);
+                pricesMap.put("inventory", inventory);
+                pricesMap.put("price per distance", price per distance);
 
                 newroot.setValue(pricesMap)
 
-//                root.setValue(pricesMap)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()){
                             startActivity(new Intent(Movers.this, ConfirmActivity.class));
+
                         }
 
                     }

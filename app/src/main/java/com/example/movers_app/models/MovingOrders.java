@@ -1,102 +1,100 @@
+
 package com.example.movers_app.models;
 
-import java.util.Objects;
+//import javax.annotation.Generated;
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 
+//@Generated("jsonschema2pojo")
 public class MovingOrders {
 
-    private int id;
-    private String user_name;
-    private String user_email;
+    @SerializedName("id")
+    @Expose
+    private Integer id;
+    @SerializedName("user_name")
+    @Expose
+    private String userName;
+    @SerializedName("user_email")
+    @Expose
+    private String userEmail;
+    @SerializedName("inventory")
+    @Expose
     private String inventory;
-    private String current_location;
-    private String new_location;
-    private String moving_company;
-    private int total_price;
-    private String order_status;
-    private String pickup_time;
+    @SerializedName("current_location")
+    @Expose
+    private String currentLocation;
+    @SerializedName("new_location")
+    @Expose
+    private String newLocation;
+    @SerializedName("moving_company")
+    @Expose
+    private String movingCompany;
+    @SerializedName("total_price")
+    @Expose
+    private Integer totalPrice;
+    @SerializedName("order_status")
+    @Expose
+    private String orderStatus;
+    @SerializedName("pickup_time")
+    @Expose
+    private String pickupTime;
 
-    public MovingOrders(String user_name, String user_email, String inventory, String current_location, String new_location, String moving_company, int total_price, String order_status, String pickup_time) {
-        this.user_name = user_name;
-        this.user_email = user_email;
-        this.inventory = inventory;
-        this.current_location = current_location;
-        this.new_location = new_location;
-        this.moving_company = moving_company;
-        this.total_price = total_price;
-        this.order_status = order_status;
-        this.pickup_time = pickup_time;
+    /**
+     * No args constructor for use in serialization
+     * 
+     */
+    public MovingOrders() {
     }
 
-    public int getId() {
+    /**
+     * 
+     * @param pickupTime
+     * @param movingCompany
+     * @param totalPrice
+     * @param orderStatus
+     * @param userEmail
+
+     * @param userName
+     * @param inventory
+     * @param newLocation
+     * @param currentLocation
+     */
+    public MovingOrders( String userName, String userEmail, String inventory, String currentLocation, String newLocation, String movingCompany, Integer totalPrice, String orderStatus, String pickupTime) {
+        super();
+
+        this.userName = userName;
+        this.userEmail = userEmail;
+        this.inventory = inventory;
+        this.currentLocation = currentLocation;
+        this.newLocation = newLocation;
+        this.movingCompany = movingCompany;
+        this.totalPrice = totalPrice;
+        this.orderStatus = orderStatus;
+        this.pickupTime = pickupTime;
+    }
+
+    public Integer getId() {
         return id;
     }
-    public void setId(int id) {
+
+    public void setId(Integer id) {
         this.id = id;
     }
 
-
-    public String getUser_name() {
-        return user_name;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setUser_name(String user_name) {
-        this.user_name = user_name;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
-    public String getUser_email() {
-        return user_email;
+    public String getUserEmail() {
+        return userEmail;
     }
 
-    public void setUser_email(String user_email) {
-        this.user_email = user_email;
-    }
-
-    public String getCurrent_location() {
-        return current_location;
-    }
-
-    public void setCurrent_location(String current_location) {
-        this.current_location = current_location;
-    }
-
-    public String getNew_location() {
-        return new_location;
-    }
-
-    public void setNew_location(String new_location) {
-        this.new_location = new_location;
-    }
-
-    public String getMoving_company() {
-        return moving_company;
-    }
-
-    public void setMoving_company(String moving_company) {
-        this.moving_company = moving_company;
-    }
-
-    public int getTotal_price() {
-        return total_price;
-    }
-
-    public void setTotal_price(int total_price) {
-        this.total_price = total_price;
-    }
-
-    public String getOrder_status() {
-        return order_status;
-    }
-
-    public void setOrder_status(String order_status) {
-        this.order_status = order_status;
-    }
-
-    public String getPickup_time() {
-        return pickup_time;
-    }
-
-    public void setPickup_time(String pickup_time) {
-        this.pickup_time = pickup_time;
+    public void setUserEmail(String userEmail) {
+        this.userEmail = userEmail;
     }
 
     public String getInventory() {
@@ -107,16 +105,52 @@ public class MovingOrders {
         this.inventory = inventory;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof MovingOrders)) return false;
-        MovingOrders that = (MovingOrders) o;
-        return getTotal_price() == that.getTotal_price() && Objects.equals(getUser_name(), that.getUser_name()) && Objects.equals(getUser_email(), that.getUser_email()) && Objects.equals(getInventory(), that.getInventory()) && Objects.equals(getCurrent_location(), that.getCurrent_location()) && Objects.equals(getNew_location(), that.getNew_location()) && Objects.equals(getMoving_company(), that.getMoving_company()) && Objects.equals(getOrder_status(), that.getOrder_status()) && Objects.equals(getPickup_time(), that.getPickup_time());
+    public String getCurrentLocation() {
+        return currentLocation;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(getUser_name(), getUser_email(), getInventory(), getCurrent_location(), getNew_location(), getMoving_company(), getTotal_price(), getOrder_status(), getPickup_time());
+    public void setCurrentLocation(String currentLocation) {
+        this.currentLocation = currentLocation;
     }
+
+    public String getNewLocation() {
+        return newLocation;
+    }
+
+    public void setNewLocation(String newLocation) {
+        this.newLocation = newLocation;
+    }
+
+    public String getMovingCompany() {
+        return movingCompany;
+    }
+
+    public void setMovingCompany(String movingCompany) {
+        this.movingCompany = movingCompany;
+    }
+
+    public Integer getTotalPrice() {
+        return totalPrice;
+    }
+
+    public void setTotalPrice(Integer totalPrice) {
+        this.totalPrice = totalPrice;
+    }
+
+    public String getOrderStatus() {
+        return orderStatus;
+    }
+
+    public void setOrderStatus(String orderStatus) {
+        this.orderStatus = orderStatus;
+    }
+
+    public String getPickupTime() {
+        return pickupTime;
+    }
+
+    public void setPickupTime(String pickupTime) {
+        this.pickupTime = pickupTime;
+    }
+
 }
