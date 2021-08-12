@@ -36,7 +36,8 @@ public class LocationActivity extends AppCompatActivity implements View.OnClickL
     String sType;
     double Lat1 = 0,Long1 = 0, Lat2 = 0, Long2 = 0;
     int flag = 0;
-
+    String sSource,sDestination;
+    String [] orderInfo ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,7 +95,7 @@ public class LocationActivity extends AppCompatActivity implements View.OnClickL
         mPickUpsbutton.setOnClickListener(this);
 
          sSource = etSource.getText().toString().trim();
-         sDestination = etDestination.getText().toString().trim();
+        sDestination = etDestination.getText().toString().trim();
 
 
         btTrack.setOnClickListener(new View.OnClickListener() {
