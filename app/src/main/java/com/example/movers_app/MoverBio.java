@@ -6,9 +6,12 @@ public class MoverBio {
 
     public String companyName, contactInfo, extraServices, inventory, pricePerDistance;
 
-    public MoverBio() {
+
+
+    public MoverBio(){
 
     }
+
 
     public MoverBio(String companyName, String contactInfo, String extraServices, String inventory, String pricePerDistance) {
         this.companyName = companyName;
@@ -17,7 +20,6 @@ public class MoverBio {
         this.inventory = inventory;
         this.pricePerDistance = pricePerDistance;
     }
-
 
 
     public String getCompanyName() {
@@ -61,19 +63,22 @@ public class MoverBio {
     }
 
 
-
-
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        MoverBio moverBio = (MoverBio) o;
-        return companyName.equals(moverBio.companyName);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(companyName);
-    }
 }
+
+
+
+
+
+//    @Override
+//    public boolean equals(Object o) {
+//        if (this == o) return true;
+//        if (o == null || getClass() != o.getClass()) return false;
+//        MoverBio moverBio = (MoverBio) o;
+//        return companyName.equals(moverBio.companyName);
+//    }
+//
+//    @Override
+//    public int hashCode() {
+//        return Objects.hash(companyName);
+//    }
+//}

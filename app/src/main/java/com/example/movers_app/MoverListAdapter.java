@@ -56,8 +56,8 @@ public class MoverListAdapter extends RecyclerView.Adapter<MoverListAdapter.MyVi
             companyName =itemView.findViewById(R.id.companyName);
             contactInfo = itemView.findViewById(R.id.contactInfo);
             extraServices = itemView.findViewById(R.id.extraServices);
-            inventory = itemView.findViewById(R.id.inventoryCharges);
-            pricePerDistance = itemView.findViewById(R.id.distanceCharges);
+            inventory = itemView.findViewById(R.id.inventory);
+            pricePerDistance = itemView.findViewById(R.id.pricePerDistance);
         }
     }
 }
