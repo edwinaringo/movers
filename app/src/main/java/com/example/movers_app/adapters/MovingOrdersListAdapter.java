@@ -63,6 +63,7 @@ public class MovingOrdersListAdapter extends RecyclerView.Adapter<MovingOrdersLi
 
         private Context mContext;
 
+
         public MovingOrdersViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
