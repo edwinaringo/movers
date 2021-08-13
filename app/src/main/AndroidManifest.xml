@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.movers_app">
+    <uses-permission android:name="android.permission.INTERNET"/>
+
 
     <application
         android:allowBackup="true"
@@ -10,9 +12,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MoversApp">
         <activity
+
+
+            android:name=".OffersActivity"
+            android:exported="true" />
+        <activity
+
             android:name=".ProfileActivity"
             android:exported="true" />
         <activity
+
             android:name=".MoversList"
             android:exported="true" />
         <activity android:name=".MovingCompanyOrdersActivity" android:parentActivityName=".MovingOrdersActivity" />

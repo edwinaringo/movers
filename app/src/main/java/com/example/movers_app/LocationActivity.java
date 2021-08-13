@@ -12,6 +12,7 @@ import android.view.Display;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,6 +22,7 @@ import com.google.android.libraries.places.api.model.Place;
 import com.google.android.libraries.places.widget.Autocomplete;
 import com.google.android.libraries.places.widget.AutocompleteActivity;
 import com.google.android.libraries.places.widget.model.AutocompleteActivityMode;
+import com.squareup.picasso.Picasso;
 
 import java.util.Arrays;
 import java.util.List;
@@ -31,12 +33,15 @@ public class LocationActivity extends AppCompatActivity implements View.OnClickL
     EditText etSource,etDestination;
     Button btTrack,moversList;
     TextView mPickUpsbutton ,textView;
+    ImageView miv_image_from_url;
 
     String sSource,sDestination;
     String []  orderInfo;
     String sType;
     double Lat1 = 0,Long1 = 0, Lat2 = 0, Long2 = 0;
     int flag = 0;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,6 +54,7 @@ public class LocationActivity extends AppCompatActivity implements View.OnClickL
         etSource = findViewById(R.id.et_source);
         etDestination = findViewById(R.id.et_destination);
         btTrack = findViewById(R.id.bt_track);
+        miv_image_from_url = findViewById(R.id.iv_image_from_url);
 
         //initialize places
         Places.initialize(getApplicationContext(),"AIzaSyATvNjtdd2UiIPQRyl-xzP11rth1AGUBwI");
@@ -91,9 +97,11 @@ public class LocationActivity extends AppCompatActivity implements View.OnClickL
 
         mPickUpsbutton.setOnClickListener(this);
 
-        //find the button with id price and set a click listener
-        //moversList=findViewById(R.id.prices);
-        //moversList.setOnClickListener(this);
+
+         sSource = etSource.getText().toString().trim();
+        sDestination = etDestination.getText().toString().trim();
+
+
         btTrack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -106,6 +114,7 @@ public class LocationActivity extends AppCompatActivity implements View.OnClickL
                 }
             }
         });
+
     }
 
     @Override
@@ -156,6 +165,12 @@ public class LocationActivity extends AppCompatActivity implements View.OnClickL
         }else if (requestCode == AutocompleteActivity.RESULT_ERROR){
             Status status = Autocomplete.getStatusFromIntent(data);
             Toast.makeText(getApplicationContext(),status.getStatusMessage(), Toast.LENGTH_SHORT).show();
+        }
+
+        if(!etSource.equals("") && !etDestination.equals("")){
+            String Newurl = "https://maps.googleapis.com/maps/api/staticmap?center="+etSource+"|"+etDestination+"&zoom=13&size=400x300&markers=color:blue%7Clabel:S%7C11211%7C11206%7C11222&key=AIzaSyATvNjtdd2UiIPQRyl-xzP11rth1AGUBwI";
+
+            Picasso.get().load(Newurl).into(miv_image_from_url);
         }
     }
 
@@ -220,6 +235,11 @@ public class LocationActivity extends AppCompatActivity implements View.OnClickL
             intent2.putExtra("orderInfo",orderInfo);
             startActivity(intent2);
 
+        }
+
+       // set an intent on price id button
+        if(v== moversList){
+            startActivity(new Intent(LocationActivity.this,MoversList.class));
         }
 
     }
