@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity  implements View .OnClickLis
     public void onClick(View v) {
         if(v == mLoginbutton){
             mProgressBar.setVisibility(View.VISIBLE);
-            startActivity(new Intent(MainActivity.this,LoginActivity.class));
+            startActivity(new Intent(MainActivity.this,LoginChoice.class));
         }
 
         if (v == mSigninbutton){
