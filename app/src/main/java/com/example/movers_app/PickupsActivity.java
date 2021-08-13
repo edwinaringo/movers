@@ -48,15 +48,6 @@ public class PickupsActivity extends AppCompatActivity {
 
         text_date = (TextView)findViewById(R.id.date_textview);
         text_time = (TextView)findViewById(R.id.time_textview);
-        costbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (v == costbtn) {
-                    costbtn.setVisibility(View.VISIBLE);
-                    startActivity(new Intent(PickupsActivity.this,OffersActivity.class));
-                }
-            }
-        });
         btndate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
