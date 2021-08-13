@@ -91,7 +91,7 @@ public class PickupsActivity extends AppCompatActivity {
                         String pickup_time = date+" "+ time+" ";
 
                         Log.i("message",orderInfo[0]+""+orderInfo[1]+""+orderInfo[2]);
-                        saveOrder(orderInfo[0],orderInfo[1],orderInfo[2],orderInfo[3],orderInfo[4],"trusties",79898,"approved",pickup_time);
+                        saveOrder(orderInfo[0],orderInfo[1],orderInfo[2],orderInfo[3],orderInfo[4],orderInfo[5],79898,"approved",pickup_time);
 
                     }
                 },chour,cminute,false);

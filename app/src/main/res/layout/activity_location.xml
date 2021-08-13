@@ -35,34 +35,45 @@
         android:layout_height="wrap_content"
         android:id="@+id/text_view"
         android:textSize="24sp"
+        android:layout_marginTop="10dp"
         android:textStyle="bold"
         android:textColor="@color/black"
         android:gravity="center"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
     <Button
+        android:id="@+id/bt_track"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/bt_track"
-        android:text="display track"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
         android:backgroundTint="@color/white"
-        android:textColor="@color/black"
-        android:layout_marginTop="16dp"/>
+        android:text="display track"
+        android:textColor="@color/black" />
 
-
-
-    <Button
-        android:id="@+id/pickups"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/black"
-        android:text="Proceed"
-        android:textColor="@color/white"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/textView6"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
-
-
-
+        <Button
+            android:id="@+id/pickups"
+            android:layout_width="147dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="60dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/black"
+            android:text="Proceed"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@+id/textView6"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
+    </LinearLayout>
+    <ImageView
+        android:layout_width="400dp"
+        android:layout_height="300dp"
+        android:id="@+id/iv_image_from_url"
+        android:layout_marginTop="2dp"/>
 
 </LinearLayout>

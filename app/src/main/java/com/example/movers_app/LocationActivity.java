@@ -12,6 +12,7 @@ import android.view.Display;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,6 +22,7 @@ import com.google.android.libraries.places.api.model.Place;
 import com.google.android.libraries.places.widget.Autocomplete;
 import com.google.android.libraries.places.widget.AutocompleteActivity;
 import com.google.android.libraries.places.widget.model.AutocompleteActivityMode;
+import com.squareup.picasso.Picasso;
 
 import java.util.Arrays;
 import java.util.List;
@@ -31,6 +33,7 @@ public class LocationActivity extends AppCompatActivity implements View.OnClickL
     EditText etSource,etDestination;
     Button btTrack,moversList;
     TextView mPickUpsbutton ,textView;
+    ImageView miv_image_from_url;
 
     String sSource,sDestination;
     String []  orderInfo;
@@ -51,6 +54,7 @@ public class LocationActivity extends AppCompatActivity implements View.OnClickL
         etSource = findViewById(R.id.et_source);
         etDestination = findViewById(R.id.et_destination);
         btTrack = findViewById(R.id.bt_track);
+        miv_image_from_url = findViewById(R.id.iv_image_from_url);
 
         //initialize places
         Places.initialize(getApplicationContext(),"AIzaSyATvNjtdd2UiIPQRyl-xzP11rth1AGUBwI");
@@ -110,6 +114,7 @@ public class LocationActivity extends AppCompatActivity implements View.OnClickL
                 }
             }
         });
+
     }
 
     @Override
@@ -160,6 +165,12 @@ public class LocationActivity extends AppCompatActivity implements View.OnClickL
         }else if (requestCode == AutocompleteActivity.RESULT_ERROR){
             Status status = Autocomplete.getStatusFromIntent(data);
             Toast.makeText(getApplicationContext(),status.getStatusMessage(), Toast.LENGTH_SHORT).show();
+        }
+
+        if(!etSource.equals("") && !etDestination.equals("")){
+            String Newurl = "https://maps.googleapis.com/maps/api/staticmap?center="+etSource+"|"+etDestination+"&zoom=13&size=400x300&markers=color:blue%7Clabel:S%7C11211%7C11206%7C11222&key=AIzaSyATvNjtdd2UiIPQRyl-xzP11rth1AGUBwI";
+
+            Picasso.get().load(Newurl).into(miv_image_from_url);
         }
     }
 
@@ -216,8 +227,8 @@ public class LocationActivity extends AppCompatActivity implements View.OnClickL
             Bundle extras = getIntent().getExtras();
             orderInfo = extras.getStringArray("orderInfo");
 
-            orderInfo[2] = sSource;
-            orderInfo[3]=sDestination;
+            orderInfo[3] = sSource;
+            orderInfo[4]=sDestination;
             Intent intent2 =new Intent(LocationActivity.this,MoversList.class);
 
 
