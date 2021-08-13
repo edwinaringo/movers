@@ -53,7 +53,7 @@ public class MoversList extends AppCompatActivity {
 
         list = new ArrayList<>();
         setOnClickListener();
-        moverListAdapter = new MoverListAdapter(this,list, listener);
+        moverListAdapter = new MoverListAdapter(this,list, listener,orderInfo);
         recyclerView.setAdapter(moverListAdapter);
 
 
@@ -63,7 +63,7 @@ public class MoversList extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                     MoverBio moverBio = dataSnapshot.getValue(MoverBio.class);
-                    moverName=moverBio.getCompanyName();
+//                    moverName=moverBio.getCompanyName();
                     list.add(moverBio);
                 }
                 moverListAdapter.notifyDataSetChanged();
@@ -84,11 +84,11 @@ public class MoversList extends AppCompatActivity {
         listener = new MoverListAdapter.RecyclerViewClickListener() {
             @Override
             public void onClick(View v, int position) {
-                Intent intent = new Intent(getApplicationContext(),PickupsActivity.class);
-
-                orderInfo[5]=moverName;
-                intent.putExtra("orderInfo",orderInfo);
-                startActivity(intent);
+//                Intent intent = new Intent(getApplicationContext(),PickupsActivity.class);
+//
+//                orderInfo[5]=moverName;
+//                intent.putExtra("orderInfo",orderInfo);
+//                startActivity(intent);
             }
         };
     }

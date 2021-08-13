@@ -86,7 +86,6 @@ public class MovingOrdersListAdapter extends RecyclerView.Adapter<MovingOrdersLi
             Intent intent = new Intent(mContext, MovingCompanyOrdersActivity.class);
             mContext.startActivity(intent);
             if(v == mCompanyName){
-//                Intent intent = new Intent(mContext, MovingCompanyOrdersActivity.class);
                 mContext.startActivity(intent);
             }
 
