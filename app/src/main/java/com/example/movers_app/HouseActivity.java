@@ -1,22 +1,63 @@
 package com.example.movers_app;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.squareup.picasso.Picasso;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class HouseActivity extends AppCompatActivity implements View.OnClickListener{
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.UserProfile){
+            userProfile();
+            return true;
+        }
+        if (id == R.id.UserLogout){
+            userLogout();
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void userLogout() {
+        FirebaseAuth.getInstance().signOut();
+        Intent intent = new Intent(HouseActivity.this,SplashScreenActivity.class);
+        //destroy running states
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+        Toast.makeText(this, "Logged out", Toast.LENGTH_SHORT).show();
+        //kill the activity
+        finish();
+    }
+
+    private void userProfile() {
+        startActivity(new Intent(HouseActivity.this,ProfileActivity.class));
+        Toast.makeText(this, "My account", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.profile,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
 
     private TextView studioText, oneBedroomText, twoBedRoomText, threeBedRoomText;
     String userName;

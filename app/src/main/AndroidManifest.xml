@@ -13,7 +13,12 @@
         android:theme="@style/Theme.MoversApp">
         <activity
 
+
             android:name=".OffersActivity"
+            android:exported="true" />
+        <activity
+
+            android:name=".ProfileActivity"
             android:exported="true" />
         <activity
 
