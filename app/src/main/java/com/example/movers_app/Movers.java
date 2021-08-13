@@ -70,7 +70,7 @@ public class Movers extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()){
-                            startActivity(new Intent(Movers.this, ConfirmActivity.class));
+                            startActivity(new Intent(Movers.this, MovingCompanyOrdersActivity.class));
 
                         }
 
