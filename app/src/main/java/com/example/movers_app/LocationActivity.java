@@ -212,8 +212,8 @@ public class LocationActivity extends AppCompatActivity implements View.OnClickL
             Bundle extras = getIntent().getExtras();
             orderInfo = extras.getStringArray("orderInfo");
 
-            orderInfo[2] = sSource;
-            orderInfo[3]=sDestination;
+            orderInfo[3] = sSource;
+            orderInfo[4]=sDestination;
             Intent intent2 =new Intent(LocationActivity.this,MoversList.class);
 
 

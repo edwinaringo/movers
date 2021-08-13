@@ -32,6 +32,8 @@ public class MoversList extends AppCompatActivity {
     CardView itemView;
     private MoverListAdapter.RecyclerViewClickListener listener;
 
+    String []  orderInfo;
+    String moverName;
 
 
 
@@ -39,7 +41,9 @@ public class MoversList extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movers_list);
+        Bundle extras = getIntent().getExtras();
 
+        orderInfo = extras.getStringArray("orderInfo");
         itemView = findViewById(R.id.itemView);
 
         recyclerView = findViewById(R.id.mover_list);
@@ -59,6 +63,7 @@ public class MoversList extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                     MoverBio moverBio = dataSnapshot.getValue(MoverBio.class);
+                    moverName=moverBio.getCompanyName();
                     list.add(moverBio);
                 }
                 moverListAdapter.notifyDataSetChanged();
@@ -80,6 +85,9 @@ public class MoversList extends AppCompatActivity {
             @Override
             public void onClick(View v, int position) {
                 Intent intent = new Intent(getApplicationContext(),PickupsActivity.class);
+
+                orderInfo[5]=moverName;
+                intent.putExtra("orderInfo",orderInfo);
                 startActivity(intent);
             }
         };
