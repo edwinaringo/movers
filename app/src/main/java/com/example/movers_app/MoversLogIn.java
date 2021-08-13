@@ -122,7 +122,7 @@ public class MoversLogIn extends AppCompatActivity implements View.OnClickListen
 
                             if (user.isEmailVerified()) {
 
-                                Intent intent =new Intent (MoversLogIn.this, HouseActivity.class);
+                                Intent intent =new Intent (MoversLogIn.this, MovingCompanyOrdersActivity.class);
                                 String[] userInfo={id,email};
                                 intent.putExtra("userinfo", userInfo);
 
