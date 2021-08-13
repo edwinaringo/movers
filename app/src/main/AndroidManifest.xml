@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MoversApp">
         <activity
-            android:name=".MoversList"
+            android:name=".MoversList" android:parentActivityName="MovingCompanyOrdersActivity"
             android:exported="true" />
         <activity android:name=".MovingCompanyOrdersActivity" android:parentActivityName=".MovingOrdersActivity" />
         <activity android:name=".MovingOrdersActivity" android:parentActivityName="ConfirmActivity"/>
