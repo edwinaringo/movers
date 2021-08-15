@@ -6,11 +6,25 @@
         <entry key="app/src/main/res/drawable/orage_btn.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/orange_btn_background.xml" value="0.15104166666666666" />
         <entry key="app/src/main/res/layout/activity_choice.xml" value="0.19322916666666667" />
+        <entry key="app/src/main/res/layout/activity_confirm.xml" value="0.17708333333333334" />
         <entry key="app/src/main/res/layout/activity_house.xml" value="0.19322916666666667" />
         <entry key="app/src/main/res/layout/activity_location.xml" value="0.19322916666666667" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.17708333333333334" />
+        <entry key="app/src/main/res/layout/activity_login_choice.xml" value="0.17708333333333334" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_movers.xml" value="0.15307971014492755" />
+        <entry key="app/src/main/res/layout/activity_movers_list.xml" value="0.21422101449275363" />
+        <entry key="app/src/main/res/layout/activity_movers_log_in.xml" value="0.17708333333333334" />
+        <entry key="app/src/main/res/layout/activity_moving_company_orders.xml" value="0.17708333333333334" />
+        <entry key="app/src/main/res/layout/activity_moving_orders.xml" value="0.17708333333333334" />
+        <entry key="app/src/main/res/layout/activity_pickups.xml" value="0.17708333333333334" />
         <entry key="app/src/main/res/layout/activity_profile.xml" value="0.19322916666666667" />
+        <entry key="app/src/main/res/layout/activity_sign_up.xml" value="0.17708333333333334" />
         <entry key="app/src/main/res/layout/activity_splash_screen.xml" value="0.19322916666666667" />
+        <entry key="app/src/main/res/layout/fragment_map.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/item.xml" value="0.21422101449275363" />
+        <entry key="app/src/main/res/layout/moving_company_orders_list_item.xml" value="0.17708333333333334" />
+        <entry key="app/src/main/res/layout/moving_orders_list_item.xml" value="0.17708333333333334" />
         <entry key="app/src/main/res/menu/profile.xml" value="0.19322916666666667" />
         <entry key="app/src/main/res/menu/user_profile.xml" value="0.22" />
       </map>

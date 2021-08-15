@@ -9,8 +9,9 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="205dp"
-        android:layout_height="82dp"
+        android:layout_width="223dp"
+        android:layout_height="71dp"
+        android:fontFamily="@font/alfa_slab_one"
         android:text=" movers"
         android:textColor="#ffffff"
         android:textSize="50sp"

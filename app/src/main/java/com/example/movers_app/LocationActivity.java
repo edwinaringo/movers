@@ -3,6 +3,7 @@ package com.example.movers_app;
 import androidx.annotation.LongDef;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
@@ -46,6 +47,14 @@ public class LocationActivity extends AppCompatActivity implements View.OnClickL
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_location);
+        //initialize fragment
+        Fragment fragment = new MapFragment();
+
+        //open fragment
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.frame_layout,fragment)
+                .commit();
 
         //Assign variable
         mPickUpsbutton = (TextView) findViewById(R.id.pickups);
@@ -54,7 +63,6 @@ public class LocationActivity extends AppCompatActivity implements View.OnClickL
         etSource = findViewById(R.id.et_source);
         etDestination = findViewById(R.id.et_destination);
         btTrack = findViewById(R.id.bt_track);
-        miv_image_from_url = findViewById(R.id.iv_image_from_url);
 
         //initialize places
         Places.initialize(getApplicationContext(),"AIzaSyATvNjtdd2UiIPQRyl-xzP11rth1AGUBwI");
@@ -93,9 +101,10 @@ public class LocationActivity extends AppCompatActivity implements View.OnClickL
                 startActivityForResult(intent,100);
             }
         });
-        textView.setText("0.0 kilometers");
+       textView.setText("0.0 kilometers");
 
         mPickUpsbutton.setOnClickListener(this);
+
 
 
          sSource = etSource.getText().toString().trim();
@@ -110,7 +119,12 @@ public class LocationActivity extends AppCompatActivity implements View.OnClickL
                 if (sSource.equals("") && sDestination.equals("")){
                     Toast.makeText(getApplicationContext(),"Enter both Location",Toast.LENGTH_LONG);
                 }else {
-                    DisplayTrack(sSource,sDestination);
+                   DisplayTrack(sSource,sDestination);
+//                    if(!etSource.equals("") && !etDestination.equals("")){
+//                        String Newurl = "https://maps.googleapis.com/maps/api/staticmap?center="+etSource+"|"+etDestination+"&zoom=13&size=400x300&markers=color:blue%7Clabel:S%7C11211%7C11206%7C11222&key=AIzaSyATvNjtdd2UiIPQRyl-xzP11rth1AGUBwI";
+//
+//                        Picasso.get().load(Newurl).into(miv_image_from_url);
+//                    }
                 }
             }
         });
@@ -167,11 +181,7 @@ public class LocationActivity extends AppCompatActivity implements View.OnClickL
             Toast.makeText(getApplicationContext(),status.getStatusMessage(), Toast.LENGTH_SHORT).show();
         }
 
-        if(!etSource.equals("") && !etDestination.equals("")){
-            String Newurl = "https://maps.googleapis.com/maps/api/staticmap?center="+etSource+"|"+etDestination+"&zoom=13&size=400x300&markers=color:blue%7Clabel:S%7C11211%7C11206%7C11222&key=AIzaSyATvNjtdd2UiIPQRyl-xzP11rth1AGUBwI";
 
-            Picasso.get().load(Newurl).into(miv_image_from_url);
-        }
     }
 
     private void distance(double lat1, double long1, double lat2, double long2) {
