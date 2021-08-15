@@ -98,6 +98,7 @@ public class LocationActivity extends AppCompatActivity implements View.OnClickL
         mPickUpsbutton.setOnClickListener(this);
 
 
+
          sSource = etSource.getText().toString().trim();
         sDestination = etDestination.getText().toString().trim();
 

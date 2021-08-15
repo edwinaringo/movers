@@ -1,10 +1,13 @@
 package com.example.movers_app;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -17,13 +20,18 @@ public class MoverListAdapter extends RecyclerView.Adapter<MoverListAdapter.MyVi
 
     Context context;
 
-    ArrayList<MoverBio> list;
+    private static ArrayList<MoverBio> list;
     private static RecyclerViewClickListener listener;
+    private static String[] orderInfo;
 
-    public MoverListAdapter(Context context, ArrayList<MoverBio> list, RecyclerViewClickListener listener) {
+
+
+    public MoverListAdapter(Context context, ArrayList<MoverBio> list, RecyclerViewClickListener listener, String[] orderInfo) {
         this.context = context;
         this.list = list;
         this.listener = listener;
+
+        this.orderInfo=orderInfo;
     }
 
 
@@ -45,6 +53,8 @@ public class MoverListAdapter extends RecyclerView.Adapter<MoverListAdapter.MyVi
         holder.pricePerDistance.setText(moverBio.getPricePerDistance());
 
 
+
+
     }
 
     @Override
@@ -56,6 +66,7 @@ public class MoverListAdapter extends RecyclerView.Adapter<MoverListAdapter.MyVi
 
 
         TextView companyName, contactInfo, extraServices, inventory, pricePerDistance;
+        private Context mContext;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -65,6 +76,8 @@ public class MoverListAdapter extends RecyclerView.Adapter<MoverListAdapter.MyVi
             inventory = itemView.findViewById(R.id.inventory);
             pricePerDistance = itemView.findViewById(R.id.pricePerDistance);
 
+            mContext = itemView.getContext();
+
             itemView.setOnClickListener(this);
 
 
@@ -73,6 +86,12 @@ public class MoverListAdapter extends RecyclerView.Adapter<MoverListAdapter.MyVi
         @Override
         public void onClick(View v) {
             listener.onClick(v, getAdapterPosition());
+
+            Intent intent = new Intent(mContext,PickupsActivity.class);
+            orderInfo[5]=list.get(getAdapterPosition()).companyName;
+            intent.putExtra("orderInfo",orderInfo);
+            mContext.startActivity(intent);
+
 
         }
     }
