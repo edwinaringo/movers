@@ -13,6 +13,7 @@
         android:theme="@style/Theme.MoversApp">
         <activity android:name=".LoginChoice"></activity>
         <activity android:name=".MoversLogIn" />
+
         <activity
 
 
@@ -35,6 +36,9 @@
         <activity
             android:name=".ConfirmActivity"
             android:parentActivityName=".ChoiceActivity" />
+        <activity
+            android:name=".MoverAccount"
+            android:parentActivityName=".MoverAccount" />
         <activity
             android:name=".ChoiceActivity"
             android:parentActivityName=".Movers" />
