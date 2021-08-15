@@ -16,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.common.api.Status;
+import com.google.android.gms.maps.model.LatLng;
 import com.google.android.libraries.places.api.Places;
 import com.google.android.libraries.places.api.model.Place;
 import com.google.android.libraries.places.widget.Autocomplete;
@@ -37,6 +38,8 @@ public class LocationActivity extends AppCompatActivity implements View.OnClickL
     String sType;
     double Lat1 = 0,Long1 = 0, Lat2 = 0, Long2 = 0;
     int flag = 0;
+
+    double distance;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -99,13 +102,33 @@ public class LocationActivity extends AppCompatActivity implements View.OnClickL
             public void onClick(View v) {
                 String sSource = etSource.getText().toString().trim();
                 String sDestination = etDestination.getText().toString().trim();
+
                 if (sSource.equals("") && sDestination.equals("")){
                     Toast.makeText(getApplicationContext(),"Enter both Location",Toast.LENGTH_LONG);
                 }else {
-                    DisplayTrack(sSource,sDestination);
+                    //DisplayTrack(sSource,sDestination);
+                    NavigateToMap();
                 }
             }
         });
+    }
+
+    private void NavigateToMap() {
+//        LatLng mapSource = new LatLng(Lat1,Long1);
+//        LatLng mapDestination = new LatLng(Lat2,Long2);
+
+        Intent intent = new Intent(this, MapActivity.class);
+        double[] mapInfo = new double[5];
+        mapInfo[0] = Lat1;
+        mapInfo[1] = Long1;
+
+        mapInfo[2] = Lat2;
+        mapInfo[3] = Long2;
+
+        mapInfo[4] = distance;
+
+        intent.putExtra("mapInfo",mapInfo);
+        startActivity(intent);
     }
 
     @Override
@@ -163,7 +186,7 @@ public class LocationActivity extends AppCompatActivity implements View.OnClickL
         //calculate longitude difference
         double longDiff = Long1 - Long2;
         //calculate distance
-        double distance = Math.sin(deg2rad(Lat1))
+         distance = Math.sin(deg2rad(Lat1))
                 *Math.sin(deg2rad(Lat2))
                 +Math.cos(deg2rad(Lat1))
                 *Math.cos(deg2rad(Lat2))
