@@ -11,6 +11,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MoversApp">
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyATvNjtdd2UiIPQRyl-xzP11rth1AGUBwI"/>
         <activity android:name=".LoginChoice"></activity>
         <activity android:name=".MoversLogIn" />
         <activity
