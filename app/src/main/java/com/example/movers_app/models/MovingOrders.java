@@ -5,7 +5,10 @@ package com.example.movers_app.models;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import org.parceler.Parcel;
+
 //@Generated("jsonschema2pojo")
+@Parcel
 public class MovingOrders {
 
     @SerializedName("id")
