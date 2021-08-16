@@ -16,9 +16,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.movers_app.ConfirmOrder;
 import com.example.movers_app.MovingCompanyOrdersActivity;
+import com.example.movers_app.MovingOrdersDetailActivity;
 import com.example.movers_app.R;
 import com.example.movers_app.models.MovingOrders;
 import com.squareup.picasso.Picasso;
+
+import org.parceler.Parcels;
 
 import java.util.List;
 
@@ -87,6 +90,7 @@ public class MovingOrdersListAdapter extends RecyclerView.Adapter<MovingOrdersLi
         @Override
         public void onClick(View v) {
 
+
             AlertDialog.Builder builder1 = new AlertDialog.Builder(mContext);
             builder1.setMessage("CONFIRM ORDER?");
             builder1.setCancelable(true);
@@ -114,6 +118,7 @@ public class MovingOrdersListAdapter extends RecyclerView.Adapter<MovingOrdersLi
 
             AlertDialog alert11 = builder1.create();
             alert11.show();
+
 
         }
     }

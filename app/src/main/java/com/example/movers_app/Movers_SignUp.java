@@ -23,6 +23,8 @@ public class Movers_SignUp extends AppCompatActivity implements View.OnClickList
     private EditText editTextFullName, editTextEmail, editTextPassword;
     private Button signUp;
 
+    String[] moverInfo = new String[6];
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -101,7 +103,11 @@ public class Movers_SignUp extends AppCompatActivity implements View.OnClickList
                                 public void onComplete(@NonNull Task<Void> task) {
                                     if(task.isSuccessful()) {
                                         Toast.makeText(Movers_SignUp.this, "Sign Up is successful", Toast.LENGTH_SHORT).show();
-                                        startActivity(new Intent(Movers_SignUp.this,Movers.class));
+                                        Intent intent = new Intent(Movers_SignUp.this,Movers.class);
+                                        moverInfo[0]= name;
+                                        moverInfo[1]= email;
+                                        intent.putExtra("moverInfo",moverInfo);
+                                        startActivity(intent);
                                     }else{
                                         Toast.makeText(Movers_SignUp.this, "Failed to Sign Up. Try again", Toast.LENGTH_SHORT).show();
                                     }
