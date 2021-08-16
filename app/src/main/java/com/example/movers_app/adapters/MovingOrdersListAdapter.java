@@ -13,9 +13,12 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.movers_app.MovingCompanyOrdersActivity;
+import com.example.movers_app.MovingOrdersDetailActivity;
 import com.example.movers_app.R;
 import com.example.movers_app.models.MovingOrders;
 import com.squareup.picasso.Picasso;
+
+import org.parceler.Parcels;
 
 import java.util.List;
 
@@ -88,6 +91,13 @@ public class MovingOrdersListAdapter extends RecyclerView.Adapter<MovingOrdersLi
             if(v == mCompanyName){
                 mContext.startActivity(intent);
             }
+//            int itemPosition = getLayoutPosition();
+//            Intent intent = new Intent(mContext, MovingOrdersDetailActivity.class);
+//            intent.putExtra("position", itemPosition);
+//            intent.putExtra("movingOrders", Parcels.wrap(mMovingOrdersList));
+//            Log.i("click",itemPosition + "");
+//            mContext.startActivity(intent);
+
 
         }
     }
