@@ -1,6 +1,8 @@
 package com.example.movers_app.adapters;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -12,6 +14,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.movers_app.ConfirmOrder;
 import com.example.movers_app.MovingCompanyOrdersActivity;
 import com.example.movers_app.MovingOrdersDetailActivity;
 import com.example.movers_app.R;
@@ -86,17 +89,35 @@ public class MovingOrdersListAdapter extends RecyclerView.Adapter<MovingOrdersLi
 
         @Override
         public void onClick(View v) {
-            Intent intent = new Intent(mContext, MovingCompanyOrdersActivity.class);
-            mContext.startActivity(intent);
-            if(v == mCompanyName){
-                mContext.startActivity(intent);
-            }
-//            int itemPosition = getLayoutPosition();
-//            Intent intent = new Intent(mContext, MovingOrdersDetailActivity.class);
-//            intent.putExtra("position", itemPosition);
-//            intent.putExtra("movingOrders", Parcels.wrap(mMovingOrdersList));
-//            Log.i("click",itemPosition + "");
-//            mContext.startActivity(intent);
+
+
+            AlertDialog.Builder builder1 = new AlertDialog.Builder(mContext);
+            builder1.setMessage("CONFIRM ORDER?");
+            builder1.setCancelable(true);
+
+            builder1.setPositiveButton(
+                    "Yes",
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            dialog.cancel();
+                                        Intent intent = new Intent(mContext, ConfirmOrder.class);
+                                         mContext.startActivity(intent);
+                                          if(v == mCompanyName){
+                                        mContext.startActivity(intent);
+                            }
+                        }
+                    });
+
+            builder1.setNegativeButton(
+                    "No",
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            dialog.cancel();
+                        }
+                    });
+
+            AlertDialog alert11 = builder1.create();
+            alert11.show();
 
 
         }
