@@ -23,8 +23,6 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyATvNjtdd2UiIPQRyl-xzP11rth1AGUBwI" />
 
-        <activity android:name=".LoginChoice" />
-        <activity android:name=".MoversLogIn" />
         <activity
             android:name=".OffersActivity"
             android:exported="true" />
