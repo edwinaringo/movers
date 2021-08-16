@@ -128,12 +128,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
                             if (user.isEmailVerified()) {
 
-//                                Intent intent =new Intent (LoginActivity.this, HouseActivity.class);
-                                Intent intent =new Intent (LoginActivity.this, MovingOrdersActivity.class);
+                                Intent intent =new Intent (LoginActivity.this, HouseActivity.class);
+//                                Intent intent =new Intent (LoginActivity.this, MovingOrdersActivity.class);
 
                                 String[] userInfo={id,email};
                                 intent.putExtra("userinfo", userInfo);
-                                intent.putExtra("username",id);
+//                                intent.putExtra("username",id);
 
 
 

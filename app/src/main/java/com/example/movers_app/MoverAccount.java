@@ -33,6 +33,7 @@ public class MoverAccount  extends AppCompatActivity implements View .OnClickLis
 
     DatabaseReference database;
     String companyEmail;
+    String companyName;
     MoverBio moverBio1;
 
     @Override
@@ -59,6 +60,8 @@ public class MoverAccount  extends AppCompatActivity implements View .OnClickLis
 
                     if(moverBio.getEmailAddress().equals(companyEmail)) {
                         Log.i("email", "equal");
+
+                        companyName= moverBio1.getCompanyName();
 
                         mCompanyName.setText(moverBio1.getCompanyName());
                         mCompanyEmail.setText(moverBio1.getEmailAddress());
@@ -93,7 +96,9 @@ public class MoverAccount  extends AppCompatActivity implements View .OnClickLis
     public void onClick(View v) {
         if(v == mMoverOrdersButton){
             Intent intent =new Intent(getApplicationContext(),MovingCompanyOrdersActivity.class);
-            intent.putExtra("companyEmail",companyEmail);
+            Log.i("name1",companyName);
+
+            intent.putExtra("companyName",companyName);
             startActivity(intent);
 
         }
