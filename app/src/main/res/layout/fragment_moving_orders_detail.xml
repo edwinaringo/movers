@@ -25,7 +25,7 @@
 
         <androidx.cardview.widget.CardView
             android:layout_width="0dp"
-            android:layout_height="450dp"
+            android:layout_height="500dp"
             android:layout_weight="1"
             app:cardElevation="6dp"
             android:layout_margin="10dp"
@@ -41,39 +41,37 @@
                     android:id="@+id/totalPrice"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="51dp"
-                    android:layout_marginEnd="24dp"
 
+                    android:layout_marginStart="53dp"
+                    android:layout_marginEnd="24dp"
                     android:text="Total Price Value"
                     android:textColor="@color/black"
                     app:layout_constraintBottom_toBottomOf="@+id/totalPriceLabel"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/totalPriceLabel"
-                    app:layout_constraintTop_toTopOf="@+id/totalPriceLabel"
-                    app:layout_constraintVertical_bias="0.0" />
+                    app:layout_constraintTop_toTopOf="@+id/totalPriceLabel" />
 
                 <TextView
                     android:id="@+id/pickupTime"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="41dp"
-                    android:layout_marginTop="6dp"
-                    android:layout_marginEnd="24dp"
 
+                    android:layout_marginStart="42dp"
+                    android:layout_marginEnd="24dp"
                     android:text="PickUp Time Value"
                     android:textColor="@color/black"
                     app:layout_constraintBottom_toBottomOf="@+id/pickupTimeLabel"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="1.0"
                     app:layout_constraintStart_toEndOf="@+id/pickupTimeLabel"
-                    app:layout_constraintTop_toTopOf="@+id/pickupTimeLabel"
-                    app:layout_constraintVertical_bias="0.26" />
+                    app:layout_constraintTop_toTopOf="@+id/pickupTimeLabel" />
 
                 <TextView
                     android:id="@+id/currentLocationLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
+                    android:layout_marginTop="14dp"
+                    android:layout_marginBottom="24dp"
                     android:text="Source"
                     app:layout_constraintBottom_toTopOf="@+id/newLocationLabel"
                     app:layout_constraintStart_toStartOf="parent"
@@ -83,38 +81,43 @@
                     android:id="@+id/inventory"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="61dp"
-                    android:layout_marginTop="6dp"
+                    android:layout_marginStart="59dp"
+                    android:layout_marginTop="28dp"
                     android:layout_marginEnd="24dp"
                     android:text="Inventory Value"
                     android:textColor="@color/black"
                     app:layout_constraintBottom_toBottomOf="@+id/inventoryLabel"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
                     app:layout_constraintStart_toEndOf="@+id/inventoryLabel"
-                    app:layout_constraintTop_toTopOf="@+id/inventoryLabel"
+                    app:layout_constraintTop_toBottomOf="@+id/userEmailLabel"
                     app:layout_constraintVertical_bias="1.0" />
 
                 <TextView
                     android:id="@+id/userEmail"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="51dp"
+                    android:layout_marginStart="53dp"
+                    android:layout_marginTop="16dp"
                     android:layout_marginEnd="24dp"
-
+                    android:ellipsize="end"
+                    android:maxLines="2"
+                    android:minLines="2"
+                    android:scrollHorizontally="true"
                     android:text="User Email Value"
                     android:textColor="@color/black"
                     app:layout_constraintBottom_toBottomOf="@+id/userEmailLabel"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toEndOf="@+id/userEmailLabel"
-                    app:layout_constraintTop_toTopOf="@+id/userEmailLabel"
-                    app:layout_constraintVertical_bias="1.0" />
+                    app:layout_constraintTop_toBottomOf="@+id/companyNameLabel"
+                    app:layout_constraintVertical_bias="0.058" />
 
                 <TextView
                     android:id="@+id/userEmailLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
-                    android:layout_marginLeft="24dp"
                     android:text="User Email"
                     app:layout_constraintBottom_toTopOf="@+id/inventoryLabel"
                     app:layout_constraintStart_toStartOf="parent"
@@ -124,8 +127,10 @@
                     android:id="@+id/newLocationLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="24dp"
 
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="35dp"
                     android:text="Destination"
                     app:layout_constraintBottom_toTopOf="@+id/view"
                     app:layout_constraintStart_toStartOf="parent"
@@ -136,6 +141,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
+                    android:layout_marginBottom="12dp"
                     android:text="Total Price"
                     app:layout_constraintBottom_toTopOf="@+id/currentLocationLabel"
                     app:layout_constraintStart_toStartOf="parent"
@@ -146,7 +152,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
-                    android:layout_marginLeft="24dp"
+                    android:layout_marginBottom="12dp"
                     android:text="Pickup Time"
                     app:layout_constraintBottom_toTopOf="@+id/totalPriceLabel"
                     app:layout_constraintStart_toStartOf="parent"
@@ -157,7 +163,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
-                    android:layout_marginLeft="24dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="12dp"
                     android:text="Inventory"
                     app:layout_constraintBottom_toTopOf="@+id/pickupTimeLabel"
                     app:layout_constraintStart_toStartOf="parent"
@@ -167,64 +174,69 @@
                     android:id="@+id/companyName"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginRight="16dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="24dp"
+                    android:layout_marginBottom="16dp"
                     android:text="Company Name Value"
                     android:textColor="@color/black"
                     app:layout_constraintBottom_toBottomOf="@+id/companyNameLabel"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toEndOf="@+id/companyNameLabel"
                     app:layout_constraintTop_toTopOf="@+id/companyNameLabel"
-                    app:layout_constraintVertical_bias="1.0" />
+                    app:layout_constraintVertical_bias="0.0" />
 
                 <TextView
                     android:id="@+id/companyNameLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
-                    android:layout_marginLeft="24dp"
+                    android:layout_marginBottom="12dp"
                     android:text="Company Name"
                     app:layout_constraintBottom_toTopOf="@+id/userEmailLabel"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/orderStatus" />
+                    app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
                 <TextView
                     android:id="@+id/currentLocation"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="75dp"
+                    android:layout_marginStart="76dp"
                     android:layout_marginEnd="24dp"
+                    android:ellipsize="end"
+                    android:maxLines="2"
+                    android:minLines="2"
+                    android:scrollHorizontally="true"
                     android:text="Current Location"
                     android:textColor="@color/black"
                     app:layout_constraintBottom_toBottomOf="@+id/currentLocationLabel"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toEndOf="@+id/currentLocationLabel"
-                    app:layout_constraintTop_toTopOf="@+id/currentLocationLabel"
-                    app:layout_constraintVertical_bias="0.0" />
+                    app:layout_constraintTop_toTopOf="@+id/currentLocationLabel" />
 
                 <ImageView
                     android:id="@+id/imageView"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_centerHorizontal="true"
-                    android:layout_marginStart="40dp"
+                    android:layout_marginStart="60dp"
                     android:layout_marginTop="16dp"
                     android:layout_marginBottom="23dp"
                     android:src="@drawable/moving_truck"
                     app:layout_constraintBottom_toTopOf="@+id/companyNameLabel"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="1.0" />
 
                 <TextView
                     android:id="@+id/newLocation"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="46dp"
+                    android:layout_marginStart="49dp"
                     android:layout_marginEnd="24dp"
+                    android:ellipsize="end"
+                    android:maxLines="2"
+                    android:minLines="2"
+                    android:scrollHorizontally="true"
                     android:text="New Location"
                     android:textColor="@color/black"
                     app:layout_constraintBottom_toBottomOf="@+id/newLocationLabel"
@@ -244,22 +256,23 @@
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.732" />
+                    app:layout_constraintVertical_bias="0.739" />
 
                 <TextView
                     android:id="@+id/orderStatus"
                     android:layout_width="0dp"
                     android:layout_height="23dp"
-                    android:layout_marginStart="123dp"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginStart="75dp"
+                    android:layout_marginTop="23dp"
                     android:layout_marginEnd="24dp"
-                    android:layout_marginBottom="30dp"
+                    android:layout_marginBottom="23dp"
                     android:text="Order Status"
                     android:textColor="@color/black"
                     app:layout_constraintBottom_toTopOf="@+id/companyName"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/imageView"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

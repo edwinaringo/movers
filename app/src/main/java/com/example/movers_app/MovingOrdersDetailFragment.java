@@ -75,7 +75,7 @@ public class MovingOrdersDetailFragment  extends Fragment implements View.OnClic
         View view = inflater.inflate(R.layout.fragment_moving_orders_detail, container, false);
         ButterKnife.bind(this, view);
 
-        mCompanyName.setText(mMovingOrder.getUserEmail());
+        mCompanyName.setText(mMovingOrder.getMovingCompany());
         mUserEmail.setText(mMovingOrder.getUserEmail());
         mInventory.setText(mMovingOrder.getInventory());
         mTotalPrice.setText(mMovingOrder.getTotalPrice().toString());

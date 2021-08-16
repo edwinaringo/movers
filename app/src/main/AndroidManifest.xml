@@ -50,6 +50,9 @@
 
 
         <activity
+            android:name=".MovingOrdersDetailActivity"
+            android:parentActivityName=".MovingOrdersDetailActivity" />
+        <activity
             android:name=".MovingCompanyOrdersActivity"
             android:parentActivityName=".MovingOrdersActivity" />
         <activity
