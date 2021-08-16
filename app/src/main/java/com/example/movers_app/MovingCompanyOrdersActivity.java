@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.movers_app.adapters.MovingCompanyOrdersListAdapter;
 import com.example.movers_app.adapters.MovingOrdersListAdapter;
 import com.example.movers_app.models.MovingOrders;
+import com.example.movers_app.models.MovingOrders;
 import com.example.movers_app.network.MoversAPI;
 import com.example.movers_app.network.MoversClient;
 

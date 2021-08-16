@@ -15,6 +15,7 @@
         android:layout_marginStart="0dp"
         android:layout_marginTop="81dp"
         android:layout_marginEnd="53dp"
+        android:fontFamily="@font/alfa_slab_one"
         android:text="Choose type of move"
         android:textColor="@color/black"
         android:textSize="20dp" />

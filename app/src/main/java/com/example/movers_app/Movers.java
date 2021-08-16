@@ -19,7 +19,7 @@ import java.util.HashMap;
 public class Movers extends AppCompatActivity {
 
 
-    private EditText mCompanyName,mContactInfo, mExtraServices, mInventoryCharges, mPricePerDistance;
+    private EditText mCompanyName, mEmailAddress, mContactInfo, mExtraServices, mInventoryCharges, mPricePerDistance;
 
     private Button submitPrices;
 
@@ -37,7 +37,7 @@ public class Movers extends AppCompatActivity {
         setContentView(R.layout.activity_movers);
 
         mCompanyName = findViewById(R.id.companyName);
-
+        mEmailAddress = findViewById(R.id.emailAddress);
         mExtraServices = findViewById(R.id.extraServices);
         mContactInfo = findViewById(R.id.contactInfo);
         mInventoryCharges = findViewById(R.id.inventoryCharges);
@@ -50,6 +50,7 @@ public class Movers extends AppCompatActivity {
             public void onClick(View v) {
 
                 String companyName = mCompanyName.getText().toString();
+                String emailAddress = mEmailAddress.getText().toString();
                 String extraService = mExtraServices.getText().toString();
                 String contactInfo = mContactInfo.getText().toString();
                 String Inventory = mInventoryCharges.getText().toString();
@@ -59,6 +60,7 @@ public class Movers extends AppCompatActivity {
                 HashMap<String, String> pricesMap = new HashMap<>();
 
                 pricesMap.put("companyName", companyName);
+                pricesMap.put("emailAddress", emailAddress);
                 pricesMap.put("extraServices", extraService);
                 pricesMap.put("contactInfo", contactInfo);
                 pricesMap.put("inventory", Inventory);

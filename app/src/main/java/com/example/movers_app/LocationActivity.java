@@ -3,6 +3,7 @@ package com.example.movers_app;
 import androidx.annotation.LongDef;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
@@ -12,6 +13,7 @@ import android.view.Display;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,6 +23,7 @@ import com.google.android.libraries.places.api.model.Place;
 import com.google.android.libraries.places.widget.Autocomplete;
 import com.google.android.libraries.places.widget.AutocompleteActivity;
 import com.google.android.libraries.places.widget.model.AutocompleteActivityMode;
+import com.squareup.picasso.Picasso;
 
 import java.util.Arrays;
 import java.util.List;
@@ -31,16 +34,27 @@ public class LocationActivity extends AppCompatActivity implements View.OnClickL
     EditText etSource,etDestination;
     Button btTrack,moversList;
     TextView mPickUpsbutton ,textView;
+    ImageView miv_image_from_url;
 
     String sSource,sDestination;
     String []  orderInfo;
     String sType;
     double Lat1 = 0,Long1 = 0, Lat2 = 0, Long2 = 0;
     int flag = 0;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_location);
+        //initialize fragment
+        Fragment fragment = new MapFragment();
+
+        //open fragment
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.frame_layout,fragment)
+                .commit();
 
         //Assign variable
         mPickUpsbutton = (TextView) findViewById(R.id.pickups);
@@ -87,13 +101,16 @@ public class LocationActivity extends AppCompatActivity implements View.OnClickL
                 startActivityForResult(intent,100);
             }
         });
-        textView.setText("0.0 kilometers");
+       textView.setText("0.0 kilometers");
 
         mPickUpsbutton.setOnClickListener(this);
 
-        //find the button with id price and set a click listener
-        //moversList=findViewById(R.id.prices);
-        //moversList.setOnClickListener(this);
+
+
+         sSource = etSource.getText().toString().trim();
+        sDestination = etDestination.getText().toString().trim();
+
+
         btTrack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -102,10 +119,16 @@ public class LocationActivity extends AppCompatActivity implements View.OnClickL
                 if (sSource.equals("") && sDestination.equals("")){
                     Toast.makeText(getApplicationContext(),"Enter both Location",Toast.LENGTH_LONG);
                 }else {
-                    DisplayTrack(sSource,sDestination);
+                   DisplayTrack(sSource,sDestination);
+//                    if(!etSource.equals("") && !etDestination.equals("")){
+//                        String Newurl = "https://maps.googleapis.com/maps/api/staticmap?center="+etSource+"|"+etDestination+"&zoom=13&size=400x300&markers=color:blue%7Clabel:S%7C11211%7C11206%7C11222&key=AIzaSyATvNjtdd2UiIPQRyl-xzP11rth1AGUBwI";
+//
+//                        Picasso.get().load(Newurl).into(miv_image_from_url);
+//                    }
                 }
             }
         });
+
     }
 
     @Override
@@ -157,6 +180,8 @@ public class LocationActivity extends AppCompatActivity implements View.OnClickL
             Status status = Autocomplete.getStatusFromIntent(data);
             Toast.makeText(getApplicationContext(),status.getStatusMessage(), Toast.LENGTH_SHORT).show();
         }
+
+
     }
 
     private void distance(double lat1, double long1, double lat2, double long2) {
@@ -220,6 +245,11 @@ public class LocationActivity extends AppCompatActivity implements View.OnClickL
             intent2.putExtra("orderInfo",orderInfo);
             startActivity(intent2);
 
+        }
+
+       // set an intent on price id button
+        if(v== moversList){
+            startActivity(new Intent(LocationActivity.this,MoversList.class));
         }
 
     }
