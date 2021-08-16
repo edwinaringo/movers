@@ -18,8 +18,8 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_width="405dp"
+            android:layout_height="203dp">
 
             <ImageView
                 android:id="@+id/imageView5"
@@ -34,8 +34,8 @@
 
             <TextView
                 android:id="@+id/textView14"
-                android:layout_width="65dp"
-                android:layout_height="13dp"
+                android:layout_width="97dp"
+                android:layout_height="24dp"
                 android:layout_marginTop="28dp"
                 android:text="Thanks!"
                 android:textStyle="bold"

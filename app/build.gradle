@@ -61,6 +61,6 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
     //yoyo library
     implementation 'com.daimajia.androidanimations:library:2.4@aar'
-    
+
 
 }

@@ -22,7 +22,7 @@ public class ConfirmOrder extends AppCompatActivity {
         getSupportActionBar().hide();
         ButterKnife.bind(this);
 
-        YoYo.with(Techniques.Tada)
+        YoYo.with(Techniques.FadeIn)
                 .duration(700)
                 .repeat(5)
                 .playOn(findViewById(R.id.imageView5));
