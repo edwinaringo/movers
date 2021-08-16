@@ -15,10 +15,16 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 public class MoverListAdapter extends RecyclerView.Adapter<MoverListAdapter.MyViewHolder> {
+
+
+
     Context context;
+
     private static ArrayList<MoverBio> list;
     private static RecyclerViewClickListener listener;
     private static String[] orderInfo;
+
+
 
     public MoverListAdapter(Context context, ArrayList<MoverBio> list, RecyclerViewClickListener listener, String[] orderInfo) {
         this.context = context;
