@@ -47,6 +47,7 @@ public class MoverListAdapter extends RecyclerView.Adapter<MoverListAdapter.MyVi
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         MoverBio moverBio = list.get(position);
         holder.companyName.setText(moverBio.getCompanyName());
+        holder.emailAddress.setText(moverBio.getEmailAddress());
         holder.contactInfo.setText(moverBio.getContactInfo());
         holder.extraServices.setText(moverBio.getExtraServices());
         holder.inventory.setText(moverBio.getInventory());
@@ -65,12 +66,13 @@ public class MoverListAdapter extends RecyclerView.Adapter<MoverListAdapter.MyVi
     public static class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
 
-        TextView companyName, contactInfo, extraServices, inventory, pricePerDistance;
+        TextView companyName, emailAddress, contactInfo, extraServices, inventory, pricePerDistance;
         private Context mContext;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             companyName = itemView.findViewById(R.id.companyName);
+            emailAddress = itemView.findViewById(R.id.emailAddress);
             contactInfo = itemView.findViewById(R.id.contactInfo);
             extraServices = itemView.findViewById(R.id.extraServices);
             inventory = itemView.findViewById(R.id.inventory);

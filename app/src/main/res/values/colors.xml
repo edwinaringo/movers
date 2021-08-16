@@ -7,31 +7,28 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="grey">#ABA5A5</color>
+    <color name="grey">#BBB7B7</color>
     <color name="orange">#FF9933</color>
 </resources>
 
-<!--<Button-->
-<!--android:id="@+id/logInbutton"-->
-<!--android:layout_width="250dp"-->
-<!--android:layout_height="wrap_content"-->
-<!--android:layout_alignParentBottom="true"-->
-<!--android:layout_centerHorizontal="true"-->
-<!--android:background="@drawable/orange_btn_background"-->
-<!--android:text="Login"-->
-<!--android:textColor="@color/white" />-->
+    <!--<Button-->
+    <!--android:id="@+id/logInbutton"-->
+    <!--android:layout_width="250dp"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_alignParentBottom="true"-->
+    <!--android:layout_centerHorizontal="true"-->
+    <!--android:background="@drawable/orange_btn_background"-->
+    <!--android:text="Login"-->
+    <!--android:textColor="@color/white" />-->
 
-<!--<Button-->
-<!--android:layout_width="250dp"-->
-<!--android:layout_height="wrap_content"-->
-<!--android:text="Signin "-->
-<!--android:id="@+id/savedUniversitiesButton"-->
-<!--android:textColor="@color/white"-->
-<!--android:background="@drawable/orange_btn_background"-->
-<!--android:visibility="visible"-->
-<!--android:layout_marginBottom="50dp"-->
-<!--android:layout_alignParentBottom="true"-->
-<!--android:layout_centerHorizontal="true"/>-->
-
-
-
+    <!--<Button-->
+    <!--android:layout_width="250dp"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:text="Signin "-->
+    <!--android:id="@+id/savedUniversitiesButton"-->
+    <!--android:textColor="@color/white"-->
+    <!--android:background="@drawable/orange_btn_background"-->
+    <!--android:visibility="visible"-->
+    <!--android:layout_marginBottom="50dp"-->
+    <!--android:layout_alignParentBottom="true"-->
+    <!--android:layout_centerHorizontal="true"/>-->

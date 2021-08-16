@@ -10,6 +10,7 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -37,6 +38,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     @BindView(R.id.LoginForgotPasswordTextView) TextView mLoginForgotPasswordTextView;
     @BindView(R.id.LoginButton) Button mLoginButton;
     @BindView(R.id.LoginSignupTextView) TextView mLoginSignupTextView;
+    //progress bar
+    @BindView(R.id.firebaseProgressBar) ProgressBar mSignInProgressBar;
+    @BindView(R.id.loadingTextView) TextView mLoadingSignUp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,6 +77,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     @Override
     public void onClick(View v) {
         if (v==mLoginButton){
+            showProgressBar();
             accountLogin();
         }
     }
@@ -107,6 +112,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
+                        hideProgressBar();
                         if(task.isSuccessful()) {
 
                             FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
@@ -151,18 +157,15 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     }
                 });
     }
+//set visibility on progress bar
+    private void showProgressBar() {
+        mSignInProgressBar.setVisibility(View.VISIBLE);
+        mLoadingSignUp.setVisibility(View.VISIBLE);
+        mLoadingSignUp.setText("Log in you in");
+    }
 
-//    @Override
-//    public void onStart() {
-//        super.onStart();
-//        mAuth.addAuthStateListener(mAuthListener);
-//    }
-//
-//    @Override
-//    public void onStop() {
-//        super.onStop();
-//        if (mAuthListener != null) {
-//            mAuth.removeAuthStateListener(mAuthListener);
-//        }
-//    }
+    private void hideProgressBar() {
+        mSignInProgressBar.setVisibility(View.GONE);
+        mLoadingSignUp.setVisibility(View.GONE);
+    }
 }
