@@ -59,7 +59,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 if (user2 != null) {
 
 
-                    Intent intent = new Intent(LoginActivity.this,HouseActivity.class);
+                    Intent intent = new Intent(LoginActivity.this,MovingOrdersActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     intent.putExtra("username", id);
                     Log.i("id",id);
@@ -133,6 +133,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
                                 String[] userInfo={id,email};
                                 intent.putExtra("userinfo", userInfo);
+//                                intent.putExtra("username",id);
+
+
+
 
 
                                 Log.i("user", id);

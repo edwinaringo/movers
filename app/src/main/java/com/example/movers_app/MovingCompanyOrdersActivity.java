@@ -28,7 +28,7 @@ public class MovingCompanyOrdersActivity extends AppCompatActivity {
     @BindView(R.id.recyclerView)
     RecyclerView mRecyclerView;
 
-    private String userName;
+    private String companyName;
 
     private MovingCompanyOrdersListAdapter mAdapter;
     private MovingOrders mMovingOrders;
@@ -40,11 +40,12 @@ public class MovingCompanyOrdersActivity extends AppCompatActivity {
         setContentView(R.layout.activity_moving_company_orders);
         ButterKnife.bind(this);
 
-//        Intent intent = getIntent();
-//        userName= intent.getStringExtra("username");
+        Intent intent = getIntent();
+        companyName= intent.getStringExtra("companyName");
+        Log.i("name",companyName);
 
         MoversAPI client = MoversClient.getClient();
-        Call<List<MovingOrders>> call = client.getMovingOrderByCompanyName("trusties");
+        Call<List<MovingOrders>> call = client.getMovingOrderByCompanyName(companyName);
 
         call.enqueue(new Callback<List<MovingOrders>>() {
             @Override
