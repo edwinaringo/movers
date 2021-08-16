@@ -23,18 +23,25 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class MovingOrdersDetailFragment  extends Fragment implements View.OnClickListener {
-    @BindView(R.id.orderImageView)
-    ImageView mImageLabel;
-    @BindView(R.id.userNameTextView)
-    TextView mUserNameLabel;
-    @BindView(R.id.inventoryTextView)
-    TextView mInventoryLabel;
-    @BindView(R.id.orderLocationsTextView)
-    TextView mLocationsLabel;
-    @BindView(R.id.orderPricesTextView)
-    TextView mPricesLabel;
-    @BindView(R.id.orderTimeTextView)
-    TextView mPickUpTimeLabel;
+
+    @BindView(R.id.orderStatus)
+    TextView mOrderStatus;
+    @BindView(R.id.companyName)
+    TextView mCompanyName;
+    @BindView(R.id.userEmail)
+    TextView mUserEmail;
+    @BindView(R.id.inventory)
+    TextView mInventory;
+    @BindView(R.id.totalPrice)
+    TextView mTotalPrice;
+    @BindView(R.id.currentLocation)
+    TextView mCurrentLocation;
+    @BindView(R.id.newLocation)
+    TextView mNewLocation;
+
+    @BindView(R.id.pickupTime)
+    TextView mPickupTime;
+
 
 
     private MovingOrders mMovingOrder;
@@ -68,12 +75,14 @@ public class MovingOrdersDetailFragment  extends Fragment implements View.OnClic
         View view = inflater.inflate(R.layout.fragment_moving_orders_detail, container, false);
         ButterKnife.bind(this, view);
 
-        Picasso.get().load(R.drawable.box).into(mImageLabel);
-        mUserNameLabel.setText(mMovingOrder.getUserEmail());
-        mInventoryLabel.setText(mMovingOrder.getInventory());
-        mPricesLabel.setText(mMovingOrder.getTotalPrice().toString());
-        mPickUpTimeLabel.setText(mMovingOrder.getPickupTime());
-        mLocationsLabel.setText(mMovingOrder.getCurrentLocation() + " to " + mMovingOrder.getNewLocation());
+        mCompanyName.setText(mMovingOrder.getUserEmail());
+        mUserEmail.setText(mMovingOrder.getUserEmail());
+        mInventory.setText(mMovingOrder.getInventory());
+        mTotalPrice.setText(mMovingOrder.getTotalPrice().toString());
+        mPickupTime.setText(mMovingOrder.getPickupTime());
+        mOrderStatus.setText(mMovingOrder.getOrderStatus());
+        mCurrentLocation.setText(mMovingOrder.getCurrentLocation());
+        mNewLocation.setText(mMovingOrder.getNewLocation());
 
         return view;
 

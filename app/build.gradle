@@ -53,10 +53,10 @@ dependencies {
     //okhttp
     compile 'com.squareup.okhttp3:logging-interceptor:3.6.0'
     implementation 'com.squareup.okhttp3:okhttp:3.6.0'
-
     // Parceler
     implementation 'org.parceler:parceler-api:1.1.12'
     annotationProcessor 'org.parceler:parceler:1.1.12'
+
     //for butterknife
     implementation 'com.jakewharton:butterknife:10.2.0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.0'
