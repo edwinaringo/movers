@@ -20,7 +20,7 @@ import com.google.firebase.database.ValueEventListener;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class MoverAccount  extends AppCompatActivity{
+public class MoverAccount  extends AppCompatActivity implements View .OnClickListener{
 
     @BindView(R.id.companyName) TextView mCompanyName;
     @BindView(R.id.companyEmail) TextView mCompanyEmail;
@@ -28,29 +28,23 @@ public class MoverAccount  extends AppCompatActivity{
     @BindView(R.id.companyExtraServices) TextView mExtraServices;
     @BindView(R.id.inventoryCharges) TextView mInventoryCharges;
     @BindView(R.id.chargePerDistance) TextView mChargesPerDistances;
-
+    @BindView(R.id.moverOrdersButton) Button mMoverOrdersButton;
 
 
     DatabaseReference database;
     String companyEmail;
     MoverBio moverBio1;
 
-
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mover_account);
         getSupportActionBar().hide();
-
         ButterKnife.bind(this);
-
 
         Intent intent = getIntent();
         companyEmail = intent.getStringExtra("companyEmail");
-
+        Log.i("emaillogin", companyEmail.toString());
 
         database = FirebaseDatabase.getInstance().getReference("MoverPrices");
 
@@ -63,27 +57,21 @@ public class MoverAccount  extends AppCompatActivity{
                     MoverBio moverBio = dataSnapshot.getValue(MoverBio.class);
                     moverBio1= moverBio;
 
-                    mCompanyName.setText(moverBio1.getCompanyName());
-                    mCompanyEmail.setText(moverBio1.getEmailAddress());
-                    mCompanyContact.setText(moverBio1.getContactInfo());
-                    mExtraServices.setText(moverBio1.getExtraServices());
-                    mInventoryCharges.setText(moverBio1.getInventory());
-                    mChargesPerDistances.setText(moverBio1.getPricePerDistance());
-                    Log.i("email",moverBio.getEmailAddress());
-                    Log.i("email",moverBio.getEmailAddress().equals(companyEmail)+"");
+                    if(moverBio.getEmailAddress().equals(companyEmail)) {
+                        Log.i("email", "equal");
+
+                        mCompanyName.setText(moverBio1.getCompanyName());
+                        mCompanyEmail.setText(moverBio1.getEmailAddress());
+                        mCompanyContact.setText(moverBio1.getContactInfo());
+                        mExtraServices.setText(moverBio1.getExtraServices());
+                        mInventoryCharges.setText(moverBio1.getInventory());
+                        mChargesPerDistances.setText(moverBio1.getPricePerDistance());
+
+                    }else{
+                        Log.i("email",moverBio.getCompanyName());
 
 
-//                    if(moverBio.getEmailAddress().equals(companyEmail)){
-//                        Log.i("email",moverBio.getEmailAddress().equals(companyEmail)+"");
-
-//                        moverBio1= moverBio;
-
-//                        return;
-//                    }else{
-//                        Log.i("email",moverBio.getCompanyName());
-
-
-//                    }
+                    }
                 }
 
 
@@ -95,7 +83,20 @@ public class MoverAccount  extends AppCompatActivity{
             }
         });
 
+        mMoverOrdersButton.setOnClickListener(this);
 
+
+
+    }
+
+    @Override
+    public void onClick(View v) {
+        if(v == mMoverOrdersButton){
+            Intent intent =new Intent(getApplicationContext(),MovingCompanyOrdersActivity.class);
+            intent.putExtra("companyEmail",companyEmail);
+            startActivity(intent);
+
+        }
 
     }
 }

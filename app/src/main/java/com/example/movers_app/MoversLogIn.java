@@ -123,7 +123,7 @@ public class MoversLogIn extends AppCompatActivity implements View.OnClickListen
 
                                 Intent intent =new Intent (MoversLogIn.this, MoverAccount.class);
 //                                String[] userInfo={id,email};
-                                intent.putExtra("companyName", email);
+                                intent.putExtra("companyEmail", email);
 
                                 Log.i("email",email);
 
