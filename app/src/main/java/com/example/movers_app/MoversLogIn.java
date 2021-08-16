@@ -116,21 +116,17 @@ public class MoversLogIn extends AppCompatActivity implements View.OnClickListen
 
                             String id = mAuth.getCurrentUser().getUid();
                             String email = mAuth.getCurrentUser().getEmail();
-//                            String name =mAuth.getCurrentUser().getDisplayName();
                             FirebaseDatabase database = FirebaseDatabase.getInstance();
                             DatabaseReference username = database.getReference("User").child(id).child("name");
 
                             if (user.isEmailVerified()) {
 
-                                Intent intent =new Intent (MoversLogIn.this, MoversList.class);
-                                String[] userInfo={id,email};
-                                intent.putExtra("userinfo", userInfo);
+                                Intent intent =new Intent (MoversLogIn.this, MoverAccount.class);
+//                                String[] userInfo={id,email};
+                                intent.putExtra("companyEmail", email);
 
+                                Log.i("email",email);
 
-                                Log.i("user", id);
-                                Log.i("user", email);
-//                              Log.i("user",name);
-                                Log.i("user",username.toString());
                                 startActivity(intent);
 
 
