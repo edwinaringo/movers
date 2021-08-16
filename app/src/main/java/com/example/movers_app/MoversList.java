@@ -84,6 +84,7 @@ public class MoversList extends AppCompatActivity {
         listener = new MoverListAdapter.RecyclerViewClickListener() {
             @Override
             public void onClick(View v, int position) {
+
 //                Intent intent = new Intent(getApplicationContext(),PickupsActivity.class);
 //
 //                orderInfo[5]=moverName;
