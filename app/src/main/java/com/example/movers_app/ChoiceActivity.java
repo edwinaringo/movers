@@ -27,7 +27,7 @@ public class ChoiceActivity extends AppCompatActivity implements View.OnClickLis
     public void onClick(View v) {
         if(v == tv_movingCompany){
             //mProgressBar.setVisibility(View.VISIBLE);
-            startActivity(new Intent(ChoiceActivity.this,MovingCompanyOrdersActivity.class));
+            startActivity(new Intent(ChoiceActivity.this,Movers_SignUp.class));
         }
 
         if(v == tv_User){

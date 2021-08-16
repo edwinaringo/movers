@@ -13,7 +13,7 @@ public class MoverBio {
     }
 
 
-    public MoverBio(String companyName, String contactInfo, String extraServices, String inventory, String pricePerDistance) {
+    public MoverBio(String companyName, String emailAddress, String contactInfo, String extraServices, String inventory, String pricePerDistance) {
         this.companyName = companyName;
         this.emailAddress = emailAddress;
         this.contactInfo = contactInfo;
