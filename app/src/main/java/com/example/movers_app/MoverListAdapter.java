@@ -1,6 +1,8 @@
 package com.example.movers_app;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -13,6 +15,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+
 
 public class MoverListAdapter extends RecyclerView.Adapter<MoverListAdapter.MyViewHolder> {
 
@@ -87,10 +90,39 @@ public class MoverListAdapter extends RecyclerView.Adapter<MoverListAdapter.MyVi
         public void onClick(View v) {
             listener.onClick(v, getAdapterPosition());
 
-            Intent intent = new Intent(mContext,PickupsActivity.class);
-            orderInfo[5]=list.get(getAdapterPosition()).companyName;
-            intent.putExtra("orderInfo",orderInfo);
-            mContext.startActivity(intent);
+//            Intent intent = new Intent(mContext,PickupsActivity.class);
+//            orderInfo[5]=list.get(getAdapterPosition()).companyName;
+//            intent.putExtra("orderInfo",orderInfo);
+//            mContext.startActivity(intent);
+
+            AlertDialog.Builder builder1 = new AlertDialog.Builder(mContext);
+            builder1.setMessage("CONFIRM ORDER?");
+            builder1.setCancelable(true);
+            builder1.setPositiveButton(
+                    "Yes",
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            dialog.cancel();
+                            Intent intent = new Intent(mContext, PickupsActivity.class);
+                                        orderInfo[5]=list.get(getAdapterPosition()).companyName;
+                                        intent.putExtra("orderInfo",orderInfo);
+                                        mContext.startActivity(intent);
+                            mContext.startActivity(intent);
+
+                    }
+        });
+
+            builder1.setNegativeButton(
+                    "No",
+                    new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                dialog.cancel();
+            }
+        });
+
+        AlertDialog alert11 = builder1.create();
+            alert11.show();
+
 
 
         }

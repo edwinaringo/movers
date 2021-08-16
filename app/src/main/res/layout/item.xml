@@ -13,7 +13,8 @@
     android:divider="@color/purple_500"
     android:dividerHeight="0.0px"
     android:clipToPadding="false"
-    android:clipChildren="false">
+    android:clipChildren="false"
+    >
 
 
     <LinearLayout
