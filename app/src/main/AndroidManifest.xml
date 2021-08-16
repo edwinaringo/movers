@@ -11,6 +11,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MoversApp">
+
+        <activity android:name=".LoginChoice"></activity>
+        <activity android:name=".MoversLogIn" />
+
         <activity
             android:name=".ConfirmOrder"
             android:exported="true" />
@@ -19,8 +23,6 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyATvNjtdd2UiIPQRyl-xzP11rth1AGUBwI" />
 
-        <activity android:name=".LoginChoice" />
-        <activity android:name=".MoversLogIn" />
         <activity
             android:name=".OffersActivity"
             android:exported="true" />
@@ -30,6 +32,7 @@
         <activity
             android:name=".MoversList"
             android:exported="true" />
+
 
 <!--        <activity android:name=".MovingOrdersDetailActivity" />-->
 <!--        <activity android:name=".MovingCompanyOrdersActivity" />-->
@@ -45,6 +48,7 @@
 <!--        <activity android:name=".Sign_Up" />-->
 <!--        <activity android:name=".LoginActivity" />-->
 
+
         <activity
             android:name=".MovingCompanyOrdersActivity"
             android:parentActivityName=".MovingOrdersActivity" />
@@ -54,6 +58,9 @@
         <activity
             android:name=".ConfirmActivity"
             android:parentActivityName=".ChoiceActivity" />
+        <activity
+            android:name=".MoverAccount"
+            android:parentActivityName=".MoverAccount" />
         <activity
             android:name=".ChoiceActivity"
             android:parentActivityName=".Movers" />
