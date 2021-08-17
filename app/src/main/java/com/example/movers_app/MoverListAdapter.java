@@ -29,6 +29,8 @@ public class MoverListAdapter extends RecyclerView.Adapter<MoverListAdapter.MyVi
 
 
 
+
+
     public MoverListAdapter(Context context, ArrayList<MoverBio> list, RecyclerViewClickListener listener, String[] orderInfo) {
         this.context = context;
         this.list = list;
@@ -94,9 +96,13 @@ public class MoverListAdapter extends RecyclerView.Adapter<MoverListAdapter.MyVi
 //            orderInfo[5]=list.get(getAdapterPosition()).companyName;
 //            intent.putExtra("orderInfo",orderInfo);
 //            mContext.startActivity(intent);
+            double distance = Double.parseDouble(orderInfo[6]);
+            double charge = ( (Double.parseDouble(list.get(getAdapterPosition()).pricePerDistance)* distance)) +(Double.parseDouble(list.get(getAdapterPosition()).inventory));
+            int total_charge = (int) Math.floor((int)charge);
+            orderInfo[7]=String.valueOf(total_charge);
 
             AlertDialog.Builder builder1 = new AlertDialog.Builder(mContext);
-            builder1.setMessage("CONFIRM ORDER?");
+            builder1.setMessage("CONFIRM ORDER \n TOTAL CHARGES :\n KSH."+total_charge );
             builder1.setCancelable(true);
             builder1.setPositiveButton(
                     "Yes",
