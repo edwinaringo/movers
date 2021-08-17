@@ -14,7 +14,7 @@
     android:dividerHeight="0.0px"
     android:clipToPadding="false"
     android:clipChildren="false"
-    android:background=""
+
     >
 
 

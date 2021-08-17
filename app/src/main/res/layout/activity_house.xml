@@ -29,7 +29,7 @@
         android:layout_marginStart="19dp"
         android:layout_marginTop="161dp"
         android:layout_marginEnd="50dp"
-        android:src="@drawable/studioApartment"
+        android:src="@drawable/studio_apartment"
        />
 
     <TextView
@@ -52,7 +52,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginTop="163dp"
         android:layout_marginEnd="23dp"
-        android:src="@drawable/oneBedroom"
+        android:src="@drawable/one_bedroom"
         />
 
     <TextView
@@ -75,7 +75,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginStart="20dp"
         android:layout_marginBottom="96dp"
-        android:src="@drawable/twoBedroom"
+        android:src="@drawable/two_bedroom"
          />
 
     <TextView
@@ -98,7 +98,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginEnd="14dp"
         android:layout_marginBottom="96dp"
-        android:src="@drawable/threeBedroom"
+        android:src="@drawable/three_bedroom"
          />
 
     <TextView
