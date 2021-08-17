@@ -10,7 +10,6 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -82,7 +81,7 @@ public class HouseActivity extends AppCompatActivity implements View.OnClickList
 //        userName = intent.getStringExtra("userinfo");
 
         Picasso.get().load(R.drawable.bedsitter).into(mThreeBedRoomImage);
-        Picasso.get().load(R.drawable.studio).into(mStudioImage);
+        Picasso.get().load(R.drawable.studioApartment).into(mStudioImage);
         Picasso.get().load(R.drawable.onebedroom).into(mOneBedRoomImage);
         Picasso.get().load(R.drawable.twobedrooms).into(mTwoBedRoomImage);
 
