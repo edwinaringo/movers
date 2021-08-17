@@ -42,8 +42,6 @@ public class LocationActivity extends AppCompatActivity implements View.OnClickL
     double Lat1 = 0,Long1 = 0, Lat2 = 0, Long2 = 0;
     int flag = 0;
 
-    double distance;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -190,7 +188,7 @@ public class LocationActivity extends AppCompatActivity implements View.OnClickL
         //calculate longitude difference
         double longDiff = Long1 - Long2;
         //calculate distance
-        distance = Math.sin(deg2rad(Lat1))
+        double distance = Math.sin(deg2rad(Lat1))
                 *Math.sin(deg2rad(Lat2))
                 +Math.cos(deg2rad(Lat1))
                 *Math.cos(deg2rad(Lat2))
@@ -241,7 +239,6 @@ public class LocationActivity extends AppCompatActivity implements View.OnClickL
 
             orderInfo[3] = sSource;
             orderInfo[4]=sDestination;
-            orderInfo[6]= String.valueOf(distance);
             Intent intent2 =new Intent(LocationActivity.this,MoversList.class);
 
 

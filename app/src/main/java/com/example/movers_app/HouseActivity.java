@@ -62,7 +62,7 @@ public class HouseActivity extends AppCompatActivity implements View.OnClickList
     private TextView studioText, oneBedroomText, twoBedRoomText, threeBedRoomText;
     String userName;
 
-    String[] orderInfo= new String[8];
+    String[] orderInfo= new String[6];
     String[] userInfo;
 
     @BindView(R.id.studioImage) ImageView mStudioImage;
