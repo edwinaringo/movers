@@ -9,18 +9,18 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class LoginChoice extends AppCompatActivity implements View.OnClickListener {
-    Button btn_User;
+    Button user_btn;
     Button btn_Mover;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_choice);
+        setContentView(R.layout.activity_login_choice);
 
-        btn_User = (Button) findViewById(R.id.signUpUser);
-        btn_Mover = (Button) findViewById(R.id.signUpMover);
+        user_btn = (Button) findViewById(R.id.userLogIn);
+        btn_Mover = (Button) findViewById(R.id.logInMover);
 
-        btn_User.setOnClickListener(this);
+        user_btn.setOnClickListener(this);
         btn_Mover.setOnClickListener(this);
     }
 
@@ -31,7 +31,7 @@ public class LoginChoice extends AppCompatActivity implements View.OnClickListen
             startActivity(new Intent(LoginChoice.this,MoversLogIn.class));
         }
 
-        if(v == btn_User){
+        if(v == user_btn){
             //mProgressBar.setVisibility(View.VISIBLE);
             startActivity(new Intent(LoginChoice.this,LoginActivity.class));
         }
