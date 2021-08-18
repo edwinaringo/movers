@@ -9,6 +9,8 @@
     <color name="white">#FFFFFFFF</color>
     <color name="grey">#BBB7B7</color>
     <color name="orange">#FF9933</color>
+    <color name="dark_orange">#FF8C00</color>
+
 </resources>
 
     <!--<Button-->

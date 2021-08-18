@@ -10,7 +10,6 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -81,10 +80,10 @@ public class HouseActivity extends AppCompatActivity implements View.OnClickList
         Log.i("userinfo",userInfo[0]+""+userInfo[1]);
 //        userName = intent.getStringExtra("userinfo");
 
-        Picasso.get().load(R.drawable.bedsitter).into(mThreeBedRoomImage);
-        Picasso.get().load(R.drawable.studio).into(mStudioImage);
-        Picasso.get().load(R.drawable.onebedroom).into(mOneBedRoomImage);
-        Picasso.get().load(R.drawable.twobedrooms).into(mTwoBedRoomImage);
+        Picasso.get().load(R.drawable.three_bedroom).into(mThreeBedRoomImage);
+        Picasso.get().load(R.drawable.studio_apartment).into(mStudioImage);
+        Picasso.get().load(R.drawable.one_bedroom).into(mOneBedRoomImage);
+        Picasso.get().load(R.drawable.two_bedroom).into(mTwoBedRoomImage);
 
         mStudioImage.setOnClickListener(this);
         mOneBedRoomImage.setOnClickListener(this);
