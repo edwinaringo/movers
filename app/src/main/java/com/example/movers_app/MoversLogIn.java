@@ -10,6 +10,7 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -37,12 +38,14 @@ public class MoversLogIn extends AppCompatActivity implements View.OnClickListen
     @BindView(R.id.LoginForgotPasswordTextView) TextView mLoginForgotPasswordTextView;
     @BindView(R.id.LoginButton) Button mLoginButton;
     @BindView(R.id.LoginSignupTextView) TextView mLoginSignupTextView;
-
+    ProgressBar mProgressBar2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         ButterKnife.bind(this);
+
+        mProgressBar2 = (ProgressBar) findViewById(R.id.progressBar2);
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -103,11 +106,14 @@ public class MoversLogIn extends AppCompatActivity implements View.OnClickListen
             return;
         }
 
+        showProgressBar();
+
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()) {
+                            hideProgressBar();
 
                             FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
@@ -133,13 +139,22 @@ public class MoversLogIn extends AppCompatActivity implements View.OnClickListen
                             }else{
                                 user.sendEmailVerification();
                                 Toast.makeText(MoversLogIn.this, "Check your email to verify your account", Toast.LENGTH_SHORT).show();
+                                hideProgressBar();
                             }
                         }else{
                             Toast.makeText(MoversLogIn.this, "Failed to login! Please try again", Toast.LENGTH_SHORT).show();
+                            hideProgressBar();
                         }
 
                     }
                 });
+    }
+    private void showProgressBar() {
+        mProgressBar2.setVisibility(View.VISIBLE);
+    }
+
+    private void hideProgressBar() {
+        mProgressBar2.setVisibility(View.GONE);
     }
 
 //    @Override
