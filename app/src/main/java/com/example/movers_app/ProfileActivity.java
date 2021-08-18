@@ -22,9 +22,10 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class ProfileActivity extends AppCompatActivity {
-    @BindView(R.id.ProfileEmail) TextView mProfileEmail;
-    @BindView(R.id.ProfileName) TextView mProfileName;
+    @BindView(R.id.userEmail) TextView mProfileEmail;
+    @BindView(R.id.userName) TextView mProfileName;
     @BindView(R.id.ProfileLogout) Button mProfileLogout;
+    @BindView(R.id.requests) Button mRequestsBtn;
 
     private FirebaseUser user;
     private DatabaseReference reference;
@@ -35,6 +36,14 @@ public class ProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
         ButterKnife.bind(this);
+
+        mRequestsBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ProfileActivity.this, MovingOrdersActivity.class));
+                Toast.makeText(ProfileActivity.this, "Here are your orders.", Toast.LENGTH_SHORT).show();
+            }
+        });
 
         mProfileLogout.setOnClickListener(new View.OnClickListener() {
             @Override
