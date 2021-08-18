@@ -10,10 +10,13 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.MoversApp">
+        android:theme="@style/Theme.MoversApp"
+        android:name=".ApplicationClass">
+
 
         <activity android:name=".LoginChoice"></activity>
         <activity android:name=".MoversLogIn" />
+
 
         <activity
             android:name=".ConfirmOrder"
