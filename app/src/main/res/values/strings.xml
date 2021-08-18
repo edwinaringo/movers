@@ -13,5 +13,12 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
+<!--    house activity-->
+    <string name="firstLine">Doing an activity move? Let our Helpers do all the work</string>
+    <string name="secondLine">for a low price! With thousands of 5 star reviews and</string>
+    <string name="thirdLine">free damage protection you can rest easy</string>
+    <string name="fourthLine">Getting Extra services from company</string>
+    <string name="fifthLine">will add additional fees</string>
+
 
 </resources>

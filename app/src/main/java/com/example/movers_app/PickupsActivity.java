@@ -81,7 +81,8 @@ public class PickupsActivity extends AppCompatActivity {
                 TimePickerDialog timePickerDialog = new TimePickerDialog(PickupsActivity.this, new TimePickerDialog.OnTimeSetListener() {
                     @Override
                     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-                        text_date.setText(hourOfDay+":"+minute);
+                        text_time.setText(hourOfDay+":"+minute);
+
                         time = hourOfDay+":"+minute;
                         Log.i("time",time);
 
