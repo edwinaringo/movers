@@ -50,10 +50,10 @@ public class MoverListAdapter extends RecyclerView.Adapter<MoverListAdapter.MyVi
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         MoverBio moverBio = list.get(position);
         holder.companyName.setText(moverBio.getCompanyName());
-        holder.contactInfo.setText(moverBio.getContactInfo());
-        holder.extraServices.setText(moverBio.getExtraServices());
-        holder.inventory.setText(moverBio.getInventory());
-        holder.pricePerDistance.setText(moverBio.getPricePerDistance());
+
+
+        holder.inventoryCharges.setText("KSH."+moverBio.getInventory());
+        holder.pricePerDistance.setText("KSH."+moverBio.getPricePerDistance());
 
 
 
@@ -68,16 +68,14 @@ public class MoverListAdapter extends RecyclerView.Adapter<MoverListAdapter.MyVi
     public static class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
 
-        TextView companyName, contactInfo, extraServices, inventory, pricePerDistance;
+        TextView companyName,  inventoryCharges, pricePerDistance;
         private Context mContext;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             companyName = itemView.findViewById(R.id.companyName);
-            contactInfo = itemView.findViewById(R.id.contactInfo);
-            extraServices = itemView.findViewById(R.id.extraServices);
-            inventory = itemView.findViewById(R.id.inventory);
-            pricePerDistance = itemView.findViewById(R.id.pricePerDistance);
+            inventoryCharges = itemView.findViewById(R.id.inventoryCharges);
+            pricePerDistance = itemView.findViewById(R.id.chargePerDistance);
 
             mContext = itemView.getContext();
 
@@ -104,23 +102,23 @@ public class MoverListAdapter extends RecyclerView.Adapter<MoverListAdapter.MyVi
                         public void onClick(DialogInterface dialog, int id) {
                             dialog.cancel();
                             Intent intent = new Intent(mContext, PickupsActivity.class);
-                                        orderInfo[5]=list.get(getAdapterPosition()).companyName;
-                                        intent.putExtra("orderInfo",orderInfo);
-                                        mContext.startActivity(intent);
+                            orderInfo[5]=list.get(getAdapterPosition()).companyName;
+                            intent.putExtra("orderInfo",orderInfo);
+                            mContext.startActivity(intent);
                             mContext.startActivity(intent);
 
-                    }
-        });
+                        }
+                    });
 
             builder1.setNegativeButton(
                     "No",
                     new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int id) {
-                dialog.cancel();
-            }
-        });
+                        public void onClick(DialogInterface dialog, int id) {
+                            dialog.cancel();
+                        }
+                    });
 
-        AlertDialog alert11 = builder1.create();
+            AlertDialog alert11 = builder1.create();
             alert11.show();
 
 
