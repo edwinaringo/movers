@@ -54,7 +54,6 @@ public class MoverAccount  extends AppCompatActivity implements View .OnClickLis
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
 
-
                     MoverBio moverBio = dataSnapshot.getValue(MoverBio.class);
                     moverBio1= moverBio;
 
@@ -70,14 +69,8 @@ public class MoverAccount  extends AppCompatActivity implements View .OnClickLis
                         mInventoryCharges.setText(moverBio1.getInventory());
                         mChargesPerDistances.setText(moverBio1.getPricePerDistance());
 
-                    }else{
-                        Log.i("email",moverBio.getCompanyName());
-
-
                     }
                 }
-
-
             }
 
             @Override

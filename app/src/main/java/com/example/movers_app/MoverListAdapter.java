@@ -110,7 +110,8 @@ public class MoverListAdapter extends RecyclerView.Adapter<MoverListAdapter.MyVi
                         public void onClick(DialogInterface dialog, int id) {
                             dialog.cancel();
                             Intent intent = new Intent(mContext, PickupsActivity.class);
-                                        orderInfo[5]=list.get(getAdapterPosition()).companyName;
+                                        orderInfo[5]=list.get(getAdapterPosition()).getCompanyName();
+                                        orderInfo[8]=list.get(getAdapterPosition()).getEmailAddress();
                                         intent.putExtra("orderInfo",orderInfo);
                                         mContext.startActivity(intent);
                             mContext.startActivity(intent);
