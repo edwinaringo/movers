@@ -66,5 +66,8 @@ dependencies {
     //yoyo library
     implementation 'com.daimajia.androidanimations:library:2.4@aar'
 
+    //card view
+    implementation 'androidx.cardview:cardview:1.0.0'
+
 
 }
