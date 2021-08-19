@@ -13,7 +13,9 @@
         android:id="@+id/textView16"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
         android:layout_marginTop="16dp"
+        android:layout_marginRight="30dp"
         android:fontFamily="@font/poppins_bold"
         android:text="Moving made easy with Movers"
         android:textColor="@color/black"
@@ -28,7 +30,9 @@
         android:id="@+id/firstLine"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
         android:layout_marginTop="20dp"
+        android:layout_marginRight="30dp"
         android:text="@string/firstLine"
         android:textColor="@color/black"
         android:textSize="15dp"
@@ -42,7 +46,9 @@
         android:id="@+id/secondLine"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
         android:layout_marginTop="5dp"
+        android:layout_marginRight="30dp"
         android:text="@string/secondLine"
         android:textColor="@color/black"
         android:textSize="15dp"
@@ -56,7 +62,9 @@
         android:id="@+id/thirdsLine"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
         android:layout_marginTop="5dp"
+        android:layout_marginRight="30dp"
         android:text="@string/thirdLine"
         android:textColor="@color/black"
         android:textSize="15dp"
@@ -72,7 +80,9 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerInParent="true"
+        android:layout_marginLeft="30dp"
         android:layout_marginTop="28dp"
+        android:layout_marginRight="30dp"
         android:fontFamily="@font/poppins_bold"
         android:text="Choose type of move"
         android:textColor="@color/black"
@@ -105,6 +115,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="26dp"
+                android:layout_marginLeft="30dp"
                 android:layout_marginTop="15dp"
                 android:text="Studio"
                 android:textColor="@color/black"
@@ -145,6 +156,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="26dp"
+                android:layout_marginLeft="30dp"
                 android:layout_marginTop="15dp"
                 android:text="1 Bedroom"
                 android:textColor="@color/black"
@@ -188,6 +200,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="26dp"
+                android:layout_marginLeft="30dp"
                 android:layout_marginTop="15dp"
                 android:text="2 Bedroom"
                 android:textColor="@color/black"
@@ -231,6 +244,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="26dp"
+                android:layout_marginLeft="30dp"
                 android:layout_marginTop="15dp"
                 android:text="3 Bedroom"
                 android:textColor="@color/black"
@@ -258,25 +272,24 @@
         android:id="@+id/fifthLine"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
         android:text="@string/fourthLine"
         android:textColor="@color/black"
         android:textSize="15dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView11"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.485"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView4" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
+        android:id="@+id/textView11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:text="@string/fifthLine"
         android:textColor="@color/black"
         android:textSize="15dp"
+        android:layout_marginBottom="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fifthLine" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
