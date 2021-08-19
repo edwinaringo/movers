@@ -71,6 +71,12 @@ public class MoversLogIn extends AppCompatActivity implements View.OnClickListen
 
         //validate user inputs when login button clicked
         mLoginButton.setOnClickListener(this);
+        mLoginSignupTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MoversLogIn.this,Movers_SignUp.class));
+            }
+        });
     }
 
     @Override
