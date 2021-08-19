@@ -13,6 +13,7 @@ import com.example.movers_app.adapters.MovingOrdersListAdapter;
 import com.example.movers_app.models.MovingOrders;
 import com.example.movers_app.network.MoversAPI;
 import com.example.movers_app.network.MoversClient;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,6 +29,8 @@ public class MovingOrdersActivity  extends AppCompatActivity {
     @BindView(R.id.recyclerView)
     RecyclerView mRecyclerView;
 
+    private FirebaseAuth mAuth;
+
     private String userName;
 
     private MovingOrdersListAdapter mAdapter;
@@ -40,8 +43,12 @@ public class MovingOrdersActivity  extends AppCompatActivity {
         setContentView(R.layout.activity_moving_orders);
         ButterKnife.bind(this);
 
-        Intent intent = getIntent();
-        userName= intent.getStringExtra("username");
+        mAuth = FirebaseAuth.getInstance();
+
+//        Intent intent = getIntent();
+//        userName= intent.getStringExtra("username");
+
+        userName=mAuth.getCurrentUser().getUid();
 
         MoversAPI client = MoversClient.getClient();
         Call<List<MovingOrders>> call = client.getMovingOrderByUserName(userName);

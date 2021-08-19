@@ -22,7 +22,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class HouseActivity extends AppCompatActivity implements View.OnClickListener{
-
+    private FirebaseAuth mAuth;
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
@@ -61,10 +61,12 @@ public class HouseActivity extends AppCompatActivity implements View.OnClickList
 
     private TextView studioText, oneBedroomText, twoBedRoomText, threeBedRoomText;
     String userName;
+    String id;
+    String email;
 
     String[] orderInfo= new String[9];
 
-    String[] userInfo;
+//    String[] userInfo;
 
     @BindView(R.id.cardView) CardView mCardView;
     @BindView(R.id.cardView2) CardView mCardView2;
@@ -76,10 +78,14 @@ public class HouseActivity extends AppCompatActivity implements View.OnClickList
         setContentView(R.layout.activity_house);
         ButterKnife.bind(this);
 
+        mAuth = FirebaseAuth.getInstance();
+        String id = mAuth.getCurrentUser().getUid();
+        String email = mAuth.getCurrentUser().getEmail();
+
 //        Intent intent = getIntent();
-        Bundle extras = getIntent().getExtras();
-        userInfo = extras.getStringArray("userinfo");
-        Log.i("userinfo",userInfo[0]+""+userInfo[1]);
+//        Bundle extras = getIntent().getExtras();
+//        userInfo = extras.getStringArray("userinfo");
+//        Log.i("userinfo",userInfo[0]+""+userInfo[1]);
 //        userName = intent.getStringExtra("userinfo");
 
 
@@ -116,8 +122,8 @@ public class HouseActivity extends AppCompatActivity implements View.OnClickList
         if(v==studioText || v==mCardView){
             Intent intent =new Intent(HouseActivity.this,MapActivity.class);
             inventory=studioText.getText().toString();
-            orderInfo[0]=userInfo[0];
-            orderInfo[1]= userInfo[1];
+            orderInfo[0]=id;
+            orderInfo[1]= email;
             orderInfo[2]= inventory;
 
             intent.putExtra("orderInfo",orderInfo);
@@ -126,8 +132,8 @@ public class HouseActivity extends AppCompatActivity implements View.OnClickList
         if(v==oneBedroomText || v==mCardView2){
             Intent intent =new Intent(HouseActivity.this,MapActivity.class);
             inventory=oneBedroomText.getText().toString();
-            orderInfo[0]=userInfo[0];
-            orderInfo[1]= userInfo[1];
+            orderInfo[0]=id;
+            orderInfo[1]= email;
             orderInfo[2]= inventory;
 
             intent.putExtra("orderInfo",orderInfo);
@@ -136,8 +142,8 @@ public class HouseActivity extends AppCompatActivity implements View.OnClickList
         if(v==twoBedRoomText || v==mCardView3){
             Intent intent =new Intent(HouseActivity.this,MapActivity.class);
             inventory=twoBedRoomText.getText().toString();
-            orderInfo[0]=userInfo[0];
-            orderInfo[1]= userInfo[1];
+            orderInfo[0]=id;
+            orderInfo[1]= email;
             orderInfo[2]= inventory;
 
             intent.putExtra("orderInfo",orderInfo);
@@ -146,8 +152,8 @@ public class HouseActivity extends AppCompatActivity implements View.OnClickList
         if(v==threeBedRoomText || v==mCardView4){
             Intent intent =new Intent(HouseActivity.this,MapActivity.class);
             inventory=threeBedRoomText.getText().toString();
-            orderInfo[0]=userInfo[0];
-            orderInfo[1]= userInfo[1];
+            orderInfo[0]=id;
+            orderInfo[1]= email;
             orderInfo[2]= inventory;
 
             intent.putExtra("orderInfo",orderInfo);

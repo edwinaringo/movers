@@ -147,7 +147,7 @@ int check = 0;
         orderStatus=mMovingOrder.getOrderStatus();
         companyEmail=mMovingOrder.getMovingCompanyEmail();
 
-String price= String.valueOf(totalPrice);
+        String price= String.valueOf(totalPrice);
         mCompanyName.setText(companyName);
         mUserEmail.setText(userEmail);
         mInventory.setText(inventory);
@@ -221,8 +221,7 @@ String price= String.valueOf(totalPrice);
 //            return;
 //        }
         if(++check > 1) {
-            ((TextView) view).setText(null);
-
+//            ((TextView) view).setText(null);
             newOrderStatus = parent.getItemAtPosition(position).toString();
             updateOrderStatus();
             mOrderStatus.setText(newOrderStatus);
