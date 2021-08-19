@@ -124,7 +124,7 @@ public class HouseActivity extends AppCompatActivity implements View.OnClickList
             inventory=studioText.getText().toString();
             orderInfo[0]=id;
             orderInfo[1]= email;
-            orderInfo[2]= inventory;
+            orderInfo[2]= "studio";
 
             intent.putExtra("orderInfo",orderInfo);
             startActivity(intent);
@@ -134,7 +134,7 @@ public class HouseActivity extends AppCompatActivity implements View.OnClickList
             inventory=oneBedroomText.getText().toString();
             orderInfo[0]=id;
             orderInfo[1]= email;
-            orderInfo[2]= inventory;
+            orderInfo[2]= "one bedroom";
 
             intent.putExtra("orderInfo",orderInfo);
             startActivity(intent);
@@ -144,7 +144,7 @@ public class HouseActivity extends AppCompatActivity implements View.OnClickList
             inventory=twoBedRoomText.getText().toString();
             orderInfo[0]=id;
             orderInfo[1]= email;
-            orderInfo[2]= inventory;
+            orderInfo[2]= "two bedroom";
 
             intent.putExtra("orderInfo",orderInfo);
             startActivity(intent);
@@ -154,7 +154,7 @@ public class HouseActivity extends AppCompatActivity implements View.OnClickList
             inventory=threeBedRoomText.getText().toString();
             orderInfo[0]=id;
             orderInfo[1]= email;
-            orderInfo[2]= inventory;
+            orderInfo[2]= "three bedroom";
 
             intent.putExtra("orderInfo",orderInfo);
             startActivity(intent);
