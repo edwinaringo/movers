@@ -41,6 +41,9 @@ public class MovingCompanyOrdersActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         Intent intent = getIntent();
+
+
+
         companyName= intent.getStringExtra("companyName");
         Log.i("name",companyName);
 

@@ -10,10 +10,10 @@ import org.parceler.Parcel;
 //@Generated("jsonschema2pojo")
 @Parcel
 public class MovingOrders {
-
     @SerializedName("id")
     @Expose
     private Integer id;
+
     @SerializedName("user_name")
     @Expose
     private String userName;
@@ -32,6 +32,9 @@ public class MovingOrders {
     @SerializedName("moving_company")
     @Expose
     private String movingCompany;
+    @SerializedName("moving_company_email")
+    @Expose
+    private String movingCompanyEmail;
     @SerializedName("total_price")
     @Expose
     private Integer totalPrice;
@@ -44,33 +47,31 @@ public class MovingOrders {
 
     /**
      * No args constructor for use in serialization
-     * 
      */
     public MovingOrders() {
     }
 
     /**
-     * 
      * @param pickupTime
      * @param movingCompany
      * @param totalPrice
+     * @param movingCompanyEmail
      * @param orderStatus
      * @param userEmail
-
      * @param userName
      * @param inventory
      * @param newLocation
      * @param currentLocation
      */
-    public MovingOrders( String userName, String userEmail, String inventory, String currentLocation, String newLocation, String movingCompany, Integer totalPrice, String orderStatus, String pickupTime) {
+    public MovingOrders(String userName, String userEmail, String inventory, String currentLocation, String newLocation, String movingCompany, String movingCompanyEmail, Integer totalPrice, String orderStatus, String pickupTime) {
         super();
-
         this.userName = userName;
         this.userEmail = userEmail;
         this.inventory = inventory;
         this.currentLocation = currentLocation;
         this.newLocation = newLocation;
         this.movingCompany = movingCompany;
+        this.movingCompanyEmail = movingCompanyEmail;
         this.totalPrice = totalPrice;
         this.orderStatus = orderStatus;
         this.pickupTime = pickupTime;
@@ -132,6 +133,14 @@ public class MovingOrders {
         this.movingCompany = movingCompany;
     }
 
+    public String getMovingCompanyEmail() {
+        return movingCompanyEmail;
+    }
+
+    public void setMovingCompanyEmail(String movingCompanyEmail) {
+        this.movingCompanyEmail = movingCompanyEmail;
+    }
+
     public Integer getTotalPrice() {
         return totalPrice;
     }
@@ -155,5 +164,4 @@ public class MovingOrders {
     public void setPickupTime(String pickupTime) {
         this.pickupTime = pickupTime;
     }
-
 }

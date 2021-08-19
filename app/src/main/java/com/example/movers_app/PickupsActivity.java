@@ -92,7 +92,7 @@ public class PickupsActivity extends AppCompatActivity {
                         String pickup_time = date+" "+ time+" ";
 
                         Log.i("message",orderInfo[0]+""+orderInfo[1]+""+orderInfo[2]);
-                        saveOrder(orderInfo[0],orderInfo[1],orderInfo[2],orderInfo[3],orderInfo[4],orderInfo[5],79898,"approved",pickup_time);
+                        saveOrder(orderInfo[0],orderInfo[1],orderInfo[2],orderInfo[3],orderInfo[4],orderInfo[5],orderInfo[8],Integer.parseInt( orderInfo[7]),"pending",pickup_time);
 
                     }
                 },chour,cminute,false);
@@ -107,9 +107,9 @@ public class PickupsActivity extends AppCompatActivity {
 
     }
 
-    public void saveOrder(String user_name, String user_email, String inventory, String current_location, String new_location, String moving_company, int total_price, String order_status, String pickup_time){
+    public void saveOrder(String user_name, String user_email, String inventory, String current_location, String new_location, String moving_company,String moving_company_email, int total_price, String order_status, String pickup_time){
 
-        MovingOrders movingOrder = new MovingOrders(user_name,user_email,inventory,current_location,new_location,moving_company,total_price,order_status,pickup_time);
+        MovingOrders movingOrder = new MovingOrders(user_name,user_email,inventory,current_location,new_location,moving_company,moving_company_email,total_price,order_status,pickup_time);
         MoversAPI client = MoversClient.getClient();
         Call<MovingOrders> call = client.postMovingOrder(movingOrder);
         call.enqueue(new Callback<MovingOrders>() {

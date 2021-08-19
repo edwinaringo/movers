@@ -282,6 +282,7 @@ public class MapActivity extends AppCompatActivity implements View.OnClickListen
 
                 orderInfo[3] = sSource;
                 orderInfo[4]=sDestination;
+                orderInfo[6]= String.valueOf(distance);
                 Intent intent2 =new Intent(getApplicationContext(),MoversList.class);
 
 

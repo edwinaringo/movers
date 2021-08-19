@@ -62,7 +62,8 @@ public class HouseActivity extends AppCompatActivity implements View.OnClickList
     private TextView studioText, oneBedroomText, twoBedRoomText, threeBedRoomText;
     String userName;
 
-    String[] orderInfo= new String[6];
+    String[] orderInfo= new String[9];
+
     String[] userInfo;
 
     @BindView(R.id.cardView) CardView mCardView;
