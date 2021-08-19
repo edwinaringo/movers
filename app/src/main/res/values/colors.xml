@@ -8,8 +8,14 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="grey">#BBB7B7</color>
+    <color name="blueish">#DAEDEA</color>
+
     <color name="orange">#FF9933</color>
     <color name="dark_orange">#FF8C00</color>
+    <color name="jet">#333333</color>
+    <color name="brown">#2B1F1F</color>
+    <color name="secondary_orange">#F15C3B</color>
+    <color name="light_orange">#ffbd45</color>
 
 </resources>
 

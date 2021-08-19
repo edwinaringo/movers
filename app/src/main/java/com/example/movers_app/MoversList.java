@@ -45,7 +45,6 @@ public class MoversList extends AppCompatActivity {
 
         orderInfo = extras.getStringArray("orderInfo");
         itemView = findViewById(R.id.itemView);
-
         recyclerView = findViewById(R.id.mover_list);
         database = FirebaseDatabase.getInstance().getReference("MoverPrices");
         recyclerView.setHasFixedSize(true);
