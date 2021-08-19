@@ -4,7 +4,7 @@ import java.util.Objects;
 
 public class MoverBio {
 
-    public String companyName, contactInfo, extraServices, inventory, pricePerDistance;
+    public String companyName, emailAddress, contactInfo, extraServices, inventory, pricePerDistance;
 
 
 
@@ -13,8 +13,9 @@ public class MoverBio {
     }
 
 
-    public MoverBio(String companyName, String contactInfo, String extraServices, String inventory, String pricePerDistance) {
+    public MoverBio(String companyName, String emailAddress, String contactInfo, String extraServices, String inventory, String pricePerDistance) {
         this.companyName = companyName;
+        this.emailAddress = emailAddress;
         this.contactInfo = contactInfo;
         this.extraServices = extraServices;
         this.inventory = inventory;
@@ -24,6 +25,10 @@ public class MoverBio {
 
     public String getCompanyName() {
         return companyName;
+    }
+
+    public String getEmailAddress() {
+        return emailAddress;
     }
 
     public String getContactInfo() {
@@ -44,6 +49,10 @@ public class MoverBio {
 
     public void setCompanyName(String companyName) {
         this.companyName = companyName;
+    }
+
+    public void setEmailAddress(String emailAddress) {
+        this.emailAddress = emailAddress;
     }
 
     public void setContactInfo(String contactInfo) {

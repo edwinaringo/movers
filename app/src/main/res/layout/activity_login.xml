@@ -12,9 +12,10 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="40dp"
         android:layout_marginTop="100dp"
+        android:fontFamily="@font/poppins"
         android:text="Hi,"
+        android:textColor="#000000"
         android:textSize="34sp"
-        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -23,9 +24,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
+        android:fontFamily="@font/poppins"
         android:text="Please Login"
+        android:textColor="#000000"
         android:textSize="34sp"
-        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/LoginHiTextView"
         app:layout_constraintTop_toBottomOf="@+id/LoginHiTextView" />
 
@@ -34,9 +36,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
+        android:fontFamily="@font/poppins"
         android:text="Email"
+        android:textColor="#000000"
         android:textSize="16sp"
-        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/LoginPleaseLoginTextView"
         app:layout_constraintTop_toBottomOf="@+id/LoginPleaseLoginTextView" />
 
@@ -47,6 +50,7 @@
         android:layout_marginLeft="40dp"
         android:layout_marginTop="4dp"
         android:layout_marginRight="40dp"
+        android:fontFamily="@font/poppins"
         android:hint="Enter here"
         android:inputType="textEmailAddress"
         app:layout_constraintEnd_toEndOf="parent"
@@ -55,12 +59,13 @@
 
     <TextView
         android:id="@+id/LoginPasswordTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="83dp"
+        android:layout_height="33dp"
         android:layout_marginTop="12dp"
+        android:fontFamily="@font/poppins"
         android:text="Password"
+        android:textColor="#000000"
         android:textSize="16sp"
-        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/LoginEmailAddressEditText"
         app:layout_constraintTop_toBottomOf="@+id/LoginEmailAddressEditText" />
 
@@ -69,34 +74,28 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="40dp"
-        android:layout_marginRight="40dp"
         android:layout_marginTop="4dp"
+        android:layout_marginRight="40dp"
+        android:fontFamily="@font/poppins"
         android:hint="Enter here"
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/LoginPasswordTextView" />
 
-    <TextView
-        android:id="@+id/LoginForgotPasswordTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Forgot Password"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/LoginPasswordEditText" />
-
     <Button
         android:id="@+id/LoginButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="40dp"
-        android:layout_marginTop="20dp"
         android:layout_marginRight="40dp"
+        android:backgroundTint="@color/dark_orange"
+        android:fontFamily="@font/poppins"
         android:text="Log In"
-        android:backgroundTint="@color/black"
+        android:textAllCaps="false"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/LoginSignupTextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/LoginForgotPasswordTextView" />
@@ -105,10 +104,48 @@
         android:id="@+id/LoginSignupTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
+        android:fontFamily="@font/poppins"
         android:text="Don't have an account? Signup"
+        android:layout_marginBottom="20dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/LoginForgotPasswordTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/poppins"
+        android:text="Forgot Password?"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/LoginPasswordEditText"
+        app:layout_constraintTop_toBottomOf="@+id/LoginPasswordEditText" />
+
+    <ProgressBar
+        android:id="@+id/firebaseProgressBar"
+        android:layout_width="34dp"
+        android:layout_height="46dp"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/LoginHiTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/loadingTextView"
+        android:layout_width="116dp"
+        android:layout_height="104dp"
+        android:layout_below="@+id/firebaseProgressBar"
+        android:layout_centerInParent="true"
+        android:layout_margin="20dp"
+        android:textColor="@color/black"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

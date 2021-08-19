@@ -8,6 +8,8 @@
     -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -15,6 +17,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MoversApp">
+
         <activity android:name=".MapActivity"></activity>
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
@@ -28,22 +31,89 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
+
+
+        <activity android:name=".LoginChoice"></activity>
+        <activity android:name=".MoversLogIn" />
+
+        <activity
+            android:name=".ConfirmOrder"
+            android:exported="true" />
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyATvNjtdd2UiIPQRyl-xzP11rth1AGUBwI" />
+
+        <activity
+            android:name=".OffersActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ProfileActivity"
+            android:exported="true" />
+
         <activity
             android:name=".MoversList"
             android:exported="true" />
-        <activity android:name=".MovingOrdersDetailActivity" />
-        <activity android:name=".MovingCompanyOrdersActivity" />
-        <activity android:name=".MovingOrdersActivity" />
-        <activity android:name=".ConfirmActivity" />
-        <activity android:name=".ChoiceActivity" />
-        <activity android:name=".Movers" />
-        <activity android:name=".Movers_SignUp" />
-        <activity android:name=".PickupsActivity" />
-        <activity android:name=".LocationActivity" />
-        <activity android:name=".HouseActivity" />
-        <activity android:name=".MainActivity" />
-        <activity android:name=".Sign_Up" />
-        <activity android:name=".LoginActivity" />
+
+
+        <!--        <activity android:name=".MovingOrdersDetailActivity" />-->
+        <!--        <activity android:name=".MovingCompanyOrdersActivity" />-->
+        <!--        <activity android:name=".MovingOrdersActivity" />-->
+        <!--        <activity android:name=".ConfirmActivity" />-->
+        <!--        <activity android:name=".ChoiceActivity" />-->
+        <!--        <activity android:name=".Movers" />-->
+        <!--        <activity android:name=".Movers_SignUp" />-->
+        <!--        <activity android:name=".PickupsActivity" />-->
+        <!--        <activity android:name=".LocationActivity" />-->
+        <!--        <activity android:name=".HouseActivity" />-->
+        <!--        <activity android:name=".MainActivity" />-->
+        <!--        <activity android:name=".Sign_Up" />-->
+        <!--        <activity android:name=".LoginActivity" />-->
+
+
+        <activity
+            android:name=".MovingOrdersDetailActivity"
+            android:parentActivityName=".MovingOrdersDetailActivity" />
+        <activity
+            android:name=".MovingCompanyOrdersActivity"
+            android:parentActivityName=".MovingOrdersActivity" />
+        <activity
+            android:name=".MovingOrdersActivity"
+            android:parentActivityName=".ConfirmActivity" />
+        <activity
+            android:name=".ConfirmActivity"
+            android:parentActivityName=".ChoiceActivity" />
+        <activity
+            android:name=".MoverAccount"
+            android:parentActivityName=".MoverAccount" />
+        <activity
+            android:name=".ChoiceActivity"
+            android:parentActivityName=".Movers" />
+        <activity
+            android:name=".Movers"
+            android:parentActivityName=".Movers_SignUp" />
+        <activity
+            android:name=".Movers_SignUp"
+            android:parentActivityName=".PickupsActivity" />
+        <activity
+            android:name=".PickupsActivity"
+            android:parentActivityName=".LocationActivity" />
+        <activity
+            android:name=".LocationActivity"
+            android:parentActivityName=".HouseActivity" />
+        <activity
+            android:name=".HouseActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".MainActivity"
+            android:parentActivityName=".Sign_Up" />
+        <activity
+            android:name=".Sign_Up"
+            android:parentActivityName=".LoginActivity" />
+        <activity
+            android:name=".LoginActivity"
+            android:parentActivityName=".SplashScreenActivity" />
+
         <activity android:name=".SplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

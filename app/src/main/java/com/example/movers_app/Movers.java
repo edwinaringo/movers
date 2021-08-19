@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -19,12 +20,14 @@ import java.util.HashMap;
 public class Movers extends AppCompatActivity {
 
 
-    private EditText mCompanyName,mContactInfo, mExtraServices, mInventoryCharges, mPricePerDistance;
+    private EditText mCompanyName, mEmailAddress, mContactInfo, mExtraServices, mInventoryCharges, mPricePerDistance;
 
     private Button submitPrices;
 
     private FirebaseDatabase db = FirebaseDatabase.getInstance();
     private DatabaseReference root = db.getReference().child("MoverPrices");
+
+    String emailAddress;
 
     DatabaseReference newroot = root.push();//this is to add mover instead of replacing the one previously put on firebase
 
@@ -37,7 +40,7 @@ public class Movers extends AppCompatActivity {
         setContentView(R.layout.activity_movers);
 
         mCompanyName = findViewById(R.id.companyName);
-
+        mEmailAddress = findViewById(R.id.emailAddress);
         mExtraServices = findViewById(R.id.extraServices);
         mContactInfo = findViewById(R.id.contactInfo);
         mInventoryCharges = findViewById(R.id.inventoryCharges);
@@ -50,6 +53,7 @@ public class Movers extends AppCompatActivity {
             public void onClick(View v) {
 
                 String companyName = mCompanyName.getText().toString();
+                emailAddress = mEmailAddress.getText().toString();
                 String extraService = mExtraServices.getText().toString();
                 String contactInfo = mContactInfo.getText().toString();
                 String Inventory = mInventoryCharges.getText().toString();
@@ -59,6 +63,7 @@ public class Movers extends AppCompatActivity {
                 HashMap<String, String> pricesMap = new HashMap<>();
 
                 pricesMap.put("companyName", companyName);
+                pricesMap.put("emailAddress", emailAddress);
                 pricesMap.put("extraServices", extraService);
                 pricesMap.put("contactInfo", contactInfo);
                 pricesMap.put("inventory", Inventory);
@@ -70,7 +75,12 @@ public class Movers extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()){
-                            startActivity(new Intent(Movers.this, MovingCompanyOrdersActivity.class));
+                            Intent intent =new Intent(Movers.this, MoverAccount.class);
+                            Toast.makeText(getApplicationContext(),"Sign Up Successful",Toast.LENGTH_SHORT).show();
+                            intent.putExtra("companyEmail",emailAddress);
+
+                            startActivity(intent);
+
 
                         }
 

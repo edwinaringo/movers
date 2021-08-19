@@ -38,7 +38,7 @@ public class MovingOrdersListAdapter extends RecyclerView.Adapter<MovingOrdersLi
     @Override
     public MovingOrdersListAdapter.MovingOrdersViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.moving_orders_list_item, parent, false);
-       MovingOrdersViewHolder viewHolder = new MovingOrdersViewHolder(view);
+        MovingOrdersViewHolder viewHolder = new MovingOrdersViewHolder(view);
         return viewHolder;
     }
 
@@ -86,17 +86,17 @@ public class MovingOrdersListAdapter extends RecyclerView.Adapter<MovingOrdersLi
 
         @Override
         public void onClick(View v) {
-            Intent intent = new Intent(mContext, MovingCompanyOrdersActivity.class);
-            mContext.startActivity(intent);
-            if(v == mCompanyName){
-                mContext.startActivity(intent);
-            }
-//            int itemPosition = getLayoutPosition();
-//            Intent intent = new Intent(mContext, MovingOrdersDetailActivity.class);
-//            intent.putExtra("position", itemPosition);
-//            intent.putExtra("movingOrders", Parcels.wrap(mMovingOrdersList));
-//            Log.i("click",itemPosition + "");
+//            Intent intent = new Intent(mContext, MovingCompanyOrdersActivity.class);
 //            mContext.startActivity(intent);
+//            if(v == mCompanyName){
+//                mContext.startActivity(intent);
+//            }
+            int itemPosition = getLayoutPosition();
+            Intent intent = new Intent(mContext, MovingOrdersDetailActivity.class);
+            intent.putExtra("position", itemPosition);
+            intent.putExtra("movingOrders", Parcels.wrap(mMovingOrdersList));
+            Log.i("click",itemPosition + "");
+            mContext.startActivity(intent);
 
 
         }

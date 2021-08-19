@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -14,8 +16,10 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity  implements View .OnClickListener {
     TextView mLoginbutton;
     TextView mSigninbutton;
-    Button mGetStarted;
+    TextView mTextView6,mTextView;
     ProgressBar mProgressBar;
+
+    Animation topAnimation,popupAnimation,popoutAnimation;
 
 
 
@@ -25,14 +29,20 @@ public class MainActivity extends AppCompatActivity  implements View .OnClickLis
         setContentView(R.layout.activity_main);
         getSupportActionBar().hide();
 
+        //hooks
+        topAnimation = AnimationUtils.loadAnimation(this,R.anim.top_animation);
+        popoutAnimation = AnimationUtils.loadAnimation(this,R.anim.pop_out);
+        popupAnimation = AnimationUtils.loadAnimation(this,R.anim.popup_in);
 
+        mTextView6 = (TextView) findViewById(R.id.textView6);
+        mTextView6.setAnimation(popoutAnimation);
+        mTextView = (TextView) findViewById(R.id.textView);
+        mTextView.setAnimation(topAnimation);
         mLoginbutton = (TextView) findViewById(R.id.login);
         mSigninbutton = (TextView) findViewById(R.id.signin);
-        mGetStarted = (Button) findViewById(R.id.getStarted);
 
         mLoginbutton.setOnClickListener(this);
         mSigninbutton.setOnClickListener(this);
-        mGetStarted.setOnClickListener(this);
 
         mProgressBar = (ProgressBar) findViewById(R.id.progressBar);
 
@@ -42,18 +52,12 @@ public class MainActivity extends AppCompatActivity  implements View .OnClickLis
     @Override
     public void onClick(View v) {
         if(v == mLoginbutton){
-            mProgressBar.setVisibility(View.VISIBLE);
-            startActivity(new Intent(MainActivity.this,LoginActivity.class));
+            startActivity(new Intent(MainActivity.this,LoginChoice.class));
         }
 
         if (v == mSigninbutton){
-            mProgressBar.setVisibility(View.VISIBLE);
             startActivity(new Intent(MainActivity.this,ChoiceActivity.class));
         }
-
-        if (v == mGetStarted) {
-            mProgressBar.setVisibility(View.VISIBLE);
-            startActivity(new Intent(MainActivity.this,HouseActivity.class));
-        }
     }
+
 }

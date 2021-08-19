@@ -10,6 +10,7 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,11 +33,15 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
 
+
     @BindView(R.id.LoginEmailAddressEditText) EditText mLoginEmailAddressEditText;
     @BindView(R.id.LoginPasswordEditText) EditText mLoginPasswordEditText;
     @BindView(R.id.LoginForgotPasswordTextView) TextView mLoginForgotPasswordTextView;
     @BindView(R.id.LoginButton) Button mLoginButton;
     @BindView(R.id.LoginSignupTextView) TextView mLoginSignupTextView;
+    //progress bar
+    @BindView(R.id.firebaseProgressBar) ProgressBar mSignInProgressBar;
+    @BindView(R.id.loadingTextView) TextView mLoadingSignUp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,7 +60,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 if (user2 != null) {
 
 
-                    Intent intent = new Intent(LoginActivity.this,HouseActivity.class);
+                    Intent intent = new Intent(LoginActivity.this,MovingOrdersActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     intent.putExtra("username", id);
                     Log.i("id",id);
@@ -103,12 +108,14 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             return;
         }
 
+        //show progress bar
+        showProgressBar();
+
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()) {
-
                             FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
 
@@ -127,6 +134,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
                                 String[] userInfo={id,email};
                                 intent.putExtra("userinfo", userInfo);
+//                                intent.putExtra("username",id);
+
+
+
 
 
                                 Log.i("user", id);
@@ -139,26 +150,24 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             }else{
                                 user.sendEmailVerification();
                                 Toast.makeText(LoginActivity.this, "Check your email to verify your account", Toast.LENGTH_SHORT).show();
+                                hideProgressBar();
                             }
                         }else{
                             Toast.makeText(LoginActivity.this, "Failed to login! Please try again", Toast.LENGTH_SHORT).show();
+                            hideProgressBar();
                         }
-
+                        hideProgressBar();
                     }
                 });
     }
+//set visibility on progress bar
+    private void showProgressBar() {
+        mSignInProgressBar.setVisibility(View.VISIBLE);
+        mLoadingSignUp.setVisibility(View.VISIBLE);
+    }
 
-//    @Override
-//    public void onStart() {
-//        super.onStart();
-//        mAuth.addAuthStateListener(mAuthListener);
-//    }
-//
-//    @Override
-//    public void onStop() {
-//        super.onStop();
-//        if (mAuthListener != null) {
-//            mAuth.removeAuthStateListener(mAuthListener);
-//        }
-//    }
+    private void hideProgressBar() {
+        mSignInProgressBar.setVisibility(View.GONE);
+        mLoadingSignUp.setVisibility(View.GONE);
+    }
 }

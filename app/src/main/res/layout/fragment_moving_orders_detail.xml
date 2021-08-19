@@ -1,125 +1,288 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    >
+    tools:context=".MainActivity"
+    android:orientation="vertical">
 
-    <ScrollView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="200dp"
+        android:background="@drawable/profile_bg"
+        android:padding="20dp">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:context=".ui.MainActivity"
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        android:layout_marginTop="-170dp"
+        >
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="500dp"
+            android:layout_weight="1"
+            app:cardElevation="6dp"
+            android:layout_margin="10dp"
+            app:cardCornerRadius="20dp"
 
             >
 
-            <ImageView
-                android:id="@+id/orderImageView"
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="180dp"
-                android:scaleType="centerCrop"
-                app:layout_constraintBottom_toTopOf="@+id/relativeLayout"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-
-            <RelativeLayout
-                android:id="@+id/relativeLayout"
-                android:layout_width="match_parent"
-                android:layout_height="70dp"
-                android:background="@color/browser_actions_bg_grey"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/orderImageView">
+                android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/inventoryTextView"
+                    android:id="@+id/totalPrice"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginStart="53dp"
+                    android:layout_marginEnd="24dp"
+                    android:text="Total Price Value"
+                    android:textColor="@color/black"
+                    app:layout_constraintBottom_toBottomOf="@+id/totalPriceLabel"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/totalPriceLabel"
+                    app:layout_constraintTop_toTopOf="@+id/totalPriceLabel" />
+
+                <TextView
+                    android:id="@+id/pickupTime"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginStart="42dp"
+                    android:layout_marginEnd="24dp"
+                    android:text="PickUp Time Value"
+                    android:textColor="@color/black"
+                    app:layout_constraintBottom_toBottomOf="@+id/pickupTimeLabel"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/pickupTimeLabel"
+                    app:layout_constraintTop_toTopOf="@+id/pickupTimeLabel" />
+
+                <TextView
+                    android:id="@+id/currentLocationLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginStart="37dp"
-                    android:layout_marginLeft="37dp"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginEnd="45dp"
-                    android:layout_marginRight="45dp"
-                    android:ellipsize="end"
-                    android:maxEms="40"
-                    android:text="Inventory"
-                    android:textColor="#D4000000"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="14dp"
+                    android:layout_marginBottom="24dp"
+                    android:text="Source"
+                    app:layout_constraintBottom_toTopOf="@+id/newLocationLabel"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/totalPriceLabel" />
+
+                <TextView
+                    android:id="@+id/inventory"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="59dp"
+                    android:layout_marginTop="28dp"
+                    android:layout_marginEnd="24dp"
+                    android:text="Inventory Value"
+                    android:textColor="@color/black"
+                    app:layout_constraintBottom_toBottomOf="@+id/inventoryLabel"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="1.0"
-                    app:layout_constraintStart_toStartOf="parent" />
+                    app:layout_constraintStart_toEndOf="@+id/inventoryLabel"
+                    app:layout_constraintTop_toBottomOf="@+id/userEmailLabel"
+                    app:layout_constraintVertical_bias="1.0" />
+
+                <TextView
+                    android:id="@+id/userEmail"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="53dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="24dp"
+                    android:ellipsize="end"
+                    android:maxLines="2"
+                    android:minLines="2"
+                    android:scrollHorizontally="true"
+                    android:text="User Email Value"
+                    android:textColor="@color/black"
+                    app:layout_constraintBottom_toBottomOf="@+id/userEmailLabel"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@+id/userEmailLabel"
+                    app:layout_constraintTop_toBottomOf="@+id/companyNameLabel"
+                    app:layout_constraintVertical_bias="0.058" />
+
+                <TextView
+                    android:id="@+id/userEmailLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:text="User Email"
+                    app:layout_constraintBottom_toTopOf="@+id/inventoryLabel"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/companyNameLabel" />
+
+                <TextView
+                    android:id="@+id/newLocationLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="35dp"
+                    android:text="Destination"
+                    app:layout_constraintBottom_toTopOf="@+id/view"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/currentLocationLabel" />
+
+                <TextView
+                    android:id="@+id/totalPriceLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginBottom="12dp"
+                    android:text="Total Price"
+                    app:layout_constraintBottom_toTopOf="@+id/currentLocationLabel"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/pickupTimeLabel" />
+
+                <TextView
+                    android:id="@+id/pickupTimeLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginBottom="12dp"
+                    android:text="Pickup Time"
+                    app:layout_constraintBottom_toTopOf="@+id/totalPriceLabel"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/inventoryLabel" />
+
+                <TextView
+                    android:id="@+id/inventoryLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="12dp"
+                    android:text="Inventory"
+                    app:layout_constraintBottom_toTopOf="@+id/pickupTimeLabel"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/userEmailLabel" />
+
+                <TextView
+                    android:id="@+id/companyName"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="24dp"
+                    android:layout_marginBottom="16dp"
+                    android:text="Company Name Value"
+                    android:textColor="@color/black"
+                    app:layout_constraintBottom_toBottomOf="@+id/companyNameLabel"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/companyNameLabel"
+                    app:layout_constraintTop_toTopOf="@+id/companyNameLabel"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <TextView
+                    android:id="@+id/companyNameLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginBottom="12dp"
+                    android:text="Company Name"
+                    app:layout_constraintBottom_toTopOf="@+id/userEmailLabel"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+                <TextView
+                    android:id="@+id/currentLocation"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="76dp"
+                    android:layout_marginEnd="24dp"
+                    android:ellipsize="end"
+                    android:maxLines="2"
+                    android:minLines="2"
+                    android:scrollHorizontally="true"
+                    android:text="Current Location"
+                    android:textColor="@color/black"
+                    app:layout_constraintBottom_toBottomOf="@+id/currentLocationLabel"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/currentLocationLabel"
+                    app:layout_constraintTop_toTopOf="@+id/currentLocationLabel" />
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginStart="60dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="23dp"
+                    android:src="@drawable/moving_truck"
+                    app:layout_constraintBottom_toTopOf="@+id/companyNameLabel"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="1.0" />
+
+                <TextView
+                    android:id="@+id/newLocation"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="49dp"
+                    android:layout_marginEnd="24dp"
+                    android:ellipsize="end"
+                    android:maxLines="2"
+                    android:minLines="2"
+                    android:scrollHorizontally="true"
+                    android:text="New Location"
+                    android:textColor="@color/black"
+                    app:layout_constraintBottom_toBottomOf="@+id/newLocationLabel"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/newLocationLabel"
+                    app:layout_constraintTop_toTopOf="@+id/newLocationLabel" />
+
+                <View
+                    android:id="@+id/view"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:background="@color/grey"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.739" />
+
+                <TextView
+                    android:id="@+id/orderStatus"
+                    android:layout_width="0dp"
+                    android:layout_height="23dp"
+                    android:layout_marginStart="75dp"
+                    android:layout_marginTop="23dp"
+                    android:layout_marginEnd="24dp"
+                    android:layout_marginBottom="23dp"
+                    android:text="Order Status"
+                    android:textColor="@color/black"
+                    app:layout_constraintBottom_toTopOf="@+id/companyName"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/imageView"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
 
 
-            </RelativeLayout>
-
-            <TextView
-                android:id="@+id/userNameTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:text="User Name"
-                android:textColor="#D4000000"
-                android:textSize="15sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/relativeLayout" />
-
-            <TextView
-
-                android:id="@+id/orderPricesTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text=" Prices"
-                android:textColor="#D4000000"
-                android:textSize="15sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.109"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/userNameTextView" />
-
-            <TextView
-
-                android:id="@+id/orderLocationsTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="40dp"
-                android:text=" Locations"
-                android:textColor="#D4000000"
-                android:textSize="15sp"
-                app:layout_constraintEnd_toStartOf="@+id/orderPricesTextView"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/orderPricesTextView" />
-
-            <TextView
-
-                android:id="@+id/orderTimeTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="80dp"
-                android:text=" Pick Up Time"
-                android:textColor="#D4000000"
-                android:textSize="15sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/relativeLayout" />
 
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
 
-</FrameLayout>
+    </LinearLayout>
+
+
+</LinearLayout>

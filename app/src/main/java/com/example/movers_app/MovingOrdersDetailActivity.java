@@ -30,7 +30,9 @@ public class MovingOrdersDetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activty_moving_orders_detail);
+        getSupportActionBar().hide();
         ButterKnife.bind(this);
+
 
         mMovingOrdersList = Parcels.unwrap(getIntent().getParcelableExtra("movingOrders"));
         int startingPosition = getIntent().getIntExtra("position",0);
