@@ -106,14 +106,14 @@ public class MoversLogIn extends AppCompatActivity implements View.OnClickListen
             return;
         }
 
-        showProgressBar();
+//        showProgressBar();
 
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()) {
-                            hideProgressBar();
+                           // hideProgressBar();
 
                             FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
@@ -139,23 +139,23 @@ public class MoversLogIn extends AppCompatActivity implements View.OnClickListen
                             }else{
                                 user.sendEmailVerification();
                                 Toast.makeText(MoversLogIn.this, "Check your email to verify your account", Toast.LENGTH_SHORT).show();
-                                hideProgressBar();
+                                //hideProgressBar();
                             }
                         }else{
                             Toast.makeText(MoversLogIn.this, "Failed to login! Please try again", Toast.LENGTH_SHORT).show();
-                            hideProgressBar();
+                            //hideProgressBar();
                         }
 
                     }
                 });
     }
-    private void showProgressBar() {
-        mProgressBar2.setVisibility(View.VISIBLE);
-    }
+//    private void showProgressBar() {
+//        mProgressBar2.setVisibility(View.VISIBLE);
+//    }
 
-    private void hideProgressBar() {
-        mProgressBar2.setVisibility(View.GONE);
-    }
+//    private void hideProgressBar() {
+//        mProgressBar2.setVisibility(View.GONE);
+//    }
 
 //    @Override
 //    public void onStart() {
