@@ -73,6 +73,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         //validate user inputs when login button clicked
         mLoginButton.setOnClickListener(this);
+        mLoginSignupTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(LoginActivity.this,Sign_Up.class));
+            }
+        });
     }
 
     @Override
