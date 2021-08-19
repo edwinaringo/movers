@@ -16,7 +16,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/inventoryChargesLabel"
         app:layout_constraintStart_toEndOf="@+id/inventoryChargesLabel"
         app:layout_constraintTop_toTopOf="@+id/inventoryChargesLabel"
-        app:srcCompat="@drawable/moving_truck" />
+        app:srcCompat="@drawable/truck" />
 
     <View
         android:id="@+id/view"
