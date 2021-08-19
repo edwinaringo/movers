@@ -7,6 +7,7 @@ import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -34,15 +35,21 @@ public class MapActivity extends AppCompatActivity implements View.OnClickListen
     LatLng source ;
     LatLng desination ;
 
-    double distance;
+
+    GoogleMap googleMap;
 
     EditText etSource,etDestination;
-    Button proceed;
+    Button proceed,btTrack;
+
+
+    String sType;
+    String []  orderInfo;
+
+    String sSource,sDestination;
+    double distance;
 
     double Lat1 = 0,Long1 = 0, Lat2 = 0, Long2 = 0;
     int flag = 0;
-    String sType;
-    GoogleMap googleMap;
 
 
 
@@ -51,7 +58,8 @@ public class MapActivity extends AppCompatActivity implements View.OnClickListen
 
 
 
-        /**
+
+    /**
          * Manipulates the map once available.
          * This callback is triggered when the map is ready to be used.
          * This is where we can add markers or lines, add listeners or move the camera.
@@ -63,10 +71,10 @@ public class MapActivity extends AppCompatActivity implements View.OnClickListen
         @Override
         public void onMapReady(GoogleMap googleMap1) {
             googleMap= googleMap1;
-
-
-
-
+            googleMap.addMarker(new MarkerOptions().position(new LatLng(102.5, 102.4)).title("Source Marker"));
+            googleMap.getUiSettings().setZoomControlsEnabled(true);
+            googleMap.getUiSettings().setAllGesturesEnabled(true);
+            googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(desination,15f));
 
             Toast.makeText(getApplicationContext(),"Zoom in or out to view selected locations ",Toast.LENGTH_SHORT).show();
 
@@ -81,6 +89,7 @@ public class MapActivity extends AppCompatActivity implements View.OnClickListen
         proceed=findViewById(R.id.proceed);
         etSource = findViewById(R.id.et_source);
         etDestination = findViewById(R.id.et_destination);
+        btTrack = findViewById(R.id.bt_track);
 
         //initialize places
         Places.initialize(getApplicationContext(),"AIzaSyATvNjtdd2UiIPQRyl-xzP11rth1AGUBwI");
@@ -120,6 +129,8 @@ public class MapActivity extends AppCompatActivity implements View.OnClickListen
         });
 
         proceed.setOnClickListener(this);
+        sSource = etSource.getText().toString().trim();
+        sDestination = etDestination.getText().toString().trim();
 
         //-------
 
@@ -129,6 +140,20 @@ public class MapActivity extends AppCompatActivity implements View.OnClickListen
         source = new LatLng(Lat1, Long1);
         desination = new LatLng(Lat2,Long2);
 //        distance = mapInfo[4];
+
+        btTrack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String sSource = etSource.getText().toString().trim();
+                String sDestination = etDestination.getText().toString().trim();
+                if (sSource.equals("") && sDestination.equals("")){
+                    Toast.makeText(getApplicationContext(),"Enter both Location",Toast.LENGTH_LONG);
+                }else {
+                    DisplayTrack(sSource,sDestination);
+
+                }
+            }
+        });
 
         SupportMapFragment mapFragment =
                 (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
@@ -241,6 +266,23 @@ public class MapActivity extends AppCompatActivity implements View.OnClickListen
 
     @Override
     public void onClick(View v) {
+            if(v == proceed){
+                sSource = etSource.getText().toString().trim();
+                sDestination = etDestination.getText().toString().trim();
+
+                Bundle extras = getIntent().getExtras();
+                orderInfo = extras.getStringArray("orderInfo");
+
+                orderInfo[3] = sSource;
+                orderInfo[4]=sDestination;
+                Intent intent2 =new Intent(getApplicationContext(),MoversList.class);
+
+
+                intent2.putExtra("orderInfo",orderInfo);
+                startActivity(intent2);
+
+
+            }
 
     }
 }
