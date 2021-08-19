@@ -123,7 +123,9 @@ public class PickupsActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<MovingOrders> call, Throwable t) {
+
                 Log.i("api",t.getMessage());
+
                 Toast.makeText(getApplicationContext(),"Something went wrong",Toast.LENGTH_SHORT).show();
             }
         });
