@@ -119,7 +119,7 @@ public class MoversLogIn extends AppCompatActivity implements View.OnClickListen
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()) {
-                           // hideProgressBar();
+
 
                             FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 

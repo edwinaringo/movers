@@ -113,7 +113,7 @@ public class HouseActivity extends AppCompatActivity implements View.OnClickList
         String inventory;
 
         if(v==studioText || v==mCardView){
-            Intent intent =new Intent(HouseActivity.this,LocationActivity.class);
+            Intent intent =new Intent(HouseActivity.this,MapActivity.class);
             inventory=studioText.getText().toString();
             orderInfo[0]=userInfo[0];
             orderInfo[1]= userInfo[1];
@@ -123,7 +123,7 @@ public class HouseActivity extends AppCompatActivity implements View.OnClickList
             startActivity(intent);
         }
         if(v==oneBedroomText || v==mCardView2){
-            Intent intent =new Intent(HouseActivity.this,LocationActivity.class);
+            Intent intent =new Intent(HouseActivity.this,MapActivity.class);
             inventory=oneBedroomText.getText().toString();
             orderInfo[0]=userInfo[0];
             orderInfo[1]= userInfo[1];
@@ -133,7 +133,7 @@ public class HouseActivity extends AppCompatActivity implements View.OnClickList
             startActivity(intent);
         }
         if(v==twoBedRoomText || v==mCardView3){
-            Intent intent =new Intent(HouseActivity.this,LocationActivity.class);
+            Intent intent =new Intent(HouseActivity.this,MapActivity.class);
             inventory=twoBedRoomText.getText().toString();
             orderInfo[0]=userInfo[0];
             orderInfo[1]= userInfo[1];
@@ -143,7 +143,7 @@ public class HouseActivity extends AppCompatActivity implements View.OnClickList
             startActivity(intent);
         }
         if(v==threeBedRoomText || v==mCardView4){
-            Intent intent =new Intent(HouseActivity.this,LocationActivity.class);
+            Intent intent =new Intent(HouseActivity.this,MapActivity.class);
             inventory=threeBedRoomText.getText().toString();
             orderInfo[0]=userInfo[0];
             orderInfo[1]= userInfo[1];
