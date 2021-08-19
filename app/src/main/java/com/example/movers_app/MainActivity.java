@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity  implements View .OnClickLis
     TextView mTextView6,mTextView;
     ProgressBar mProgressBar;
 
-    Animation topAnimation,bottomAnimation,popupAnimation,popoutAnimation;
+    Animation topAnimation,popupAnimation,popoutAnimation;
 
 
 
@@ -31,7 +31,6 @@ public class MainActivity extends AppCompatActivity  implements View .OnClickLis
 
         //hooks
         topAnimation = AnimationUtils.loadAnimation(this,R.anim.top_animation);
-        bottomAnimation = AnimationUtils.loadAnimation(this,R.anim.bottom_animation);
         popoutAnimation = AnimationUtils.loadAnimation(this,R.anim.pop_out);
         popupAnimation = AnimationUtils.loadAnimation(this,R.anim.popup_in);
 
@@ -40,9 +39,7 @@ public class MainActivity extends AppCompatActivity  implements View .OnClickLis
         mTextView = (TextView) findViewById(R.id.textView);
         mTextView.setAnimation(topAnimation);
         mLoginbutton = (TextView) findViewById(R.id.login);
-        mLoginbutton.setAnimation(bottomAnimation);
         mSigninbutton = (TextView) findViewById(R.id.signin);
-        mSigninbutton.setAnimation(bottomAnimation);
 
         mLoginbutton.setOnClickListener(this);
         mSigninbutton.setOnClickListener(this);

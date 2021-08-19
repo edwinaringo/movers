@@ -2,6 +2,7 @@ package com.example.movers_app;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,7 +11,6 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -63,12 +63,13 @@ public class HouseActivity extends AppCompatActivity implements View.OnClickList
     String userName;
 
     String[] orderInfo= new String[9];
+
     String[] userInfo;
 
-    @BindView(R.id.studioImage) ImageView mStudioImage;
-    @BindView(R.id.oneBedRoomImage) ImageView mOneBedRoomImage;
-    @BindView(R.id.twoBedRoomImage) ImageView mTwoBedRoomImage;
-    @BindView(R.id.threeBedRoomsImage) ImageView mThreeBedRoomImage;
+    @BindView(R.id.cardView) CardView mCardView;
+    @BindView(R.id.cardView2) CardView mCardView2;
+    @BindView(R.id.cardView3) CardView mCardView3;
+    @BindView(R.id.cardView4) CardView mCardView4;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -81,15 +82,12 @@ public class HouseActivity extends AppCompatActivity implements View.OnClickList
         Log.i("userinfo",userInfo[0]+""+userInfo[1]);
 //        userName = intent.getStringExtra("userinfo");
 
-        Picasso.get().load(R.drawable.bedsitter).into(mThreeBedRoomImage);
-        Picasso.get().load(R.drawable.studio).into(mStudioImage);
-        Picasso.get().load(R.drawable.onebedroom).into(mOneBedRoomImage);
-        Picasso.get().load(R.drawable.twobedrooms).into(mTwoBedRoomImage);
 
-        mStudioImage.setOnClickListener(this);
-        mOneBedRoomImage.setOnClickListener(this);
-        mTwoBedRoomImage.setOnClickListener(this);
-        mThreeBedRoomImage.setOnClickListener(this);
+
+        mCardView.setOnClickListener(this);
+        mCardView2.setOnClickListener(this);
+        mCardView3.setOnClickListener(this);
+        mCardView4.setOnClickListener(this);
 
 
         studioText = (TextView) findViewById(R.id.studioText);
@@ -115,8 +113,8 @@ public class HouseActivity extends AppCompatActivity implements View.OnClickList
 
         String inventory;
 
-        if(v==studioText || v==mStudioImage){
-            Intent intent =new Intent(HouseActivity.this,LocationActivity.class);
+        if(v==studioText || v==mCardView){
+            Intent intent =new Intent(HouseActivity.this,MapActivity.class);
             inventory=studioText.getText().toString();
             orderInfo[0]=userInfo[0];
             orderInfo[1]= userInfo[1];
@@ -125,8 +123,8 @@ public class HouseActivity extends AppCompatActivity implements View.OnClickList
             intent.putExtra("orderInfo",orderInfo);
             startActivity(intent);
         }
-        if(v==oneBedroomText || v==mOneBedRoomImage){
-            Intent intent =new Intent(HouseActivity.this,LocationActivity.class);
+        if(v==oneBedroomText || v==mCardView2){
+            Intent intent =new Intent(HouseActivity.this,MapActivity.class);
             inventory=oneBedroomText.getText().toString();
             orderInfo[0]=userInfo[0];
             orderInfo[1]= userInfo[1];
@@ -135,8 +133,8 @@ public class HouseActivity extends AppCompatActivity implements View.OnClickList
             intent.putExtra("orderInfo",orderInfo);
             startActivity(intent);
         }
-        if(v==twoBedRoomText || v==mTwoBedRoomImage){
-            Intent intent =new Intent(HouseActivity.this,LocationActivity.class);
+        if(v==twoBedRoomText || v==mCardView3){
+            Intent intent =new Intent(HouseActivity.this,MapActivity.class);
             inventory=twoBedRoomText.getText().toString();
             orderInfo[0]=userInfo[0];
             orderInfo[1]= userInfo[1];
@@ -145,8 +143,8 @@ public class HouseActivity extends AppCompatActivity implements View.OnClickList
             intent.putExtra("orderInfo",orderInfo);
             startActivity(intent);
         }
-        if(v==threeBedRoomText || v==mThreeBedRoomImage){
-            Intent intent =new Intent(HouseActivity.this,LocationActivity.class);
+        if(v==threeBedRoomText || v==mCardView4){
+            Intent intent =new Intent(HouseActivity.this,MapActivity.class);
             inventory=threeBedRoomText.getText().toString();
             orderInfo[0]=userInfo[0];
             orderInfo[1]= userInfo[1];

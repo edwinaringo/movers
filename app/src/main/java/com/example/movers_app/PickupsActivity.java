@@ -81,7 +81,8 @@ public class PickupsActivity extends AppCompatActivity {
                 TimePickerDialog timePickerDialog = new TimePickerDialog(PickupsActivity.this, new TimePickerDialog.OnTimeSetListener() {
                     @Override
                     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-                        text_date.setText(hourOfDay+":"+minute);
+                        text_time.setText(hourOfDay+":"+minute);
+
                         time = hourOfDay+":"+minute;
                         Log.i("time",time);
 
@@ -89,7 +90,6 @@ public class PickupsActivity extends AppCompatActivity {
                         orderInfo = extras.getStringArray("orderInfo");
 
                         String pickup_time = date+" "+ time+" ";
-
 
                         Log.i("message",orderInfo[0]+""+orderInfo[1]+""+orderInfo[2]);
                         saveOrder(orderInfo[0],orderInfo[1],orderInfo[2],orderInfo[3],orderInfo[4],orderInfo[5],orderInfo[8],Integer.parseInt( orderInfo[7]),"pending",pickup_time);
@@ -123,8 +123,10 @@ public class PickupsActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<MovingOrders> call, Throwable t) {
-                Toast.makeText(getApplicationContext(),"Something went wrong",Toast.LENGTH_SHORT).show();
 
+                Log.i("api",t.getMessage());
+
+                Toast.makeText(getApplicationContext(),"Something went wrong",Toast.LENGTH_SHORT).show();
             }
         });
 

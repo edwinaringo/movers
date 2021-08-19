@@ -58,13 +58,14 @@
 
         <Button
             android:id="@+id/bt_track"
-            android:layout_width="wrap_content"
+            android:layout_width="138dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
             android:backgroundTint="@color/white"
             android:text="display track"
-            android:textColor="@color/black" />
+            android:textColor="@color/black"
+            />
 
         <Button
             android:id="@+id/pickups"
@@ -72,7 +73,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="60dp"
             android:layout_marginTop="10dp"
-            android:backgroundTint="@color/black"
+            android:backgroundTint="@color/dark_orange"
             android:text="Proceed"
             android:textColor="@color/white"
             android:textSize="16sp"

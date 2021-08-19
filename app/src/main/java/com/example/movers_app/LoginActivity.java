@@ -33,6 +33,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
 
+
     @BindView(R.id.LoginEmailAddressEditText) EditText mLoginEmailAddressEditText;
     @BindView(R.id.LoginPasswordEditText) EditText mLoginPasswordEditText;
     @BindView(R.id.LoginForgotPasswordTextView) TextView mLoginForgotPasswordTextView;
@@ -72,12 +73,17 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         //validate user inputs when login button clicked
         mLoginButton.setOnClickListener(this);
+        mLoginSignupTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(LoginActivity.this,Sign_Up.class));
+            }
+        });
     }
 
     @Override
     public void onClick(View v) {
         if (v==mLoginButton){
-            showProgressBar();
             accountLogin();
         }
     }
@@ -108,13 +114,14 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             return;
         }
 
+        //show progress bar
+        showProgressBar();
+
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        hideProgressBar();
                         if(task.isSuccessful()) {
-
                             FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
 
@@ -129,7 +136,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             if (user.isEmailVerified()) {
 
                                 Intent intent =new Intent (LoginActivity.this, HouseActivity.class);
-//                                Intent intent =new Intent (LoginActivity.this, MovingOrdersActivity.class);
+//                                Intent intent =new Intent (LoginActivity.this, MapActivity.class);
 
                                 String[] userInfo={id,email};
                                 intent.putExtra("userinfo", userInfo);
@@ -149,11 +156,13 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             }else{
                                 user.sendEmailVerification();
                                 Toast.makeText(LoginActivity.this, "Check your email to verify your account", Toast.LENGTH_SHORT).show();
+                                hideProgressBar();
                             }
                         }else{
                             Toast.makeText(LoginActivity.this, "Failed to login! Please try again", Toast.LENGTH_SHORT).show();
+                            hideProgressBar();
                         }
-
+                        hideProgressBar();
                     }
                 });
     }
@@ -161,7 +170,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private void showProgressBar() {
         mSignInProgressBar.setVisibility(View.VISIBLE);
         mLoadingSignUp.setVisibility(View.VISIBLE);
-        mLoadingSignUp.setText("Log in you in");
     }
 
     private void hideProgressBar() {

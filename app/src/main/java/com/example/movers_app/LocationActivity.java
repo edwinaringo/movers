@@ -18,6 +18,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.common.api.Status;
+import com.google.android.gms.maps.model.LatLng;
 import com.google.android.libraries.places.api.Places;
 import com.google.android.libraries.places.api.model.Place;
 import com.google.android.libraries.places.widget.Autocomplete;
@@ -42,8 +43,8 @@ public class LocationActivity extends AppCompatActivity implements View.OnClickL
     double Lat1 = 0,Long1 = 0, Lat2 = 0, Long2 = 0;
     int flag = 0;
 
-    double distance;
 
+    double distance;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -118,19 +119,43 @@ public class LocationActivity extends AppCompatActivity implements View.OnClickL
             public void onClick(View v) {
                 String sSource = etSource.getText().toString().trim();
                 String sDestination = etDestination.getText().toString().trim();
+
                 if (sSource.equals("") && sDestination.equals("")){
                     Toast.makeText(getApplicationContext(),"Enter both Location",Toast.LENGTH_LONG);
                 }else {
+
+                    //DisplayTrack(sSource,sDestination);
+                    NavigateToMap();
+
                    DisplayTrack(sSource,sDestination);
 //                    if(!etSource.equals("") && !etDestination.equals("")){
 //                        String Newurl = "https://maps.googleapis.com/maps/api/staticmap?center="+etSource+"|"+etDestination+"&zoom=13&size=400x300&markers=color:blue%7Clabel:S%7C11211%7C11206%7C11222&key=AIzaSyATvNjtdd2UiIPQRyl-xzP11rth1AGUBwI";
 //
 //                        Picasso.get().load(Newurl).into(miv_image_from_url);
 //                    }
+
                 }
             }
         });
 
+    }
+
+    private void NavigateToMap() {
+//        LatLng mapSource = new LatLng(Lat1,Long1);
+//        LatLng mapDestination = new LatLng(Lat2,Long2);
+
+        Intent intent = new Intent(this, MapActivity.class);
+        double[] mapInfo = new double[5];
+        mapInfo[0] = Lat1;
+        mapInfo[1] = Long1;
+
+        mapInfo[2] = Lat2;
+        mapInfo[3] = Long2;
+
+        mapInfo[4] = distance;
+
+        intent.putExtra("mapInfo",mapInfo);
+        startActivity(intent);
     }
 
     @Override
@@ -190,7 +215,7 @@ public class LocationActivity extends AppCompatActivity implements View.OnClickL
         //calculate longitude difference
         double longDiff = Long1 - Long2;
         //calculate distance
-        distance = Math.sin(deg2rad(Lat1))
+         distance = Math.sin(deg2rad(Lat1))
                 *Math.sin(deg2rad(Lat2))
                 +Math.cos(deg2rad(Lat1))
                 *Math.cos(deg2rad(Lat2))
@@ -241,7 +266,6 @@ public class LocationActivity extends AppCompatActivity implements View.OnClickL
 
             orderInfo[3] = sSource;
             orderInfo[4]=sDestination;
-            orderInfo[6]= String.valueOf(distance);
             Intent intent2 =new Intent(LocationActivity.this,MoversList.class);
 
 
