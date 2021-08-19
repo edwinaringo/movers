@@ -71,11 +71,12 @@ public class MapActivity extends AppCompatActivity implements View.OnClickListen
         @Override
         public void onMapReady(GoogleMap googleMap1) {
             googleMap= googleMap1;
-            googleMap.addMarker(new MarkerOptions().position(new LatLng(102.5, 102.4)).title("Source Marker"));
+            LatLng sydney = new LatLng( -1.28333 ,6.81667);
+            googleMap.addMarker(new MarkerOptions().position(sydney).title("Movers"));
             googleMap.getUiSettings().setZoomControlsEnabled(true);
             googleMap.getUiSettings().setAllGesturesEnabled(true);
-            googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(desination,15f));
 
+            googleMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
             Toast.makeText(getApplicationContext(),"Zoom in or out to view selected locations ",Toast.LENGTH_SHORT).show();
 
 
@@ -85,6 +86,12 @@ public class MapActivity extends AppCompatActivity implements View.OnClickListen
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_maps);
+
+        SupportMapFragment mapFragment =
+                (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
+        if (mapFragment != null) {
+            mapFragment.getMapAsync(this);
+        }
 
         proceed=findViewById(R.id.proceed);
         etSource = findViewById(R.id.et_source);
@@ -155,11 +162,7 @@ public class MapActivity extends AppCompatActivity implements View.OnClickListen
             }
         });
 
-        SupportMapFragment mapFragment =
-                (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
-        if (mapFragment != null) {
-            mapFragment.getMapAsync(this);
-        }
+
     }
 
     @Override
