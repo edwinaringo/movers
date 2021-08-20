@@ -105,8 +105,8 @@ public class HomeActivity extends AppCompatActivity {
                 switch(model.getId()){
                     case ID_HOME: {
 
-//                        Log.i("current activity","home");
-                        Toast.makeText(HomeActivity.this, "Home",Toast.LENGTH_SHORT).show();
+                        Log.i("current activity","home");
+//                        Toast.makeText(HomeActivity.this, "Home",Toast.LENGTH_SHORT).show();
 
                         break;
                     }
