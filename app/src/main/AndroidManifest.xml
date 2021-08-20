@@ -34,7 +34,7 @@
         <activity android:name=".Navigation"/>
         <activity android:name=".HomeActivity"/>
 
-
+        <activity android:name=".MoverProfile" />
         <activity android:name=".LoginChoice" />
         <activity android:name=".MoversLogIn" />
 

@@ -2,6 +2,7 @@ package com.example.movers_app;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -43,6 +44,9 @@ public class HomeActivity extends AppCompatActivity {
     private final int ID_ADD =2;
     private final int ID_ORDERS=3;
     private final int ID_ACCOUNT =4;
+
+    String companyEmail;
+
 
 
 
@@ -101,6 +105,7 @@ public class HomeActivity extends AppCompatActivity {
                 switch(model.getId()){
                     case ID_HOME: {
 
+//                        Log.i("current activity","home");
                         Toast.makeText(HomeActivity.this, "Home",Toast.LENGTH_SHORT).show();
 
                         break;
@@ -123,7 +128,9 @@ public class HomeActivity extends AppCompatActivity {
                         break;}
                     default:
                     {
-                        Toast.makeText(HomeActivity.this, "Home",Toast.LENGTH_SHORT).show();
+                        Log.i("current activity","default on switch");
+
+//                        Toast.makeText(HomeActivity.this, "Home",Toast.LENGTH_SHORT).show();
 
                     };
                 }

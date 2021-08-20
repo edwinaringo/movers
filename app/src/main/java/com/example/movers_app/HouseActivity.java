@@ -79,8 +79,8 @@ public class HouseActivity extends AppCompatActivity implements View.OnClickList
         ButterKnife.bind(this);
 
         mAuth = FirebaseAuth.getInstance();
-        String id = mAuth.getCurrentUser().getUid();
-        String email = mAuth.getCurrentUser().getEmail();
+         id = mAuth.getCurrentUser().getUid();
+         email = mAuth.getCurrentUser().getEmail();
 
 //        Intent intent = getIntent();
 //        Bundle extras = getIntent().getExtras();

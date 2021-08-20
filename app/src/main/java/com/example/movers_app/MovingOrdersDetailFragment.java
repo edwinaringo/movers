@@ -19,10 +19,14 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.movers_app.adapters.OrderStatusAdapter;
 import com.example.movers_app.models.MovingOrders;
+import com.example.movers_app.models.OrdersStatus;
 import com.example.movers_app.network.MoversAPI;
 import com.example.movers_app.network.MoversClient;
+import com.google.android.gms.common.api.Status;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -34,6 +38,7 @@ import com.squareup.picasso.Picasso;
 
 import org.parceler.Parcels;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -69,12 +74,19 @@ public class MovingOrdersDetailFragment  extends Fragment implements View.OnClic
     Spinner mStatusSpinner2;
 
     DatabaseReference database;
+    DatabaseReference orderStatusRef;
+
     private FirebaseAuth mAuth;
 
 
 
     ArrayAdapter<CharSequence> adapter;
     ArrayAdapter<CharSequence> adapter2;
+
+    private OrdersStatus mStatus;
+
+    List<OrdersStatus> mStatusList = new ArrayList<>();
+    List<MovingOrders> mMovingOrdersList;
 
     int id;
     String userName;
@@ -92,13 +104,19 @@ public class MovingOrdersDetailFragment  extends Fragment implements View.OnClic
     String validCompanyName;
 
     String email;
+    String userId;
 
 
     private MovingOrders mMovingOrder;
-    List<MovingOrders> mMovingOrdersList;
+    List<MovingOrders> mOrdersList;
+
+    @BindView(R.id.recyclerView)
+    RecyclerView mRecyclerView;
 
 //    private boolean inispinner;
 int check = 0;
+
+    private OrderStatusAdapter adapterStatus;
 
     public MovingOrdersDetailFragment(){
 
@@ -131,10 +149,6 @@ int check = 0;
         ButterKnife.bind(this, view);
 
 
-
-
-
-
         id=mMovingOrder.getId();
         companyName=mMovingOrder.getMovingCompany();
         userEmail=mMovingOrder.getUserEmail();
@@ -159,8 +173,42 @@ int check = 0;
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         mAuth = FirebaseAuth.getInstance();
-        String email = mAuth.getCurrentUser().getEmail();
+        email = mAuth.getCurrentUser().getEmail();
+        userId = mAuth.getCurrentUser().getUid();
 
+
+
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("OrderStatus")
+                .child(id+"");
+        DatabaseReference pushRef = ref.getRef();
+        String pushId = pushRef.getKey();
+
+//        Log.i("game position",gamePosition.toString());
+        ref.child(pushId);
+
+        ref.addListenerForSingleValueEvent(new ValueEventListener() {
+
+
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    mStatusList.add(snapshot.getValue(OrdersStatus.class));
+
+                    for (int i = 0; i < mStatusList.size(); i++) {
+
+                        Log.i("status", mStatusList.get(i).toString());
+                    }
+                    Log.i("status", mStatusList.get(0).toString());
+                    adapterStatus= new OrderStatusAdapter(getContext(),mStatusList);
+                    mRecyclerView.setAdapter(adapterStatus);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Log.i("database", "The read failed: " + error.getCode());
+            }
+        });
 
 
         //spinner 1- company
@@ -250,8 +298,21 @@ int check = 0;
                     return;
 
                 }
-
                 mOrderStatus.setText(newOrderStatus);
+                if(email.equals(userEmail)){
+                    mStatus =new OrdersStatus(userId,userId,email,newOrderStatus);
+
+
+                }
+
+                if(email.equals(companyEmail)){
+                    mStatus =new OrdersStatus(userId,companyName,email,newOrderStatus);
+                }
+                orderStatusRef = FirebaseDatabase
+                        .getInstance()
+                        .getReference("OrderStatus")
+                        .child(id+"");
+                orderStatusRef.push().setValue(mStatus);
 
                 Toast.makeText(getContext(),"Status updated",Toast.LENGTH_SHORT).show();
 //                Intent intent =new Intent(getContext(),MovingCompanyOrdersActivity.class);
