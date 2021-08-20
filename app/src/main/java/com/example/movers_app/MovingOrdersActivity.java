@@ -108,7 +108,7 @@ public class MovingOrdersActivity  extends AppCompatActivity {
                     }
                     case ID_ADD: {
 
-                        Intent intent3 = new Intent(getApplicationContext(), MovingOrdersActivity.class);
+                        Intent intent3 = new Intent(getApplicationContext(), HouseActivity.class);
                         startActivity(intent3);
                         break;
                     }
