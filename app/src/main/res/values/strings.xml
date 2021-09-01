@@ -24,6 +24,8 @@
         <item>complete</item>
     </string-array>
 
+    <string name="main_page_selected">%s page is selected</string>
+
 
     <string name="firstLine">Doing an activity move? Let our Helpers do all the work</string>
     <string name="secondLine">for a low price! With thousands of 5 star reviews and</string>
