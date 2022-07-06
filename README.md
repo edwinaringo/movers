@@ -31,14 +31,16 @@ There are **two** types of users for our system.
 ### 1. Customer Class
 Customers interact with our system directly in order to place moving request, modify request, get bill and give feedback.
 Customers enters their details and requirements.They choose their current location and final destination from map.Customer gets matched with helper.Alternatively they can select their own helpers.Full price is quoted to customer.Booking is the next step.If successful, customer and helpers/movers and talk and track goods in real time.Once all this steps are done,the customer can pay, tip and review
-### 1. Movers  Class
+### 2. Movers  Class
 Movers interact with our system directly in order to set up their account details, their services rates,terms and conditions.
 
 On setting up this information movers/helpers can view requests made to them by customers and also approve or decline requests.
 
-##Demo
+## Demo
 
 Access demo on movers account operations from link :
+
+- https://github.com/edwinaringo/movers/blob/development/Demo/movers-demo.mp4
 ## Figma
 https://www.figma.com/file/mPpxZKJavqf6yGPPPlNGx3/Untitled?node-id=0%3A1
 
@@ -48,7 +50,7 @@ https://www.figma.com/file/mPpxZKJavqf6yGPPPlNGx3/Untitled?node-id=0%3A1
 1. Junit
 1. Gradle
 1. xml
-1. Giant Bomb Api
+1. Google maps API
 1. Firebase
 
 
@@ -69,7 +71,7 @@ You will need to have
 
 In order to have a look at the code files and understand the working, simply download this repository and open Android Studio and browse to the downloaded project and open it. It will load the project files and the code will be ready to run.
 
-Before running application,got to  [Movers API repository](https://github.com/DevSheila/MoversAPI) repository,download it to your local directory or clone it.Follow API's instructions as  as indicated in the repository.Once done, use [ngrok application](https://ngrok.com/download) to run the API locally.Replace constant [ MOVERS_API_BASE_URL]  in [moversClient](../development/app/sr/main/java/com.example.movers_app/network/moversClient) with the acquired link from running ngrok application.You will now have a working API for the app.Login to Android Studio and can  the project.
+Before running application,got to  [Movers API repository](https://github.com/DevSheila/MoversAPI) repository,download it to your local directory or clone it.Follow API's instructions as  as indicated in the repository.Once done, use [ngrok application](https://ngrok.com/download) to run the API locally.Replace constant MOVERS_API_BASE_URL  in [constant class](https://github.com/edwinaringo/movers/blob/development/app/src/main/java/com/example/movers_app/Constants.java) with the acquired link from running ngrok application.You will now have a working API for the app.Login to Android Studio and can  the project.
 
 
 ## Contributions Welcome
