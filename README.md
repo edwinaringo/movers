@@ -31,6 +31,36 @@ There are **two** types of users for our system.
 ### 1. Customer Class
 Customers interact with our system directly in order to place moving request, modify request, get bill and give feedback.
 Customers enters their details and requirements.They choose their current location and final destination from map.Customer gets matched with helper.Alternatively they can select their own helpers.Full price is quoted to customer.Booking is the next step.If successful, customer and helpers/movers and talk and track goods in real time.Once all this steps are done,the customer can pay, tip and review
+## Technologies
+
+1. Android
+1. Java
+1. Junit
+1. Gradle
+1. xml
+1. Giant Bomb Api
+1. Firebase
+
+
+## Setup
+### Prerequisites
+You will need to have
+1. JRE & JDK
+1. SDK
+1. Gradle
+1. Junit
+1. Spark
+1. Android Studio
+1. Postresql
+
+
+
+## How to Run
+
+In order to have a look at the code files and understand the working, simply download this repository and open Android Studio and browse to the downloaded project and open it. It will load the project files and the code will be ready to run.
+
+Before running application,got to  [Movers API repository](https://github.com/DevSheila/MoversAPI) repository,download it to your local directory or clone it.Follow API's instructions as  as indicated in the repository.Once done, use [ngrok application](https://ngrok.com/download) to run the API locally.Replace constant [ MOVERS_API_BASE_URL]  in [moversClient](./app/sr/main/java/com.example.movers_app/network/moversClient) with the acquired link from running ngrok application.You will now have a working API for the app.Login to Android Studio and can  the project.
+
 
 ## Contributions Welcome
 [![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](#)
@@ -38,9 +68,12 @@ Customers enters their details and requirements.They choose their current locati
 If you find any bug in the code or have any improvements in mind then feel free to generate a pull request.
 
 ## Issues
-[![GitHub Issues](https://img.shields.io/github/issues/harismuneer/Restaurant-Management-System.svg?style=flat&label=Issues&maxAge=2592000)](https://www.github.com/harismuneer/Restaurant-Management-System/issues)
+[![GitHub Issues](https://img.shields.io/github/issues/edwinaringo/movers.svg?style=flat&label=Issues&maxAge=2592000)](https://www.github.com/harismuneer/Restaurant-Management-System/issues)
 
-If you face any issue, you can create a new issue in the Issues Tab and I will be glad to help you out.
+If you face any issue, you can create a new issue in the Issues Tab and we  will be glad to help you out.
+## License
+[![MIT](https://img.shields.io/cocoapods/l/AFNetworking.svg?style=style&label=License&maxAge=2592000)](../master/LICENSE)
+
 
 
 Figma :https://www.figma.com/file/mPpxZKJavqf6yGPPPlNGx3/Untitled?node-id=0%3A1
