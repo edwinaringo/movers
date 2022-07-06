@@ -38,11 +38,12 @@ On setting up this information movers/helpers can view requests made to them by 
 
 
 ## Demo
-https://user-images.githubusercontent.com/70254321/177589067-8890992a-ecf1-49cd-a0aa-11d421b437b5.mp4
-
-[![Watch the full demo]([https://i.imgur.com/vKb2F1B.png](https://user-images.githubusercontent.com/70254321/177589388-47445a36-ba69-4ee4-8d8b-829b733a430a.jpeg))]([https://youtu.be/vt5fpE0bzSY](https://github.com/edwinaringo/movers/blob/development/Demo/movers-demo.mp4))
 
 
+https://user-images.githubusercontent.com/70254321/177591169-23432faf-fae2-4168-8e04-8a730b2acf4c.mp4
+
+
+[![Watch the full demo](https://user-images.githubusercontent.com/70254321/177589388-47445a36-ba69-4ee4-8d8b-829b733a430a.jpeg)]([https://youtu.be/vt5fpE0bzSY](https://github.com/edwinaringo/movers/blob/development/Demo/movers-demo.mp4))
 ## Figma
 https://www.figma.com/file/mPpxZKJavqf6yGPPPlNGx3/Untitled?node-id=0%3A1
 
