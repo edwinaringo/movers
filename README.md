@@ -39,7 +39,7 @@ On setting up this information movers/helpers can view requests made to them by 
 ## Demo
 
 Access demo on movers account operations from link :
-[![Watch the video](https://i.imgur.com/vKb2F1B.png)](https://github.com/edwinaringo/movers/blob/development/Demo/movers-demo.mp4)
+[![Watch the video](https://github.com/edwinaringo/movers/blob/development/Demo/movers-demo.mp4)
 
 
 - https://github.com/edwinaringo/movers/blob/development/Demo/movers-demo.mp4
