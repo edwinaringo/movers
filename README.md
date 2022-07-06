@@ -43,7 +43,7 @@ On setting up this information movers/helpers can view requests made to them by 
 https://user-images.githubusercontent.com/70254321/177591169-23432faf-fae2-4168-8e04-8a730b2acf4c.mp4
 
 
-Watch full demo: https://youtu.be/vt5fpE0bzSY](https://github.com/edwinaringo/movers/blob/development/Demo/movers-demo.mp4
+Watch full demo:(https://github.com/edwinaringo/movers/blob/development/Demo/movers-demo.mp4
 ## Figma
 https://www.figma.com/file/mPpxZKJavqf6yGPPPlNGx3/Untitled?node-id=0%3A1
 
