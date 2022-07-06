@@ -8,11 +8,7 @@
 ## Project Description
 Movers is an android  moving app help app lets you compare local moving companies to find the best fit for you.
 
-It is designed to
-
-
-
- help on scheduling and booking household moving and delivery. Users can get help with furniture delivery, large item moving, labor needs, and more from vetted, independent pickup truck owners.
+It is designed to help on scheduling and booking household moving and delivery. Users can get help with furniture delivery, large item moving, labor needs, and more from vetted, independent pickup truck owners.
 
 The notable thing about Movers is that the quotes are guarantees; no estimates, just accurate quotes of the exact figure you can expect to pay your moving company.If you’ve been burned by an inaccurate moving quote in the past, this guarantee should put your mind at ease for a less-stressful move.
 
@@ -40,17 +36,13 @@ Movers interact with our system directly in order to set up their account detail
 
 On setting up this information movers/helpers can view requests made to them by customers and also approve or decline requests.
 
+
 ## Demo
+https://user-images.githubusercontent.com/70254321/177589067-8890992a-ecf1-49cd-a0aa-11d421b437b5.mp4
 
-Access demo on movers account operations from link :
-[![Watch the video](https://i.imgur.com/vKb2F1B.png)](https://github.com/edwinaringo/movers/blob/development/Demo/movers-demo.mp4)
-
-[![Now in Android: 55]          // Title
-(https://i.ytimg.com/vi/Hc79sDi3f0U/maxresdefault.jpg)] // Thumbnail
-(https://www.youtube.com/watch?v=Hc79sDi3f0U "Now in Android: 55")    // Video Link
+[![Watch the full demo]([https://i.imgur.com/vKb2F1B.png](https://user-images.githubusercontent.com/70254321/177589388-47445a36-ba69-4ee4-8d8b-829b733a430a.jpeg))]([https://youtu.be/vt5fpE0bzSY](https://github.com/edwinaringo/movers/blob/development/Demo/movers-demo.mp4))
 
 
-- https://github.com/edwinaringo/movers/blob/development/Demo/movers-demo.mp4
 ## Figma
 https://www.figma.com/file/mPpxZKJavqf6yGPPPlNGx3/Untitled?node-id=0%3A1
 
