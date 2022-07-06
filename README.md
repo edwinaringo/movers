@@ -141,7 +141,7 @@ Before running application,got to  [Movers API repository](https://github.com/De
 If you find any bug in the code or have any improvements in mind then feel free to generate a pull request.
 
 ## Issues
-[![GitHub Issues](https://img.shields.io/github/issues/edwinaringo/movers.svg?style=flat&label=Issues&maxAge=2592000)](https://www.github.com/DevSheila/edwinaringo/movers
+[![GitHub Issues](https://img.shields.io/github/issues/edwinaringo/movers.svg?style=flat&label=Issues&maxAge=2592000)](https://www.github.com/DevSheila/QuickTiller)
 
 If you face any issue, you can create a new issue in the Issues Tab and we  will be glad to help you out.
 ## License
