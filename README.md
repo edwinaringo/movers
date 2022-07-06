@@ -10,7 +10,7 @@ Movers is an android  moving app help app lets you compare local moving companie
 
 It is designed to
 
-https://user-images.githubusercontent.com/70254321/177587516-7cd52be6-66b7-4182-8dce-cc5b10548a65.mp4
+
 
  help on scheduling and booking household moving and delivery. Users can get help with furniture delivery, large item moving, labor needs, and more from vetted, independent pickup truck owners.
 
@@ -44,6 +44,10 @@ On setting up this information movers/helpers can view requests made to them by 
 
 Access demo on movers account operations from link :
 [![Watch the video](https://i.imgur.com/vKb2F1B.png)](https://github.com/edwinaringo/movers/blob/development/Demo/movers-demo.mp4)
+
+[![Now in Android: 55]          // Title
+(https://i.ytimg.com/vi/Hc79sDi3f0U/maxresdefault.jpg)] // Thumbnail
+(https://www.youtube.com/watch?v=Hc79sDi3f0U "Now in Android: 55")    // Video Link
 
 
 - https://github.com/edwinaringo/movers/blob/development/Demo/movers-demo.mp4
