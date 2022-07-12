@@ -6,7 +6,7 @@
 [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat&label=Contributions&colorA=red&colorB=black	)](#)
 
 ## Project Description
-Movers is an android  moving app help app lets you compare local moving companies to find the best fit for you.
+Movers is an android  moving app that lets you compare local moving companies to find the best fit for you.
 
 It is designed to help on scheduling and booking household moving and delivery. Users can get help with furniture delivery, large item moving, labor needs, and more from vetted, independent pickup truck owners.
 
